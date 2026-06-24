@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jorge Lavoy — Artist · Futures Trader · Actor</title>
+<meta name="description" content="Jorge Lavoy (b. 1988, Havana) is a multidisciplinary artist and professional futures trader based in Florida. Visual art, the Market Sentiment series, futures trading, and an 18-year career in Cuban television and cinema.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0d5e04; --green-deep:#0a4a03; --ink:#161616; --paper:#faf9f5;
+  --paper2:#f1efe7; --gold:#b78a2e; --gold-soft:#c9a64b; --line:#e2ded2;
+  --muted:#6b6b63;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Inter',system-ui,sans-serif;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:'Inter';font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:600}
+.btn{display:inline-block;padding:13px 26px;border-radius:2px;font-size:14px;font-weight:500;letter-spacing:.02em;transition:.25s;border:1.5px solid var(--ink)}
+.btn-solid{background:var(--ink);color:var(--paper)}
+.btn-solid:hover{background:var(--green);border-color:var(--green)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(250,249,245,.82);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.3s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{height:30px;width:auto;display:block}
+.brand-name{font-family:'Inter',sans-serif;font-size:16px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#000}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:13.5px;font-weight:500;letter-spacing:.03em;color:var(--ink);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--green);transition:.25s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:9px 18px;border:1.5px solid var(--ink);border-radius:2px;font-size:13px}
+.nav-cta:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:24px}
+
+/* HERO */
+.hero{padding:150px 0 90px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:12px;font-weight:600;margin-bottom:clamp(70px,14vh,130px)}
+.hero h1 em{font-style:normal;color:inherit}
+.hero .roles{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 20px}
+.tag{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:6px 13px;border-radius:40px;background:#fff}
+.hero p.lead{font-size:18px;color:#3a3a36;max-width:30em;margin-bottom:30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-loc{margin-top:28px;font-size:13px;letter-spacing:.04em;color:var(--muted)}
+.hero-art{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#101010;aspect-ratio:4/5;box-shadow:0 30px 60px -30px rgba(0,0,0,.4)}
+.hero-art figcaption{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:10px 4px 0;text-align:right}
+
+/* SECTION */
+section{padding:96px 0}
+.sec-head{max-width:760px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(30px,4vw,46px);margin:14px 0 16px}
+.sec-head p{font-size:17px;color:#3d3d38}
+.num{font-family:'Inter';color:var(--green);font-size:13px;letter-spacing:.1em;font-weight:600}
+
+/* STATEMENT */
+.statement{background:var(--ink);color:var(--paper)}
+.statement .big{font-family:'Inter';font-weight:400;font-size:clamp(24px,3.4vw,40px);line-height:1.32;max-width:18em}
+.statement .big span{color:var(--gold-soft);font-style:italic}
+.statement .meta{display:flex;gap:46px;flex-wrap:wrap;margin-top:50px;border-top:1px solid #333;padding-top:34px}
+.statement .meta div .k{font-family:'Inter';font-size:30px;color:#fff}
+.statement .meta div .l{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#9a9a90;margin-top:4px}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:880px}
+.work{position:relative;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#fff;cursor:pointer;transition:.3s}
+.work:hover{transform:translateY(-4px);box-shadow:0 22px 40px -24px rgba(0,0,0,.35)}
+.work .canvas{aspect-ratio:1/1;width:100%;display:block;background:#0d0d0d;object-fit:cover}
+.work .label{padding:16px 18px}
+.work .label h4{font-size:18px;font-weight:600}
+.work .label .yr{font-size:12.5px;color:var(--muted);letter-spacing:.04em;margin-top:3px}
+.work .badge{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--ink);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:30px;font-weight:600}
+.span2{grid-column:span 2}
+.span2 .canvas{aspect-ratio:auto;height:100%;min-height:230px}
+
+/* FEATURE (market sentiment) */
+.feature{background:var(--paper2)}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.feature h2{font-size:clamp(28px,3.6vw,42px);margin:14px 0 18px}
+.feature p{font-size:16.5px;color:#3d3d38;margin-bottom:16px}
+.feature .viz{border-radius:4px;overflow:hidden;border:1px solid var(--line);background:#0c0c0c;box-shadow:0 30px 60px -34px rgba(0,0,0,.45)}
+
+/* TRADING */
+.trade-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+.stat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:8px 0 26px}
+.stat{border:1px solid var(--line);border-radius:4px;padding:22px;background:#fff}
+.stat .k{font-family:'Inter';font-size:30px;color:var(--green)}
+.stat .l{font-size:12.5px;letter-spacing:.06em;color:var(--muted);margin-top:4px}
+.approach li{list-style:none;padding:14px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;font-size:15.5px}
+.approach li b{font-weight:600}
+.approach li::before{content:"";flex:0 0 8px;height:8px;margin-top:9px;background:var(--green);border-radius:50%}
+.analysis{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff}
+.analysis .chart{background:#0c0c0c}
+.analysis .cap{padding:16px 20px}
+.analysis .cap .t{font-weight:600;font-size:15px}
+.analysis .cap .d{font-size:13.5px;color:var(--muted);margin-top:4px}
+.disclaimer{font-size:12.5px;color:var(--muted);border-left:3px solid var(--gold);background:#fff;padding:14px 18px;margin-top:24px;border-radius:0 4px 4px 0}
+
+/* EXHIBITIONS */
+.exh-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px}
+.exh h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-family:'Inter';font-weight:600;margin-bottom:8px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.exlist{list-style:none}
+.exlist li{display:flex;gap:18px;padding:15px 0;border-bottom:1px solid var(--line)}
+.exlist li .y{font-family:'Inter';font-weight:600;color:var(--ink);font-size:15px;flex:0 0 48px}
+.exlist li .v b{font-weight:600;font-size:15.5px;display:block}
+.exlist li .v span{font-size:13.5px;color:var(--muted)}
+
+/* FILMOGRAPHY */
+.filmo{list-style:none;margin-top:6px}
+.filmo li{display:grid;grid-template-columns:62px 1fr;gap:20px;padding:16px 0;border-bottom:1px solid #2c2c2c;align-items:baseline}
+.filmo li .y{font-family:'Inter';font-weight:600;color:var(--gold-soft);font-size:15px}
+.filmo li .d b{color:#fff;font-weight:600;font-size:16px}
+.filmo li .d .role{display:block;font-size:13px;letter-spacing:.04em;color:#a9a99f;margin-top:3px}
+.filmo li .d em{font-style:normal;color:var(--gold-soft)}
+.prod-note{margin-top:30px;border:1px solid #2c2c2c;border-radius:4px;padding:24px;background:#1c1c1c}
+.prod-note h4{color:#fff;font-size:18px;margin-bottom:8px}
+.prod-note p{font-size:14px;color:#b6b6ac}
+
+/* EDUCATION */
+.edu{margin-top:34px}
+.edu h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-family:'Inter';font-weight:600;margin-bottom:6px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.edu li{list-style:none;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.edu li b{font-weight:600}
+.edu li span{color:var(--muted);font-size:13px}
+
+/* SCREEN */
+.screen{background:var(--ink);color:var(--paper)}
+.screen .sec-head h2{color:#fff}
+.screen .sec-head p{color:#bdbdb4}
+.screen .num{color:var(--gold-soft)}
+.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:10px}
+.cred{border:1px solid #2c2c2c;border-radius:4px;padding:26px;background:#1c1c1c}
+.cred h4{color:#fff;font-size:20px;margin-bottom:8px}
+.cred .role{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:12px}
+.cred p{font-size:14px;color:#b6b6ac}
+
+/* ABOUT / TIMELINE */
+.about-grid{display:grid;grid-template-columns:1fr;gap:56px;max-width:820px}
+.about-grid .bio p{font-size:16.5px;color:#39392f;margin-bottom:16px}
+.portrait{aspect-ratio:4/5;border:1px solid var(--line);border-radius:4px;background:linear-gradient(135deg,#e9e6db,#d7d3c4);position:relative;overflow:hidden;display:flex;align-items:flex-end}
+.portrait .ph{padding:18px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#7a766a}
+.timeline{margin-top:18px;border-left:2px solid var(--line);padding-left:26px}
+.tl{position:relative;padding:0 0 26px}
+.tl::before{content:"";position:absolute;left:-33px;top:5px;width:11px;height:11px;background:var(--green);border-radius:50%;border:2px solid var(--paper)}
+.tl .yr{font-family:'Inter';font-size:15px;color:var(--green);font-weight:600}
+.tl .ev{font-size:15px;margin-top:2px}
+.tl .ev b{font-weight:600}
+
+/* CONTACT */
+.contact{background:var(--paper2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.contact h2{font-size:clamp(30px,4vw,48px);margin:14px 0 18px}
+.cform{display:flex;flex-direction:column;gap:16px}
+.cform label{display:flex;flex-direction:column;gap:7px;font-size:13px;letter-spacing:.04em;color:var(--muted);font-weight:500}
+.cform input,.cform textarea{font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px 14px;transition:.2s;resize:vertical}
+.cform input:focus,.cform textarea:focus{outline:none;border-color:var(--green)}
+.cform button{align-self:flex-start;margin-top:4px;cursor:pointer}
+.cform .ok{font-size:14px;color:var(--green);font-weight:500}
+.inq a small{display:block;font-weight:400;color:var(--muted);font-size:13px;margin-top:2px}
+.socials{margin-top:20px}
+.socials a{font-size:14px;font-weight:500;color:var(--green);border-bottom:1px solid var(--green);padding-bottom:2px;transition:.2s}
+.socials a:hover{opacity:.7}
+
+/* FOOTER */
+footer{background:var(--ink);color:#cfcfc6;padding:54px 0 34px}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap}
+.foot-logo{background:#fff;border-radius:5px;padding:9px 14px;display:inline-flex}
+.foot-logo img{height:26px;width:auto;display:block}
+.foot .fdisc{font-size:11.5px;color:#83837a;max-width:46em;margin-top:26px;line-height:1.6}
+.foot .copy{font-size:12.5px;color:#9a9a90;margin-top:18px}
+.foot-links{display:flex;gap:22px;font-size:13px}
+.foot-links a:hover{color:#fff}
+
+.reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;background:rgba(12,12,12,.92);z-index:100;display:none;align-items:center;justify-content:center;padding:30px}
+.lb.open{display:flex}
+.lb .inner{max-width:760px;width:100%;background:#111;border-radius:6px;overflow:hidden}
+.lb .inner .cap{padding:20px 24px;color:#eee}
+.lb .inner .cap h4{font-size:22px;color:#fff}
+.lb .inner .cap p{font-size:14px;color:#aaa;margin-top:6px}
+.lb .close{position:absolute;top:22px;right:28px;color:#fff;font-size:30px;cursor:pointer;line-height:1}
+
+@media(max-width:880px){
+  .hero-grid,.feature-grid,.trade-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:38px}
+  .gallery,.credits{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .nav-links.show{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--paper);padding:20px 28px;gap:18px;border-bottom:1px solid var(--line)}
+  .span2{grid-column:span 2}
+}
+@media(max-width:540px){
+  .gallery,.credits,.stat-row{grid-template-columns:1fr}
+  .span2{grid-column:span 1}
+  .statement .meta{gap:28px}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="LAVOY GROUP home">
+      <svg class="brand-mark" viewBox="-60 -60 700 440" aria-hidden="true"><g fill="none" stroke="#0d5e04" stroke-width="120"><polyline points="60 0 60 260.11 420 260.11 420 80.11 240 80.11"/><polyline points="580 320.33 580 60.11 220 60.11 220 240.11 400 240.11"/></g></svg>
+      <span class="brand-name">LAVOY GROUP</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#work">Work</a>
+      <a href="#exhibitions">Exhibitions</a>
+      <a href="#trading">Trading</a>
+      <a href="#screen">Stage &amp; Screen</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Havana &middot; 1988 &mdash; Florida</span>
+      <h1>Jorge <em>Lavoy</em></h1>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#work">View the work</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+      <div class="hero-loc">Multidisciplinary practice &mdash; painting, photography, film, installation &amp; sculpture &middot; Gold futures specialist</div>
+    </div>
+    <figure class="reveal">
+      <div class="hero-art"><img src="images/portrait.jpg" alt="Portrait of Jorge Lavoy" style="width:100%;height:100%;object-fit:cover"></div>
+      <figcaption>Jorge Lavoy &mdash; Florida</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap">
+    <p class="big reveal">"Each piece begins with real data from trading sessions &mdash; the rhythms and turning points where markets pause, accelerate, or reverse. In that translation, <span>the boundaries between market and art dissolve</span> into a single expressive language."</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">01 / Selected Work</span>
+      <h2>Paintings from the trading desk</h2>
+      <p>Each work begins with a real gold session &mdash; a moment of structure, reaction, or reversal &mdash; distilled into geometric form in gold on a dark ground. Click any piece to view it larger.</p>
+    </div>
+    <div class="gallery">
+      <div class="work reveal span2" data-img="images/gold-mar4.jpg" data-title="Gold — March 4, 2025" data-year="Acrylic on canvas · 10:30 AM UTC-4">
+        <img class="canvas" src="images/gold-mar4.jpg" alt="Gold — March 4, 2025" loading="lazy">
+        <span class="badge">Featured</span>
+        <div class="label"><h4>Gold &mdash; March 4, 2025</h4><div class="yr">Acrylic on canvas &middot; 10:30 AM session</div></div>
+      </div>
+      <div class="work reveal" data-img="images/gold-feb27.jpg" data-title="Break of Structure — Feb 27, 2025" data-year="Acrylic on canvas · 10:00 AM">
+        <img class="canvas" src="images/gold-feb27.jpg" alt="Break of Structure — Feb 27, 2025" loading="lazy">
+        <div class="label"><h4>Break of Structure</h4><div class="yr">Feb 27, 2025 &middot; acrylic on canvas</div></div>
+      </div>
+      <div class="work reveal" data-img="images/gold-may20.jpg" data-title="Gold — May 20, 2025" data-year="Acrylic on canvas · 10:00 AM UTC-4">
+        <img class="canvas" src="images/gold-may20.jpg" alt="Gold — May 20, 2025" loading="lazy">
+        <div class="label"><h4>Ascension</h4><div class="yr">May 20, 2025 &middot; acrylic on canvas</div></div>
+      </div>
+      <div class="work reveal" data-img="images/gold-mar4-ny.jpg" data-title="Gold — March 4, 2025, NY Session" data-year="Acrylic on canvas">
+        <img class="canvas" src="images/gold-mar4-ny.jpg" alt="Gold — March 4, 2025, NY Session" loading="lazy">
+        <div class="label"><h4>NY Session</h4><div class="yr">March 4, 2025 &middot; acrylic on canvas</div></div>
+      </div>
+      <div class="work reveal" data-img="images/gold-may23.jpg" data-title="Gold — May 23, 2025" data-year="Acrylic on canvas · 10:17 AM UTC-4">
+        <img class="canvas" src="images/gold-may23.jpg" alt="Gold — May 23, 2025" loading="lazy">
+        <div class="label"><h4>Break-Even</h4><div class="yr">May 23, 2025 &middot; acrylic on canvas</div></div>
+      </div>
+      <div class="work reveal" data-img="images/gold-jun5.jpg" data-title="Unemployment Claims Reaction — June 5, 2025" data-year="Acrylic on canvas · NY session">
+        <img class="canvas" src="images/gold-jun5.jpg" alt="Unemployment Claims Reaction — June 5, 2025" loading="lazy">
+        <div class="label"><h4>Claims Reaction</h4><div class="yr">June 5, 2025 &middot; acrylic on canvas</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="exhibitions" class="feature">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">02 / Exhibitions</span>
+      <h2>Solo &amp; group shows</h2>
+      <p>Selected exhibitions across the United States, Cuba, Brazil, and Spain &mdash; from early photographic work in Havana to recent painting in Miami.</p>
+    </div>
+    <div class="exh-grid">
+      <div class="exh reveal">
+        <h3>Solo Shows</h3>
+        <ul class="exlist">
+          <li><span class="y">2019</span><span class="v"><b>Point of Entry</b><span>Thornebrook Gallery &middot; Florida</span></span></li>
+          <li><span class="y">2017</span><span class="v"><b>Empty Space</b><span>Kendall Art Center &middot; Miami, FL</span></span></li>
+          <li><span class="y">2014</span><span class="v"><b>Sensus</b><span>F&aacute;brica de Arte Cubano (F.A.C.) &middot; Havana, Cuba</span></span></li>
+          <li><span class="y">2010</span><span class="v"><b>Habana-Mirror</b><span>Centro Gallego de La Habana &middot; Havana, Cuba</span></span></li>
+        </ul>
+      </div>
+      <div class="exh reveal">
+        <h3>Group Shows</h3>
+        <ul class="exlist">
+          <li><span class="y">2025</span><span class="v"><b>The New Gold Rush</b><span>Pan-American Art Project &middot; Miami, FL</span></span></li>
+          <li><span class="y">2017</span><span class="v"><b>Scope Miami Beach</b><span>Havana Art Gallery &middot; Miami, FL</span></span></li>
+          <li><span class="y">2016</span><span class="v"><b>The Art of the Collection and more</b><span>Kendall Art Center &middot; Miami, FL</span></span></li>
+          <li><span class="y">2016</span><span class="v"><b>Untitled @ 888</b><span>888 Biscayne Blvd &middot; Miami, FL</span></span></li>
+          <li><span class="y">2016</span><span class="v"><b>Far Away</b><span>Abra Gallery &middot; North Miami Beach, FL</span></span></li>
+          <li><span class="y">2015</span><span class="v"><b>Post-it &mdash; Contemporary Cuban Art</b><span>Artis 718 Gallery &middot; Havana, Cuba</span></span></li>
+          <li><span class="y">2015</span><span class="v"><b>Spring Photo Festival</b><span>Jacksonville, FL</span></span></li>
+          <li><span class="y">2014</span><span class="v"><b>Digital Art</b><span>Democrat &middot; S&atilde;o Paulo, Brazil</span></span></li>
+          <li><span class="y">2010</span><span class="v"><b>Retornos</b><span>Consello Hijos de Galicia &middot; Ourol, Spain</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trading">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">03 / Futures Trading</span>
+      <p>Alongside the studio practice, Lavoy has traded professionally since 2019, focused on gold &mdash; the spot instrument XAU/USD and the GC gold futures contract. The same sessions become the raw material for his paintings.</p>
+    </div>
+    <div class="trade-grid">
+      <div class="reveal">
+        <div class="stat-row">
+          <div class="stat"><div class="k">XAU/USD &middot; GC</div><div class="l">Instruments traded</div></div>
+          <div class="stat"><div class="k">$1.1M</div><div class="l">Proprietary trading capital</div></div>
+          <div class="stat"><div class="k">Since 2019</div><div class="l">Professional trading</div></div>
+          <div class="stat"><div class="k">Data-led</div><div class="l">Price-action methodology</div></div>
+        </div>
+        <ul class="approach">
+          <li><span></span><div><b>Rhythm over noise.</b> Reading where price pauses, accelerates and reverses across timeframes.</div></li>
+          <li><span></span><div><b>Sentiment mapping.</b> Translating collective fear and conviction into actionable structure.</div></li>
+          <li><span></span><div><b>Risk first.</b> Position sizing and defined risk as the foundation of every session.</div></li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="analysis">
+          <img class="chart" src="images/gold-jun5.jpg" alt="Gold session study — June 5, 2025" style="width:100%;display:block">
+          <div class="cap">
+            <div class="t">Gold &mdash; Unemployment Claims reaction, June 5, 2025</div>
+            <div class="d">A session translated into form. Live market commentary and trade reviews can be published here as a rolling feed.</div>
+          </div>
+        </div>
+        <div class="disclaimer"><b>Disclaimer:</b> Content in this section is for informational and illustrative purposes only and is not financial advice, a solicitation, or an offer to buy or sell any security or instrument. Trading futures carries substantial risk of loss. Figures shown are indicative ranges, not an offer of managed accounts.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screen" class="screen">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">04 / Stage &amp; Screen</span>
+      <h2>A career in Cuban television &amp; cinema</h2>
+      <p>From a 1998 debut as a child actor through leading roles in film, television drama, and national TV presenting &mdash; built on theater training at the Escuela Nacional de Arte (ENA), Havana.</p>
+    </div>
+    <ul class="filmo">
+      <li class="reveal"><span class="y">2014</span><span class="d"><b>Cuba Libre</b> <em>(film)</em><span class="role">Supporting role</span></span></li>
+      <li class="reveal"><span class="y">2013&ndash;14</span><span class="d"><b>Tras la Huella</b> <em>(police series)</em><span class="role">Leading &amp; supporting roles</span></span></li>
+      <li class="reveal"><span class="y">2013</span><span class="d"><b>Tierras de Fuego</b> <em>(soap opera, dir. Miguel Sosa)</em><span class="role">Leading role as &ldquo;Pitirre&rdquo;</span></span></li>
+      <li class="reveal"><span class="y">2007&ndash;10</span><span class="d"><b>Colorama</b> <em>(TV show)</em><span class="role">Official image &amp; conductor / host</span></span></li>
+      <li class="reveal"><span class="y">2008</span><span class="d"><b>Choque</b> <em>(TV play, by Jorge Alonso Padilla)</em><span class="role">Leading role</span></span></li>
+      <li class="reveal"><span class="y">2008</span><span class="d"><b>Trigo Verde</b> <em>(TV play, by Omar Al&eacute;d)</em><span class="role">Supporting role</span></span></li>
+      <li class="reveal"><span class="y">2007</span><span class="d"><b>Donde Anidan las Orugas</b> <em>(TV play, by Marta Recio)</em><span class="role">Leading role</span></span></li>
+      <li class="reveal"><span class="y">2000</span><span class="d"><b>La Cena</b> <em>(Mexican short film)</em><span class="role">Leading role</span></span></li>
+      <li class="reveal"><span class="y">1998</span><span class="d"><b>Salir de Noche</b> <em>(soap opera)</em><span class="role">Supporting role as &ldquo;Chuly&rdquo;</span></span></li>
+    </ul>
+    <div class="prod-note reveal">
+      <h4>Next Art Project &mdash; Direction &amp; Production</h4>
+      <p>Founder and director of the audiovisual production company (founded 2013, Havana). Credits include documentary and music-video work &mdash; among them <em>Artxiomas</em> for the Art Museum of the Americas (Washington, 2016), the short film <em>Cuban Ingenuity</em> for the Cade Museum (2019), and promotional and making-of films for artists and brands across Cuba and Florida.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">05 / About</span>
+      <h2>Jorge Ricardo Lavoy Miguel</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal bio">
+        <p>Jorge Lavoy (b. 1988, Havana, Cuba) is a multidisciplinary artist based in Florida. He graduated from the Manuel Saumell music school as a drummer and from the Escuela Nacional de Arte (ENA) in theater. From this foundation in music and performance, Lavoy has expanded his practice to encompass painting, documentary and fine-art photography, film, television, music, mixed media, installation, and sculpture &mdash; an ongoing exploration of form and narrative across disciplines.</p>
+        <p>His parallel life as a financial trader gives the work its most distinctive thread: paintings in which a real gold session is transformed into abstract composition. It is a practice built on observation &mdash; of people, of screens, of the collective emotion that moves both audiences and markets.</p>
+        <div class="timeline">
+          <div class="tl"><div class="yr">1988</div><div class="ev">Born in <b>Havana, Cuba</b>.</div></div>
+          <div class="tl"><div class="yr">1997&ndash;2003</div><div class="ev">Graduates from the <b>Manuel Saumell</b> music school as a <b>drummer</b>.</div></div>
+          <div class="tl"><div class="yr">1998</div><div class="ev">Acting debut in the soap opera <b>Salir de Noche</b> &mdash; the start of a career in Cuban TV &amp; cinema.</div></div>
+          <div class="tl"><div class="yr">2003&ndash;2007</div><div class="ev">Studies theater at the <b>Escuela Nacional de Arte (ENA)</b>, Havana.</div></div>
+          <div class="tl"><div class="yr">2010</div><div class="ev">First solo show, <b>Habana-Mirror</b>, at Centro Gallego de La Habana.</div></div>
+          <div class="tl"><div class="yr">2013</div><div class="ev">Founds the audiovisual production company <b>Next Art Project</b>.</div></div>
+          <div class="tl"><div class="yr">2019</div><div class="ev">Solo show <b>Point of Entry</b>; begins his <b>professional trading career</b> in gold (XAU/USD &amp; GC futures).</div></div>
+          <div class="tl"><div class="yr">2025</div><div class="ev">Group show <b>The New Gold Rush</b>, Pan-American Art Project, Miami &mdash; uniting painting and gold-futures trading.</div></div>
+        </div>
+        <div class="edu">
+          <h3>Education</h3>
+          <ul>
+            <li><b>Escuela Nacional de Arte (ENA)</b> &mdash; Theater <span>&middot; Havana, 2003&ndash;2007</span></li>
+            <li><b>Manuel Saumell Music School</b> &mdash; Drums <span>&middot; Havana, 1997&ndash;2003</span></li>
+            <li><b>The Wharton School, University of Pennsylvania</b> &mdash; Digital Marketing <span>&middot; USA</span></li>
+            <li><b>The Wharton School, University of Pennsylvania</b> &mdash; Social Media &amp; Web <span>&middot; USA</span></li>
+            <li><b>Workshops</b> &mdash; Theatrical Masks (Casa Gaia, Havana); Photography with Mimmo Fabrizi <span>&middot; Havana</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="num">06 / Contact</span>
+      <h2>Let's talk</h2>
+      <p style="font-size:17px;color:#3d3d38;margin-bottom:22px">For exhibitions, acquisitions, press, collaborations, or trading inquiries.</p>
+      <div style="font-size:14px;color:var(--muted)">Florida &middot; United States</div>
+      <div class="socials"><a href="https://www.instagram.com/lavoystudio" target="_blank" rel="noopener">Instagram &mdash; @lavoystudio &rarr;</a></div>
+    </div>
+    <form class="reveal cform" id="contactForm">
+      <label>Name<input type="text" name="name" required></label>
+      <label>Email<input type="email" name="email" required></label>
+      <label>Message<textarea name="message" rows="4" required></textarea></label>
+      <button type="submit" class="btn btn-solid">Send message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#top" aria-label="LAVOY GROUP" style="display:inline-flex">
+        <svg viewBox="-60 -60 700 440" style="height:30px" aria-hidden="true"><g fill="none" stroke="#2f8a23" stroke-width="120"><polyline points="60 0 60 260.11 420 260.11 420 80.11 240 80.11"/><polyline points="580 320.33 580 60.11 220 60.11 220 240.11 400 240.11"/></g></svg>
+      </a>
+      <div class="foot-links">
+        <a href="#work">Work</a><a href="#trading">Trading</a><a href="#screen">Screen</a><a href="#about">About</a><a href="#contact">Contact</a><a href="https://www.instagram.com/lavoystudio" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <p class="fdisc">This website is a personal portfolio. Trading-related content is for informational purposes only and does not constitute financial advice or an offer of any kind. Trading futures involves significant risk. All artwork &copy; Jorge Lavoy.</p>
+    <p class="copy">&copy; <span id="yr"></span> Jorge Lavoy &middot; Lavoy Group. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="lb" id="lb"><span class="close" id="lbClose">&times;</span><div class="inner"><div id="lbArt"></div><div class="cap"><h4 id="lbTitle"></h4><p id="lbYear"></p></div></div></div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',scrollY>20)});
+document.getElementById('menuBtn').onclick=()=>document.getElementById('navLinks').classList.toggle('show');
+document.querySelectorAll('#navLinks a').forEach(a=>a.onclick=()=>document.getElementById('navLinks').classList.remove('show'));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* lightbox with real artwork images */
+const lb=document.getElementById('lb');
+document.querySelectorAll('.work').forEach(w=>w.onclick=()=>{
+  const img=w.getAttribute('data-img');
+  document.getElementById('lbArt').innerHTML='<img src="'+img+'" alt="" style="width:100%;display:block">';
+  document.getElementById('lbTitle').textContent=w.getAttribute('data-title');
+  document.getElementById('lbYear').textContent=w.getAttribute('data-year');
+  lb.classList.add('open');
+});
+/* contact form -> opens email client with prefilled message */
+const cf=document.getElementById('contactForm');
+if(cf)cf.addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=cf.name.value.trim(),em=cf.email.value.trim(),m=cf.message.value.trim();
+  const body=encodeURIComponent(m+'\n\n— '+n+' ('+em+')');
+  window.location.href='mailto:jorge@lavoygroup.com?subject='+encodeURIComponent('Website inquiry from '+n)+'&body='+body;
+});
+
+document.getElementById('lbClose').onclick=()=>lb.classList.remove('open');
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove('open')};
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+</script>
+</body>
+</html>
