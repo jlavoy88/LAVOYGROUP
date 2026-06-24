@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAVOY GROUP — Education</title>
+<meta name="description" content="LAVOY GROUP Education: free, plain-language trading lessons for beginners — what trading is, pips and points, the forex and futures markets, margin, contracts, technical analysis, and candlesticks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0d5e04;--green-deep:#0a4a03;--ink:#161616;--paper:#ffffff;--paper2:#f5f4ef;--line:#e4e1d8;--muted:#6b6b63;--gold:#b78a2e;--bull:#0d7a2e;--bear:#b23030}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-mark{height:28px;width:auto;display:block}
+.brand-name{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#000}
+.nav-right{display:flex;align-items:center;gap:24px}
+.navlink{font-size:13.5px;font-weight:500;letter-spacing:.03em;color:var(--ink);transition:.2s}
+.navlink:hover{color:var(--green)}
+.nav-end{display:flex;align-items:center;gap:16px}
+.lang-toggle{display:inline-flex;border:1px solid var(--line);border-radius:30px;overflow:hidden;flex-shrink:0}
+.lang-toggle a{font-size:12px;font-weight:600;letter-spacing:.04em;padding:6px 12px;color:var(--muted);transition:.2s}
+.lang-toggle a.on{background:var(--green);color:#fff}
+.lang-toggle a:not(.on):hover{color:var(--ink)}
+.menu-btn{display:none;background:none;border:none;font-size:22px;cursor:pointer}
+
+/* HERO */
+.hero{padding:128px 0 40px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:600}
+.hero h1{font-size:clamp(32px,5vw,52px);font-weight:600;letter-spacing:-.01em;line-height:1.08;margin:14px 0 16px}
+.hero p{font-size:18px;color:#39392f;max-width:42em}
+.hero .meta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+.chip{font-size:12.5px;letter-spacing:.04em;color:var(--muted);border:1px solid var(--line);padding:6px 13px;border-radius:40px;background:#fff}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:248px 1fr;gap:50px;padding:30px 0 80px;align-items:start}
+.toc{position:sticky;top:92px}
+.toc h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.toc ol{list-style:none;counter-reset:m}
+.toc li{counter-increment:m}
+.toc a{display:flex;gap:10px;padding:7px 0;font-size:13.5px;color:#444;transition:.15s;align-items:baseline}
+.toc a::before{content:counter(m,decimal-leading-zero);font-size:11px;color:var(--green);font-weight:600;font-variant-numeric:tabular-nums}
+.toc a:hover{color:var(--green)}
+.toc a.active{color:var(--ink);font-weight:600}
+
+.content{min-width:0}
+.lesson{padding:18px 0 38px;border-bottom:1px solid var(--line);scroll-margin-top:90px}
+.lesson:last-child{border-bottom:none}
+.lesson .num{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:600}
+.lesson h2{font-size:clamp(24px,3.4vw,32px);font-weight:600;letter-spacing:-.01em;margin:8px 0 16px}
+.lesson h3{font-size:17px;font-weight:600;margin:24px 0 8px}
+.lesson p{margin-bottom:14px;font-size:16px;color:#2c2c28}
+.lesson ul{margin:0 0 14px 0;padding-left:0;list-style:none}
+.lesson ul li{position:relative;padding-left:22px;margin-bottom:9px;font-size:16px;color:#2c2c28}
+.lesson ul li::before{content:"";position:absolute;left:2px;top:11px;width:7px;height:7px;background:var(--green);border-radius:50%}
+.lesson b{font-weight:600}
+.term{background:var(--paper2);border-left:3px solid var(--green);border-radius:0 6px 6px 0;padding:14px 18px;margin:6px 0 18px}
+.term .t{font-weight:600;font-size:15px;color:var(--green-deep)}
+.term .d{font-size:15px;color:#3a3a34;margin-top:3px}
+.tip{border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:6px 0 18px;font-size:15px;color:#3a3a34;background:#fff}
+.tip b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:14.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td b{color:var(--green-deep)}
+.fig{border:1px solid var(--line);border-radius:10px;padding:24px;background:var(--paper2);margin:8px 0 18px}
+.fig figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:14px}
+.pat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:10px 0 20px}
+.pat{border:1px solid var(--line);border-radius:10px;padding:16px 12px;background:#fff;text-align:center}
+.pat svg{height:84px;width:auto;display:block;margin:0 auto 10px}
+.pat .pn{font-weight:600;font-size:13.5px}
+.pat .pd{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.4}
+.next-row{margin-top:26px}
+.next-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-size:14px;font-weight:500;padding:11px 20px;border-radius:4px;transition:.2s}
+.next-btn:hover{background:var(--green)}
+@media(max-width:560px){.pat-grid{grid-template-columns:1fr 1fr}}
+
+.disclaimer{background:var(--ink);color:#cfcfc6;border-radius:12px;padding:26px 28px;margin:40px 0 0}
+.disclaimer b{color:#fff}
+.disclaimer p{font-size:13.5px;line-height:1.65;color:#b7b7ad}
+
+footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot svg{height:26px}
+.foot .links{display:flex;gap:20px;font-size:13px}
+.foot .links a:hover{color:#fff}
+.copy{font-size:12px;color:#83837a;margin-top:14px}
+
+@media(max-width:860px){
+  .layout{grid-template-columns:1fr;gap:0}
+  .toc{position:static;margin-bottom:14px;border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+  .toc.collapsed ol{display:none}
+  .toc h4{cursor:pointer;margin-bottom:0;border:none;padding-bottom:0;display:flex;justify-content:space-between}
+  .toc.open ol{margin-top:12px}
+  .nav-right{display:none}
+  .menu-btn{display:block}
+  .nav-right.show{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:#fff;padding:18px 28px;gap:16px;border-bottom:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../" aria-label="LAVOY GROUP home">
+      <svg class="brand-mark" viewBox="-60 -60 700 440" aria-hidden="true"><g fill="none" stroke="#0d5e04" stroke-width="120"><polyline points="60 0 60 260.11 420 260.11 420 80.11 240 80.11"/><polyline points="580 320.33 580 60.11 220 60.11 220 240.11 400 240.11"/></g></svg>
+      <span class="brand-name">LAVOY GROUP</span>
+    </a>
+    <div class="nav-end">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <a class="lt on" href="./" aria-current="page">EN</a>
+        <a class="lt" href="es/">ES</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+      <nav class="nav-right" id="navRight">
+        <a class="navlink" href="../">Home</a>
+        <a class="navlink" href="../stats/">Performance</a>
+        <a class="navlink" href="../#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Education</span>
+    <h1>Trading, from the ground up</h1>
+    <p>A free, plain-language course for brand-new traders. No jargon left unexplained — start at lesson one and work down, or jump to any topic. Built by LAVOY GROUP.</p>
+    <div class="meta">
+      <span class="chip">14 lessons</span>
+      <span class="chip">Beginner friendly</span>
+      <span class="chip">No prior knowledge needed</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap layout">
+  <aside class="toc" id="toc">
+    <h4 id="tocHead">Modules <span class="tw" style="display:none">&#9662;</span></h4>
+    <ol>
+      <li><a href="#m1" class="active">What is trading?</a></li>
+      <li><a href="#m2">How a trade works</a></li>
+      <li><a href="#m3">Pips, points &amp; ticks</a></li>
+      <li><a href="#m4">The forex market</a></li>
+      <li><a href="#m5">The futures market</a></li>
+      <li><a href="#m6">Contracts &amp; lot sizes</a></li>
+      <li><a href="#m7">Margin &amp; leverage</a></li>
+      <li><a href="#m8">Order types</a></li>
+      <li><a href="#m9">Technical analysis</a></li>
+      <li><a href="#m10">History of candlesticks</a></li>
+      <li><a href="#m11">Anatomy of a candlestick</a></li>
+      <li><a href="#m12">Risk management</a></li>
+      <li><a href="#m13">Candlestick patterns</a></li>
+      <li><a href="#m14">Tick charts</a></li>
+    </ol>
+  </aside>
+
+  <main class="content">
+
+    <article class="lesson" id="m1">
+      <div class="num">Module 01</div>
+      <h2>What is trading?</h2>
+      <p>Trading is the act of buying and selling financial instruments &mdash; currencies, commodities, stocks, indexes &mdash; with the goal of profiting from changes in their price. Every market is simply a place where buyers and sellers meet, and the price you see is wherever the two currently agree to do business.</p>
+      <p>Prices move because of <b>supply and demand</b>. When more people want to buy than sell, price rises; when more want to sell than buy, price falls. What drives those decisions? News, economic data, interest rates, company results, global events, and plain human emotion &mdash; fear and greed.</p>
+      <div class="term"><div class="t">Trader vs. investor</div><div class="d">An investor usually buys and holds for months or years. A trader works on shorter timeframes &mdash; minutes, hours, or days &mdash; aiming to profit from smaller, more frequent moves.</div></div>
+      <p>One key idea sets trading apart from simple investing: you can profit whether prices go <b>up</b> or <b>down</b>. The next lesson shows how.</p>
+    </article>
+
+    <article class="lesson" id="m2">
+      <div class="num">Module 02</div>
+      <h2>How a trade works: long, short, and the spread</h2>
+      <p>Every trade has two possible directions:</p>
+      <ul>
+        <li><b>Going long (buying):</b> you buy expecting the price to rise, then sell higher. Buy low, sell high.</li>
+        <li><b>Going short (selling):</b> you sell first &mdash; borrowing the instrument through your broker &mdash; expecting the price to fall, then buy it back cheaper. Sell high, buy low.</li>
+      </ul>
+      <p>At any moment a market shows two prices: the <b>bid</b> (the highest price buyers will pay) and the <b>ask</b> or <b>offer</b> (the lowest price sellers will accept). You buy at the ask and sell at the bid.</p>
+      <div class="term"><div class="t">The spread</div><div class="d">The gap between the bid and the ask. It is a real cost of trading &mdash; the moment you enter, you are slightly &ldquo;down&rdquo; by the spread until price moves your way. Liquid markets have tight spreads; thin markets have wide ones.</div></div>
+      <p><b>Slippage</b> is a related idea: in fast-moving markets, your order may fill at a slightly different price than you clicked. Both spread and slippage are why entry and exit prices matter.</p>
+    </article>
+
+    <article class="lesson" id="m3">
+      <div class="num">Module 03</div>
+      <h2>Pips, points, and ticks</h2>
+      <p>Traders need a precise way to measure how far price moves. The words change depending on the market, which confuses almost every beginner. Here is the clean version.</p>
+      <h3>Pip (forex)</h3>
+      <p>A <b>pip</b> is the standard smallest move in a currency pair. For most pairs it is the <b>fourth decimal place</b> &mdash; 0.0001. If EUR/USD moves from 1.1050 to 1.1051, that is one pip. For pairs that include the Japanese yen, a pip is the <b>second decimal</b> (0.01), because yen prices are quoted differently.</p>
+      <div class="term"><div class="t">Pipette</div><div class="d">Many brokers quote one extra decimal for precision &mdash; the fifth decimal (or third on yen pairs). That fractional pip is a &ldquo;pipette,&rdquo; or one-tenth of a pip. Some platforms confusingly call pipettes &ldquo;points.&rdquo;</div></div>
+      <h3>Point and tick (futures)</h3>
+      <p>In futures, a <b>point</b> is a one-whole-unit move in the contract&rsquo;s price, and a <b>tick</b> is the smallest amount the price is allowed to move &mdash; the minimum increment. Each tick has a fixed dollar value, set by the exchange.</p>
+      <table>
+        <tr><th>Term</th><th>What it measures</th><th>Gold futures (GC) example</th></tr>
+        <tr><td><b>Tick</b></td><td>Smallest allowed move</td><td>0.10 per ounce = <b>$10</b> per contract</td></tr>
+        <tr><td><b>Point</b></td><td>A full 1.00 move</td><td>$1.00 per ounce = <b>$100</b> per contract</td></tr>
+        <tr><td><b>Pip</b></td><td>Standard forex move</td><td>Not used &mdash; pips are a forex term</td></tr>
+      </table>
+      <p>So a gold contract that moves from 2400.0 to 2401.0 has moved one point, or ten ticks, worth $100 per contract. Knowing your tick value tells you exactly what each move is worth in dollars &mdash; the foundation of position sizing.</p>
+    </article>
+
+    <article class="lesson" id="m4">
+      <div class="num">Module 04</div>
+      <h2>The forex market</h2>
+      <p>Forex (short for &ldquo;foreign exchange,&rdquo; also FX) is the global marketplace for trading currencies. It is the largest and most liquid market in the world, with more than <b>$7 trillion</b> changing hands every day &mdash; far larger than all the world&rsquo;s stock markets combined.</p>
+      <p>Currencies are always traded in <b>pairs</b>, because to buy one you must sell another. In a pair like EUR/USD:</p>
+      <ul>
+        <li>The first currency (EUR) is the <b>base</b> &mdash; the one you are buying or selling.</li>
+        <li>The second (USD) is the <b>quote</b> &mdash; what the base is priced in.</li>
+        <li>A price of 1.1050 means one euro costs 1.1050 US dollars.</li>
+      </ul>
+      <p>The most heavily traded pairs &mdash; the &ldquo;majors&rdquo; &mdash; all involve the US dollar: EUR/USD, USD/JPY, GBP/USD, USD/CHF, and a few others. Forex runs <b>24 hours a day, five days a week</b>, following the sun through four main sessions: Sydney, Tokyo, London, and New York. London and New York overlapping is the busiest, most liquid window.</p>
+    </article>
+
+    <article class="lesson" id="m5">
+      <div class="num">Module 05</div>
+      <h2>The futures market</h2>
+      <p>A <b>futures contract</b> is a standardized agreement to buy or sell a specific asset, in a specific quantity, at a price agreed today, for delivery on a set date in the future. They trade on regulated exchanges such as the CME (Chicago Mercantile Exchange).</p>
+      <p>Futures exist on almost everything: gold, oil, natural gas, wheat, stock indexes (like the S&amp;P 500), bonds, and currencies. Two groups use them:</p>
+      <ul>
+        <li><b>Hedgers</b> &mdash; producers and businesses locking in a future price to protect against risk (a farmer fixing the price of next season&rsquo;s wheat).</li>
+        <li><b>Speculators</b> &mdash; traders aiming to profit from price changes, with no intention of taking delivery.</li>
+      </ul>
+      <p>Because every contract is <b>standardized</b> by the exchange (same size, same tick, same expiration rules), futures are deep and liquid. Each contract has an <b>expiration date</b>; traders who want to stay in the market past expiration &ldquo;roll&rdquo; into the next contract. Futures are leveraged &mdash; you control a large contract by posting a margin deposit, which we cover in Module 07.</p>
+      <div class="tip"><b>Gold example:</b> the standard gold future (ticker GC) represents 100 troy ounces of gold. If gold is $2,400/oz, one contract controls $240,000 of gold &mdash; but you only post a few thousand dollars in margin to trade it.</div>
+    </article>
+
+    <article class="lesson" id="m6">
+      <div class="num">Module 06</div>
+      <h2>Contracts and lot sizes</h2>
+      <p>&ldquo;How much am I actually trading?&rdquo; The answer is contract size (futures) or lot size (forex).</p>
+      <h3>Futures contract sizes</h3>
+      <p>Each futures contract covers a fixed quantity set by the exchange &mdash; for example, 100 ounces of gold, or 1,000 barrels of crude oil. To make markets accessible, exchanges also offer smaller versions:</p>
+      <ul>
+        <li><b>Standard</b> &mdash; e.g. GC gold = 100 oz.</li>
+        <li><b>Micro / mini</b> &mdash; e.g. Micro Gold (MGC) = 10 oz, one-tenth the size and risk.</li>
+      </ul>
+      <h3>Forex lot sizes</h3>
+      <p>In forex, position size is measured in <b>lots</b>:</p>
+      <table>
+        <tr><th>Lot</th><th>Units of base currency</th><th>Approx. value of 1 pip*</th></tr>
+        <tr><td><b>Standard</b></td><td>100,000</td><td>$10</td></tr>
+        <tr><td><b>Mini</b></td><td>10,000</td><td>$1</td></tr>
+        <tr><td><b>Micro</b></td><td>1,000</td><td>$0.10</td></tr>
+      </table>
+      <p style="font-size:13px;color:var(--muted)">*For pairs quoted in US dollars. Pip value varies by pair.</p>
+      <p>Smaller contracts and lots let a beginner trade real markets while keeping the dollar value of each move &mdash; and each mistake &mdash; small. That is exactly how you should start.</p>
+    </article>
+
+    <article class="lesson" id="m7">
+      <div class="num">Module 07</div>
+      <h2>Margin and leverage</h2>
+      <p>Leverage lets you control a large position with a relatively small amount of money. <b>Margin</b> is that small amount &mdash; a good-faith deposit your broker requires to open and hold the position. It is not a fee; it is collateral.</p>
+      <div class="term"><div class="t">Leverage</div><div class="d">The ratio between the size you control and the cash you put up. Post $1,000 to control $50,000 and you are using 50:1 leverage. Leverage multiplies both profits <i>and</i> losses by the same amount.</div></div>
+      <p>In futures you will hear two margin terms:</p>
+      <ul>
+        <li><b>Initial margin</b> &mdash; what you need to open the position.</li>
+        <li><b>Maintenance margin</b> &mdash; the minimum equity you must keep while it is open. Drop below it and you get a <b>margin call</b> &mdash; add funds or the position is closed (liquidated).</li>
+      </ul>
+      <p>Leverage is the single biggest reason new traders blow up their accounts. Used carefully it is a tool; used carelessly it turns a small wrong move into a large loss. Treat it with respect &mdash; Module 12 shows how.</p>
+    </article>
+
+    <article class="lesson" id="m8">
+      <div class="num">Module 08</div>
+      <h2>Order types</h2>
+      <p>An order is an instruction to your broker. The four you must know:</p>
+      <ul>
+        <li><b>Market order</b> &mdash; buy or sell right now at the best available price. Fast, but you accept whatever price the market gives (spread and slippage apply).</li>
+        <li><b>Limit order</b> &mdash; buy or sell only at a specific price or better. You control the price but may not get filled.</li>
+        <li><b>Stop order (stop-loss)</b> &mdash; an order that triggers once price reaches a level, used to cap a loss or protect a profit. A buy stop sits above price; a sell stop (your protective stop on a long) sits below.</li>
+        <li><b>Stop-limit</b> &mdash; a stop that, once triggered, becomes a limit order rather than a market order &mdash; more price control, but it can miss the fill.</li>
+      </ul>
+      <div class="tip"><b>Take-profit</b> is simply a limit order placed in advance at your target, automatically closing the trade in profit when price gets there. A stop-loss and a take-profit together let a trade manage itself.</div>
+    </article>
+
+    <article class="lesson" id="m9">
+      <div class="num">Module 09</div>
+      <h2>Technical analysis</h2>
+      <p><b>Technical analysis</b> is the study of price itself &mdash; using charts of past price and volume to judge where price may go next. It contrasts with <b>fundamental analysis</b>, which studies the underlying value (economic data, earnings, supply and demand of the real asset).</p>
+      <p>Technical analysis rests on three classic assumptions:</p>
+      <ul>
+        <li><b>Price reflects everything</b> &mdash; all known information is already in the price.</li>
+        <li><b>Prices move in trends</b> &mdash; a move in motion tends to continue until something changes it.</li>
+        <li><b>History tends to repeat</b> &mdash; because human behavior repeats, recognizable patterns recur.</li>
+      </ul>
+      <p>Core tools include <b>support and resistance</b> (price levels where buying or selling repeatedly appears), <b>trends and trendlines</b>, <b>chart patterns</b>, and <b>indicators</b> like moving averages, RSI, and MACD. Most powerful of all for reading raw price are <b>candlesticks</b> &mdash; the subject of the next two lessons.</p>
+      <div class="tip">Technical analysis deals in <b>probabilities, not certainties</b>. No pattern works every time. Its value is in tilting the odds and defining where you are wrong &mdash; which is where risk management begins.</div>
+    </article>
+
+    <article class="lesson" id="m10">
+      <div class="num">Module 10</div>
+      <h2>A short history of candlesticks</h2>
+      <p>Candlestick charts were born in Japan, centuries before they reached Western markets. In the 1700s, Japanese rice merchants needed a way to track the price of rice as it rose and fell through each trading day. They developed a visual method that recorded not just where price closed, but where it opened and how far it swung in between.</p>
+      <p>The technique is often credited to a legendary rice trader named <b>Munehisa Homma</b>, who studied how the emotions of buyers and sellers drove prices &mdash; an early insight into market psychology that still holds today.</p>
+      <p>For centuries the method stayed largely within Japan. It was introduced to the Western trading world in 1991 by analyst <b>Steve Nison</b>, whose work brought Japanese candlestick charting to a global audience. Today candlesticks are the default chart for traders everywhere &mdash; on every platform, in every market.</p>
+    </article>
+
+    <article class="lesson" id="m11">
+      <div class="num">Module 11</div>
+      <h2>Anatomy of a candlestick</h2>
+      <p>A single candlestick summarizes one slice of time &mdash; a minute, an hour, a day, whatever timeframe you choose. It shows four prices: where that period <b>opened</b>, the <b>high</b> and <b>low</b> it reached, and where it <b>closed</b>.</p>
+      <div class="fig">
+        <svg viewBox="0 0 640 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a bullish and a bearish candlestick with parts labeled">
+          <!-- guide labels left -->
+          <!-- BULLISH candle around x=200 -->
+          <line x1="200" y1="40" x2="200" y2="90" stroke="#0d7a2e" stroke-width="2"/>
+          <line x1="200" y1="230" x2="200" y2="285" stroke="#0d7a2e" stroke-width="2"/>
+          <rect x="176" y="90" width="48" height="140" rx="3" fill="#0d7a2e"/>
+          <!-- BEARISH candle around x=440 -->
+          <line x1="440" y1="55" x2="440" y2="95" stroke="#b23030" stroke-width="2"/>
+          <line x1="440" y1="235" x2="440" y2="280" stroke="#b23030" stroke-width="2"/>
+          <rect x="416" y="95" width="48" height="140" rx="3" fill="#b23030"/>
+          <!-- labels bullish -->
+          <g font-family="Inter,sans-serif" font-size="12.5" fill="#2c2c28">
+            <line x1="200" y1="40" x2="120" y2="40" stroke="#cfcabb" stroke-width="1"/><text x="114" y="44" text-anchor="end">High</text>
+            <line x1="224" y1="90" x2="300" y2="76" stroke="#cfcabb" stroke-width="1"/><text x="305" y="80">Close</text>
+            <line x1="224" y1="230" x2="300" y2="244" stroke="#cfcabb" stroke-width="1"/><text x="305" y="248">Open</text>
+            <line x1="200" y1="285" x2="120" y2="285" stroke="#cfcabb" stroke-width="1"/><text x="114" y="289" text-anchor="end">Low</text>
+            <text x="200" y="305" text-anchor="middle" font-weight="600" fill="#0d7a2e">Bullish (close &gt; open)</text>
+          </g>
+          <!-- labels bearish -->
+          <g font-family="Inter,sans-serif" font-size="12.5" fill="#2c2c28">
+            <line x1="464" y1="95" x2="540" y2="82" stroke="#cfcabb" stroke-width="1"/><text x="545" y="86">Open</text>
+            <line x1="464" y1="235" x2="540" y2="248" stroke="#cfcabb" stroke-width="1"/><text x="545" y="252">Close</text>
+            <text x="382" y="150" text-anchor="end" fill="#6b6b63">Real</text><text x="382" y="166" text-anchor="end" fill="#6b6b63">body</text>
+            <text x="440" y="305" text-anchor="middle" font-weight="600" fill="#b23030">Bearish (close &lt; open)</text>
+          </g>
+          <!-- wick label -->
+          <text x="248" y="62" font-family="Inter,sans-serif" font-size="12" fill="#6b6b63">upper wick</text>
+          <text x="248" y="262" font-family="Inter,sans-serif" font-size="12" fill="#6b6b63">lower wick</text>
+        </svg>
+        <figcaption>One candle, four prices: open, high, low, close.</figcaption>
+      </div>
+      <ul>
+        <li><b>The real body</b> &mdash; the thick block between the open and the close. A big body means one side won decisively; a small body means buyers and sellers fought to a near draw.</li>
+        <li><b>The wicks (or shadows)</b> &mdash; the thin lines above and below the body, marking the highest and lowest prices reached during the period.</li>
+        <li><b>Color</b> &mdash; when the close is above the open, the candle is bullish (commonly green). When the close is below the open, it is bearish (commonly red).</li>
+      </ul>
+      <p>Because each candle records the open and close, it reveals the <b>story of the fight</b> between buyers and sellers in that period &mdash; not just the final score. Reading sequences of candles is one of the most useful skills a trader can build.</p>
+    </article>
+
+    <article class="lesson" id="m12">
+      <div class="num">Module 12</div>
+      <h2>Risk management &mdash; the most important lesson</h2>
+      <p>If you remember only one module, make it this one. Professional traders are not right most of the time; they survive and grow because they <b>lose small and win bigger</b>. Risk management is how.</p>
+      <ul>
+        <li><b>Risk a small, fixed percentage per trade.</b> A common rule is no more than 1&ndash;2% of your account on any single trade. That way a string of losses can never wipe you out.</li>
+        <li><b>Always define your exit before you enter.</b> Know your stop-loss (where you are wrong) and your target (where you take profit) in advance.</li>
+        <li><b>Use position sizing.</b> Work backward: your stop distance and your tick or pip value tell you exactly how many contracts or lots keep your loss within that 1&ndash;2%.</li>
+        <li><b>Mind your risk-to-reward.</b> Aim for trades where the potential reward is larger than the risk &mdash; for example, risking 1 to make 2. With a good ratio you can be wrong more often than right and still profit.</li>
+        <li><b>Protect your mindset.</b> Discipline beats prediction. Most blow-ups come from oversized positions, revenge trading, and abandoning the plan &mdash; not from bad analysis.</li>
+      </ul>
+      <div class="tip"><b>The takeaway:</b> a great strategy with poor risk control fails; an average strategy with strong risk control can endure. Learn to manage risk first, and everything else has time to work.</div>
+    </article>
+
+    <article class="lesson" id="m13">
+      <div class="num">Module 13</div>
+      <h2>Candlestick patterns &amp; reversals</h2>
+      <p>Once you can read a single candle (Module 11), the next step is reading <b>combinations</b> of candles. Certain shapes recur so often that traders gave them names and treat them as clues about what buyers and sellers may do next. Patterns fall into two families:</p>
+      <ul>
+        <li><b>Reversal patterns</b> &mdash; hint that an existing trend is running out of steam and may turn.</li>
+        <li><b>Continuation patterns</b> &mdash; suggest a brief pause before the current trend resumes.</li>
+      </ul>
+      <p>The reversal patterns below are the ones every new trader should learn to recognize first.</p>
+      <div class="pat-grid">
+        <div class="pat">
+          <svg viewBox="0 0 80 90"><line x1="40" y1="12" x2="40" y2="80" stroke="#6b6b63" stroke-width="2"/><rect x="26" y="44" width="28" height="4" fill="#6b6b63"/></svg>
+          <div class="pn">Doji</div><div class="pd">Open ≈ close. Indecision; a possible turn at a trend extreme.</div>
+        </div>
+        <div class="pat">
+          <svg viewBox="0 0 80 90"><line x1="40" y1="14" x2="40" y2="22" stroke="#0d7a2e" stroke-width="2"/><rect x="26" y="22" width="28" height="16" rx="1" fill="#0d7a2e"/><line x1="40" y1="38" x2="40" y2="82" stroke="#0d7a2e" stroke-width="2"/></svg>
+          <div class="pn">Hammer</div><div class="pd">Long lower wick at a bottom. Buyers rejected lower prices.</div>
+        </div>
+        <div class="pat">
+          <svg viewBox="0 0 80 90"><line x1="40" y1="8" x2="40" y2="56" stroke="#b23030" stroke-width="2"/><rect x="26" y="56" width="28" height="16" rx="1" fill="#b23030"/><line x1="40" y1="72" x2="40" y2="80" stroke="#b23030" stroke-width="2"/></svg>
+          <div class="pn">Shooting star</div><div class="pd">Long upper wick at a top. Sellers rejected higher prices.</div>
+        </div>
+        <div class="pat">
+          <svg viewBox="0 0 120 90"><line x1="36" y1="26" x2="36" y2="70" stroke="#b23030" stroke-width="2"/><rect x="24" y="38" width="24" height="22" rx="1" fill="#b23030"/><line x1="84" y1="20" x2="84" y2="76" stroke="#0d7a2e" stroke-width="2"/><rect x="72" y="30" width="24" height="40" rx="1" fill="#0d7a2e"/></svg>
+          <div class="pn">Bullish engulfing</div><div class="pd">A big up candle swallows the prior down candle.</div>
+        </div>
+        <div class="pat">
+          <svg viewBox="0 0 120 90"><line x1="36" y1="26" x2="36" y2="70" stroke="#0d7a2e" stroke-width="2"/><rect x="24" y="40" width="24" height="20" rx="1" fill="#0d7a2e"/><line x1="84" y1="20" x2="84" y2="78" stroke="#b23030" stroke-width="2"/><rect x="72" y="28" width="24" height="44" rx="1" fill="#b23030"/></svg>
+          <div class="pn">Bearish engulfing</div><div class="pd">A big down candle swallows the prior up candle.</div>
+        </div>
+        <div class="pat">
+          <svg viewBox="0 0 150 90"><line x1="30" y1="18" x2="30" y2="60" stroke="#b23030" stroke-width="2"/><rect x="18" y="22" width="24" height="34" rx="1" fill="#b23030"/><line x1="75" y1="58" x2="75" y2="80" stroke="#6b6b63" stroke-width="2"/><rect x="63" y="64" width="24" height="9" rx="1" fill="#6b6b63"/><line x1="120" y1="20" x2="120" y2="70" stroke="#0d7a2e" stroke-width="2"/><rect x="108" y="30" width="24" height="34" rx="1" fill="#0d7a2e"/></svg>
+          <div class="pn">Morning star</div><div class="pd">Three-candle bottom: down, pause, strong up.</div>
+        </div>
+      </div>
+      <h3>Single-candle reversals</h3>
+      <p>A <b>doji</b> forms when the open and close are almost equal &mdash; neither side won, signalling indecision that can precede a turn. A <b>hammer</b> appears at the bottom of a downtrend: a small body with a long lower wick, showing buyers slammed the door on lower prices. Its look-alike the <b>hanging man</b> has the same shape but appears at the top of an uptrend and warns of a top. A <b>shooting star</b> is the mirror image &mdash; a long upper wick at a top &mdash; while the <b>inverted hammer</b> is its hopeful twin at a bottom.</p>
+      <h3>Two- and three-candle reversals</h3>
+      <p><b>Engulfing</b> patterns are among the most reliable: a candle whose body completely covers the previous candle&rsquo;s body, signalling that control just flipped from one side to the other. <b>Tweezer</b> tops and bottoms form when two candles share almost the same high (a top) or low (a bottom), marking a wall price could not pass. The three-candle <b>morning star</b> (a bottom) and <b>evening star</b> (a top) show a strong move, a small hesitation candle, then a strong move the opposite way &mdash; a clear handover between buyers and sellers.</p>
+      <div class="term"><div class="t">Location is everything</div><div class="d">The same shape means little in the middle of nowhere. A hammer matters at support after a decline; a shooting star matters at resistance after a rally. Always read a pattern in the context of the trend and key levels around it.</div></div>
+      <div class="tip"><b>Wait for confirmation.</b> A pattern is a clue, not a command. Many traders wait for the next candle to confirm the turn before acting &mdash; and always pair the signal with a stop-loss in case it fails.</div>
+    </article>
+
+    <article class="lesson" id="m14">
+      <div class="num">Module 14</div>
+      <h2>Tick charts</h2>
+      <p>Most beginners start on <b>time-based</b> charts, where a new candle forms every fixed period &mdash; one minute, one hour, one day &mdash; whether one trade happened or ten thousand. A <b>tick chart</b> works differently: it forms a new candle after a fixed number of <b>transactions</b>, no matter how long that takes.</p>
+      <div class="term"><div class="t">Careful: two meanings of &ldquo;tick&rdquo;</div><div class="d">In Module 03 a &ldquo;tick&rdquo; meant the smallest price increment. Here a &ldquo;tick&rdquo; means one executed trade. A &ldquo;500-tick chart&rdquo; prints a new candle every 500 trades.</div></div>
+      <p>Because the bars are driven by activity rather than the clock, a tick chart naturally speeds up and slows down:</p>
+      <ul>
+        <li>During busy periods &mdash; the market open, a news release &mdash; many trades occur, so bars print quickly and you see fine detail.</li>
+        <li>During quiet periods &mdash; a slow lunch hour or overnight &mdash; few trades occur, so a single bar can take a long time to complete, and dead time is filtered out.</li>
+      </ul>
+      <h3>Why some traders prefer them</h3>
+      <ul>
+        <li><b>Activity, not time:</b> every bar represents the same amount of trading, which can make momentum and price action read more cleanly.</li>
+        <li><b>Less noise:</b> quiet periods don&rsquo;t clutter the chart with meaningless bars.</li>
+        <li><b>Popular with futures scalpers</b> who want a fast, activity-based view of markets like the S&amp;P 500 E-mini.</li>
+      </ul>
+      <h3>The trade-offs</h3>
+      <ul>
+        <li>Bar counts aren&rsquo;t standardized &mdash; different brokers and data feeds can produce slightly different tick bars.</li>
+        <li>They can feel noisy and less intuitive while you&rsquo;re starting out.</li>
+        <li>Sessions are harder to compare, since a &ldquo;day&rdquo; no longer equals a fixed number of bars.</li>
+      </ul>
+      <div class="tip"><b>Bottom line:</b> tick charts are an advanced tool, best explored once time-based charts feel natural. Start on time charts, learn to read price, and experiment with ticks later when you know what you&rsquo;re looking for.</div>
+    </article>
+
+    <div class="disclaimer">
+      <p><b>Educational use only.</b> This material is provided by LAVOY GROUP for general educational purposes and does not constitute financial, investment, or trading advice, nor a recommendation or solicitation to buy or sell any instrument. Trading futures, forex, and other leveraged products carries a substantial risk of loss and is not suitable for everyone. Never trade with money you cannot afford to lose, and consider seeking advice from a licensed professional.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="../" aria-label="LAVOY GROUP home">
+        <svg viewBox="-60 -60 700 440" aria-hidden="true"><g fill="none" stroke="#2f8a23" stroke-width="120"><polyline points="60 0 60 260.11 420 260.11 420 80.11 240 80.11"/><polyline points="580 320.33 580 60.11 220 60.11 220 240.11 400 240.11"/></g></svg>
+      </a>
+      <div class="links">
+        <a href="../">Home</a><a href="../stats/">Performance</a><a href="../#contact">Contact</a>
+      </div>
+    </div>
+    <p class="copy">&copy; <span id="yr"></span> LAVOY GROUP. Educational content &mdash; not financial advice.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.getElementById('menuBtn').onclick=()=>document.getElementById('navRight').classList.toggle('show');
+document.querySelectorAll('#navRight a').forEach(a=>a.onclick=()=>document.getElementById('navRight').classList.remove('show'));
+// active module highlight
+const links=[...document.querySelectorAll('.toc a')];
+const map={};links.forEach(a=>map[a.getAttribute('href').slice(1)]=a);
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));if(map[e.target.id])map[e.target.id].classList.add('active');}});
+},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('.lesson').forEach(s=>io.observe(s));
+// mobile collapsible TOC
+const toc=document.getElementById('toc');
+if(window.matchMedia('(max-width:860px)').matches){toc.classList.add('collapsed');document.querySelector('.tw').style.display='inline';
+  document.getElementById('tocHead').onclick=()=>toc.classList.toggle('collapsed');}
+// next-lesson buttons
+const lessonEls=[...document.querySelectorAll('.lesson')];
+lessonEls.forEach((sec,i)=>{
+  const row=document.createElement('div');row.className='next-row';
+  if(i<lessonEls.length-1){const nx=lessonEls[i+1];const t=nx.querySelector('h2').textContent;
+    row.innerHTML='<a class="next-btn" href="#'+nx.id+'">Next &middot; '+t+' &rarr;</a>';}
+  else{row.innerHTML='<a class="next-btn" href="#top">&uarr; Back to top</a>';}
+  sec.appendChild(row);
+});
+</script>
+</body>
+</html>
