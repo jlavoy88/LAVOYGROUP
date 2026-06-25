@@ -1,0 +1,43 @@
+name: ASSAY weekly gold scan
+
+on:
+  schedule:
+    - cron: "0 */4 * * *"   # every 4 hours (UTC). GitHub may delay under load.
+  workflow_dispatch: {}       # lets you run it manually from the Actions tab
+
+permissions:
+  contents: write             # needed to commit the updated JSON
+
+concurrency:
+  group: assay-scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run scan
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-flash-latest
+          OUTPUT_FILE: data/latest.json
+          SCAN_INTERVAL_HOURS: "4"
+        run: node scan.mjs
+
+      - name: Commit updated scan
+        run: |
+          git config user.name  "assay-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/latest.json
+          if git diff --staged --quiet; then
+            echo "no change"
+          else
+            git commit -m "chore: update gold scan [skip ci]"
+            git push
+          fi
