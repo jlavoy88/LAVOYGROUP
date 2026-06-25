@@ -62,7 +62,13 @@ function extractJSON(raw) {
   let t = String(raw).replace(/```json/gi, "").replace(/```/g, "").trim();
   const s = t.indexOf("{"), e = t.lastIndexOf("}");
   if (s !== -1 && e !== -1 && e > s) t = t.slice(s, e + 1);
-  return JSON.parse(t);
+  try { return JSON.parse(t); } catch (_) { /* fall through to repair */ }
+  // Repair common model glitches: raw (unescaped) control chars inside strings,
+  // and trailing commas before } or ].
+  const r = t
+    .replace(/[\u0000-\u001F]+/g, " ")   // control chars / raw line breaks -> space
+    .replace(/,\s*([}\]])/g, "$1");        // trailing commas before } or ]
+  return JSON.parse(r);
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -70,9 +76,14 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function callGemini(lens, useSearch) {
   const body = {
     contents: [{ role: "user", parts: [{ text: buildPrompt(lens, useSearch) }] }],
-    generationConfig: { temperature: 0.4, maxOutputTokens: 3000 },
+    generationConfig: { temperature: 0.3, maxOutputTokens: 3000 },
   };
-  if (useSearch) body.tools = [{ google_search: {} }];
+  if (useSearch) {
+    body.tools = [{ google_search: {} }];
+  } else {
+    // No tools on the fallback, so we can force strict JSON — guarantees a parseable result.
+    body.generationConfig.responseMimeType = "application/json";
+  }
 
   // Retry transient errors (overloaded / rate-limited): 429, 500, 503.
   const MAX_TRIES = 3;
