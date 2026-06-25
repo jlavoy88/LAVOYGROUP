@@ -16,7 +16,7 @@ import { writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 
 const API_KEY = process.env.GEMINI_API_KEY;
-const MODEL = process.env.GEMINI_MODEL || "gemini-flash-latest";
+const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash"; // stable, free-tier, supports grounding
 const OUTPUT_FILE = process.env.OUTPUT_FILE || "data/latest.json";
 const SCAN_INTERVAL_HOURS = Number(process.env.SCAN_INTERVAL_HOURS || 4);
 const HORIZON_PHRASE = "the next week (a one-week outlook)";
@@ -65,33 +65,46 @@ function extractJSON(raw) {
   return JSON.parse(t);
 }
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
 async function callGemini(lens, useSearch) {
   const body = {
     contents: [{ role: "user", parts: [{ text: buildPrompt(lens, useSearch) }] }],
     generationConfig: { temperature: 0.4, maxOutputTokens: 3000 },
   };
   if (useSearch) body.tools = [{ google_search: {} }];
-  const res = await fetch(ENDPOINT, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "x-goog-api-key": API_KEY },
-    body: JSON.stringify(body),
-  });
-  const rawText = await res.text();
-  if (!res.ok) {
+
+  // Retry transient errors (overloaded / rate-limited): 429, 500, 503.
+  const MAX_TRIES = 3;
+  let lastErr = "unknown";
+  for (let attempt = 1; attempt <= MAX_TRIES; attempt++) {
+    const res = await fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": API_KEY },
+      body: JSON.stringify(body),
+    });
+    const rawText = await res.text();
+    if (res.ok) {
+      const data = JSON.parse(rawText);
+      if (data.error) throw new Error(`api error — ${data.error.message || "unknown"}`);
+      const cand = data?.candidates?.[0];
+      const text = combineText(data);
+      if (!text.trim()) {
+        const reason = cand?.finishReason || data?.promptFeedback?.blockReason || "no text";
+        throw new Error(`no text out (finish=${reason})`);
+      }
+      return text;
+    }
+    // not ok
     let msg = `HTTP ${res.status}`;
     try { const e = JSON.parse(rawText); if (e?.error?.message) msg = `HTTP ${res.status} — ${e.error.message}`; }
     catch (_) { if (rawText) msg = `HTTP ${res.status} — ${rawText.slice(0, 160)}`; }
+    lastErr = msg;
+    const transient = res.status === 429 || res.status === 500 || res.status === 503;
+    if (transient && attempt < MAX_TRIES) { await sleep(attempt * 5000); continue; } // 5s, 10s backoff
     throw new Error(msg);
   }
-  const data = JSON.parse(rawText);
-  if (data.error) throw new Error(`api error — ${data.error.message || "unknown"}`);
-  const cand = data?.candidates?.[0];
-  const text = combineText(data);
-  if (!text.trim()) {
-    const reason = cand?.finishReason || data?.promptFeedback?.blockReason || "no text";
-    throw new Error(`no text out (finish=${reason})`);
-  }
-  return text;
+  throw new Error(lastErr);
 }
 
 async function analyzeLens(lensId) {
