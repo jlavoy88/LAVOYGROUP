@@ -25,7 +25,7 @@ jobs:
       - name: Run scan
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-flash-latest
+          GEMINI_MODEL: gemini-2.5-flash
           OUTPUT_FILE: data/latest.json
           SCAN_INTERVAL_HOURS: "4"
         run: node scan.mjs
