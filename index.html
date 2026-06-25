@@ -95,6 +95,48 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
   .stat:last-child{border-bottom:none}
   .cards{grid-template-columns:1fr}
 }
+
+/* ASSAY PANEL — LAVOY GROUP aesthetic (light, Inter, green/ink) */
+.assay-app{background:var(--paper2);padding:80px 0;border-top:1px solid var(--line)}
+.assay-shell{max-width:1060px;margin:0 auto;padding:0 28px;color:var(--ink);font-family:'Inter',sans-serif}
+.assay-boot{font-size:14px;color:var(--muted);padding:40px 0;text-align:center}
+.assay-head{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin-bottom:38px}
+.assay-kick{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.assay-kick .dot{width:7px;height:7px;border-radius:50%;display:inline-block;background:var(--green)}
+.assay-kick .lbl{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:600}
+.assay-h2{font-size:clamp(26px,3.4vw,38px);font-weight:600;margin:0;letter-spacing:.01em}
+.assay-when{text-align:right;font-size:12px;line-height:1.7;color:var(--muted);letter-spacing:.04em}
+.assay-when b{color:var(--ink);font-weight:600}
+.assay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.assay-card{background:#fff;border:1px solid var(--line);border-radius:5px;padding:24px 24px 22px;display:flex;flex-direction:column;transition:.25s}
+.assay-card:hover{border-color:var(--green)}
+.assay-card.head{grid-column:1/-1;border-top:2px solid var(--green);padding:26px 28px}
+.assay-card.head .row{display:flex;gap:32px;flex-wrap:wrap;align-items:center}
+.assay-card.head .gwrap{width:220px;flex:0 0 auto;position:relative;margin:0 auto}
+.assay-card.head .body{flex:1 1 320px;min-width:280px}
+.assay-ctop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.assay-name{font-size:19px;font-weight:600;letter-spacing:.01em;margin:0;color:var(--ink)}
+.assay-name.gold{font-size:26px;color:var(--green)}
+.assay-tick{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.assay-meta{display:flex;align-items:center;gap:9px;margin-bottom:14px;flex-wrap:wrap}
+.assay-lean{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:2px}
+.assay-conf{font-size:11.5px;color:var(--muted)}
+.assay-notlive{font-size:9.5px;font-weight:600;letter-spacing:.06em;color:#9a6a00;background:#fbf3e0;border:1px solid #ecd9a6;padding:3px 6px;border-radius:2px}
+.assay-asof{margin-left:auto;font-size:11px;color:var(--muted)}
+.assay-drivers{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.assay-dr{display:flex;gap:10px;align-items:flex-start}
+.assay-dr .pip{margin-top:5px;flex:0 0 auto;width:7px;height:7px;border-radius:2px;transform:rotate(45deg)}
+.assay-dr .factor{font-size:12.5px;font-weight:600;color:var(--ink);letter-spacing:.01em}
+.assay-dr .note{font-size:13px;line-height:1.5;color:#4a4a42;margin-top:2px}
+.assay-read{font-size:14px;line-height:1.6;color:#3d3d38;margin:auto 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.assay-card.head .assay-read{font-size:15px}
+.assay-err{background:#fff;border:1px solid var(--line);border-radius:5px;padding:16px 18px;margin-bottom:18px}
+.assay-err p{font-size:13px;color:#b3261e;margin:0 0 6px}
+.assay-err code{font-size:12px;color:var(--muted)}
+.assay-needle{transition:all 1.1s cubic-bezier(.16,1.2,.3,1)}
+.assay-pulse{animation:assay-pulse 1.1s ease-in-out infinite}
+@keyframes assay-pulse{0%,100%{opacity:.4}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.assay-needle{transition:none}.assay-pulse{animation:none}}
 </style>
 </head>
 <body>
@@ -106,6 +148,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
       <span class="brand-name">LAVOY GROUP</span>
     </a>
     <div class="nav-right">
+      <a class="navlink" href="#assay">Assay</a>
       <a class="navlink" href="education/">Education</a>
       <a class="contact" href="#contact">Contact</a>
     </div>
@@ -119,6 +162,15 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
     <p class="lead">A focused trading and advisory practice specializing in the gold market &mdash; combining disciplined futures trading with clear, data-driven market analysis.</p>
     <div class="cta">
       <a class="btn btn-solid" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ASSAY — gold weekly auto-scan (vanilla port of frontend/Assay.jsx) -->
+<section id="assay" class="assay-app">
+  <div class="assay-shell">
+    <div id="assay-root">
+      <div class="assay-boot">Loading the latest gold scan…</div>
     </div>
   </div>
 </section>
@@ -156,7 +208,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
       <button type="submit" class="btn btn-solid">Send message</button>
       <p class="fnote" id="fnote"></p>
     </form>
-    <div class="loc">Gainesville, Florida &middot; United States</div>
+    <div class="loc">Florida &middot; United States</div>
   </div>
 </section>
 
@@ -190,6 +242,112 @@ cform.addEventListener('submit',e=>{
   fnote.textContent='Opening your email app to send to info@lavoygroup.com…';
   fnote.classList.add('ok');
 });
+
+/* ===== ASSAY — gold weekly auto-scan (vanilla port of frontend/Assay.jsx) ===== */
+(function(){
+  // Where the GitHub Action publishes the scan. Served at lavoygroup.com/data/latest.json
+  var LATEST_ENDPOINT = 'data/latest.json';
+  var POLL_MS = 5*60*1000;
+  // LAVOY GROUP palette: green = tailwind/bullish, clay-red = headwind/bearish, muted = neutral
+  var C = {green:'#0d5e04',greenMid:'#2f8a23',red:'#b3261e',neutral:'#6b6b63',ink:'#161616',muted:'#6b6b63',faint:'#9a9a90',line:'#e4e1d8',panel:'#ffffff'};
+  var LENSES = [
+    {id:'gold',role:'headline',name:'Gold',ticker:'XAU / USD'},
+    {id:'realyields',role:'lens',name:'Real Yields',ticker:'10Y TIPS'},
+    {id:'usd',role:'lens',name:'US Dollar',ticker:'DXY'},
+    {id:'fed',role:'lens',name:'Fed & Rate Path',ticker:'FOMC'},
+    {id:'haven',role:'lens',name:'Safe Haven & Geopolitics',ticker:'VIX · RISK'},
+    {id:'cbdemand',role:'lens',name:'Central-Bank & Physical Demand',ticker:'OFFICIAL · ETF'}
+  ];
+  var root = document.getElementById('assay-root');
+  if(!root) return;
+  var snap=null, error=null;
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function leanColor(l){return l==='Bullish'?C.green:l==='Bearish'?C.red:C.neutral;}
+  function signalColor(s){s=String(s||'').toLowerCase();return s==='bull'?C.green:s==='bear'?C.red:C.neutral;}
+  function ago(iso){if(!iso)return '—';var s=Math.max(0,(Date.now()-new Date(iso).getTime())/1000);if(s<60)return 'just now';var m=Math.floor(s/60);if(m<60)return m+'m ago';var h=Math.floor(m/60);return h+'h '+(m%60)+'m ago';}
+  function until(iso){if(!iso)return '—';var s=(new Date(iso).getTime()-Date.now())/1000;if(s<=0)return 'due now';var m=Math.floor(s/60);if(m<60)return 'in '+m+'m';var h=Math.floor(m/60);return 'in '+h+'h '+(m%60)+'m';}
+
+  function gauge(value,lean,idle,caption){
+    var v=Math.max(0,Math.min(100,value==null?50:value));
+    var angle=Math.PI*(1-v/100), r=78,cx=100,cy=96;
+    var nx=cx+(r-14)*Math.cos(angle), ny=cy-(r-14)*Math.sin(angle);
+    var col=idle?C.faint:leanColor(lean), ticks='';
+    for(var i=0;i<=10;i++){var a=Math.PI*(1-i/10),inner=i%5===0?r-14:r-8;ticks+='<line x1="'+(cx+r*Math.cos(a))+'" y1="'+(cy-r*Math.sin(a))+'" x2="'+(cx+inner*Math.cos(a))+'" y2="'+(cy-inner*Math.sin(a))+'" stroke="'+C.line+'" stroke-width="'+(i%5===0?1.6:1)+'"/>';}
+    return '<svg viewBox="0 0 200 116" style="width:100%;display:block">'
+      +'<defs><linearGradient id="assay-arc" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="'+C.red+'"/><stop offset="50%" stop-color="'+C.faint+'"/><stop offset="100%" stop-color="'+C.green+'"/></linearGradient></defs>'
+      +'<path d="M '+(cx-r)+' '+cy+' A '+r+' '+r+' 0 0 1 '+(cx+r)+' '+cy+'" fill="none" stroke="url(#assay-arc)" stroke-width="5" stroke-linecap="round" opacity="'+(idle?0.4:1)+'"/>'
+      +ticks
+      +'<text x="'+(cx-r)+'" y="'+(cy+13)+'" fill="'+C.faint+'" font-size="7" font-family="Inter,sans-serif" font-weight="600" letter-spacing=".5" text-anchor="middle">HEADWIND</text>'
+      +'<text x="'+(cx+r)+'" y="'+(cy+13)+'" fill="'+C.faint+'" font-size="7" font-family="Inter,sans-serif" font-weight="600" letter-spacing=".5" text-anchor="middle">TAILWIND</text>'
+      +'<line class="assay-needle" x1="'+cx+'" y1="'+cy+'" x2="'+nx+'" y2="'+ny+'" stroke="'+col+'" stroke-width="2.4" stroke-linecap="round"/>'
+      +'<circle cx="'+cx+'" cy="'+cy+'" r="5" fill="#fff" stroke="'+col+'" stroke-width="1.6"/>'
+      +'<text x="'+cx+'" y="'+(cy-26)+'" fill="'+(idle?C.faint:C.ink)+'" font-size="30" font-family="Inter,sans-serif" font-weight="700" text-anchor="middle">'+(idle?'—':v)+'</text>'
+      +'<text x="'+cx+'" y="'+(cy-13)+'" fill="'+C.muted+'" font-size="7" font-family="Inter,sans-serif" font-weight="600" letter-spacing="1" text-anchor="middle">'+esc(caption)+'</text>'
+      +'</svg>';
+  }
+
+  function drivers(list){
+    if(!list||!list.length) return '';
+    return '<div class="assay-drivers">'+list.slice(0,4).map(function(d){
+      return '<div class="assay-dr"><span class="pip" style="background:'+signalColor(d.signal)+'"></span><div><div class="factor">'+esc(d.factor)+'</div><div class="note">'+esc(d.note)+'</div></div></div>';
+    }).join('')+'</div>';
+  }
+
+  function placeholder(result,scanning){
+    if(result&&result.error) return '<p style="font:400 12.5px/1.5 Inter,sans-serif;color:'+C.red+';margin:0 0 7px">This lens failed in the last scan:</p><code style="display:block;font:400 11px/1.5 Inter,sans-serif;color:'+C.muted+';background:'+C.panel+';border:1px solid '+C.line+';border-radius:3px;padding:8px 9px;white-space:pre-wrap;word-break:break-word">'+esc(result.error)+'</code>';
+    return '<p style="font:400 13px/1.5 Inter,sans-serif;color:'+C.muted+';margin:0">'+(scanning?'First scan running…':'Awaiting first scan.')+'</p>';
+  }
+
+  function headlineCard(lens,result,scanning){
+    var d=result&&!result.error?result:null, col=d?leanColor(d.lean):C.gold;
+    var body;
+    if(d){
+      var nl=d.live===false?'<span class="assay-notlive">NOT LIVE</span>':'';
+      body='<div class="assay-meta"><span class="assay-lean" style="color:'+col+';background:'+col+'1A;border:1px solid '+col+'55">'+esc(d.lean)+'</span><span class="assay-conf">conf. '+esc(String(d.confidence||'—').toLowerCase())+'</span>'+nl+'<span class="assay-asof">'+esc(d.asOf)+'</span></div>'+drivers(d.drivers)+'<p class="assay-read">'+esc(d.read)+'</p>';
+    } else body='<div style="padding-top:4px">'+placeholder(result,scanning)+'</div>';
+    return '<div class="assay-card head"><div class="row"><div class="gwrap">'+gauge(d?d.probabilityUp:50,d?d.lean:null,!d,'% UPSIDE · 1W')+(scanning&&!d?'<div style="position:absolute;inset:0;display:grid;place-items:center"><span class="assay-pulse" style="font:500 11px/1 JetBrains Mono,monospace;color:'+C.muted+';letter-spacing:1px">ASSAYING…</span></div>':'')+'</div><div class="body"><div class="assay-ctop"><h3 class="assay-name gold">Gold</h3><span class="assay-tick">'+esc(lens.ticker)+' · 1-WEEK</span></div>'+body+'</div></div></div>';
+  }
+
+  function lensCard(lens,result,scanning){
+    var d=result&&!result.error?result:null, col=d?leanColor(d.lean):C.faint;
+    var body;
+    if(d){
+      var nl=d.live===false?'<span class="assay-notlive">NOT LIVE</span>':'';
+      body='<div class="assay-meta"><span class="assay-lean" style="color:'+col+';background:'+col+'1A;border:1px solid '+col+'55">'+esc(d.lean)+' for gold</span><span class="assay-conf">conf. '+esc(String(d.confidence||'—').toLowerCase())+'</span>'+nl+'<span class="assay-asof">'+esc(d.asOf)+'</span></div>'+drivers(d.drivers)+'<p class="assay-read">'+esc(d.read)+'</p>';
+    } else body='<div style="margin-top:4px;padding-top:12px;border-top:1px solid '+C.line+'">'+placeholder(result,scanning)+'</div>';
+    return '<div class="assay-card"><div class="assay-ctop"><h3 class="assay-name">'+esc(lens.name)+'</h3><span class="assay-tick">'+esc(lens.ticker)+'</span></div><div style="position:relative;margin:2px 0 6px">'+gauge(d?d.probabilityUp:50,d?d.lean:null,!d,'% PRO-GOLD')+(scanning&&!d?'<div style="position:absolute;inset:0;display:grid;place-items:center"><span class="assay-pulse" style="font:500 11px/1 JetBrains Mono,monospace;color:'+C.muted+';letter-spacing:1px">ASSAYING…</span></div>':'')+'</div>'+body+'</div>';
+  }
+
+  function render(){
+    var results=(snap&&snap.results)||{}, scanning=!!(snap&&snap.scanning);
+    var html=''
+      +'<div class="assay-head"><div>'
+      +'<div class="assay-kick"><span class="dot '+(scanning?'assay-pulse':'')+'"></span><span class="lbl">Gold · Weekly Auto-Scan</span></div>'
+      +'<h2 class="assay-h2">Market Outlook</h2>'
+      +'</div><div class="assay-when"><div>last scan&nbsp; <b>'+ago(snap&&snap.generatedAt)+'</b></div><div>next scan&nbsp; <b>'+until(snap&&snap.nextRunAt)+'</b></div>'+(scanning?'<div style="color:'+C.green+'">scanning now…</div>':'')+'</div></div>';
+    if(error&&!snap) html+='<div class="assay-err"><p>Couldn’t reach the scan service:</p><code>'+esc(error)+'</code></div>';
+    html+='<div class="assay-grid">';
+    LENSES.forEach(function(l){ html += l.role==='headline'?headlineCard(l,results[l.id],scanning):lensCard(l,results[l.id],scanning); });
+    html+='</div>';
+    root.innerHTML=html;
+  }
+
+  function fetchLatest(){
+    fetch(LATEST_ENDPOINT,{headers:{Accept:'application/json'}}).then(function(res){
+      return res.text().then(function(raw){
+        var data; try{data=JSON.parse(raw);}catch(_){throw new Error('non-JSON from '+LATEST_ENDPOINT);}
+        if(!res.ok) throw new Error(data&&data.error?data.error:'HTTP '+res.status);
+        snap=data; error=null; render();
+      });
+    }).catch(function(e){ error=e.message||'failed to load latest scan'; render(); });
+  }
+
+  render(); fetchLatest();
+  setInterval(fetchLatest,POLL_MS);
+  setInterval(function(){ if(snap) render(); },30000);
+  window.addEventListener('focus',fetchLatest);
+})();
 </script>
 </body>
 </html>
