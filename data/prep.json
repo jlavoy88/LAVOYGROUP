@@ -1,48 +1,36 @@
 {
-  "generatedAt": "2026-06-26T17:21:44.245Z",
+  "generatedAt": "2026-06-26T18:09:19.357Z",
   "asOf": "2026-06-26",
   "live": true,
   "riskTone": {
-    "lean": "Mixed",
-    "note": "Gold up on softer dollar & trimmed Fed hike bets post-PCE, but hawkish Fed & geopolitical risks (Strait of Hormuz) cap gains."
+    "lean": "Mixed to Risk-off",
+    "note": "Geopolitical risks from the Strait of Hormuz are resurfacing, driving safe-haven demand for gold despite some easing inflation concerns."
   },
-  "overnight": "Gold gained as recent US PCE inflation data weighed on the dollar, leading markets to slightly trim Fed rate-hike bets. Spot gold traded higher, though still on track for a fourth consecutive weekly decline. DXY dipped but held near recent highs. Crude prices fell as Strait of Hormuz supply concerns eased, but new attack reports add caution.",
-  "sectorDrivers": "Gold supported by slightly lower real yields (10Y TIPS eased to 2.17%) & a weaker dollar (DXY down 0.22%) post-PCE data. Hawkish Fed outlook (3 hikes expected, 61-63% Sep hike chance) remains a key headwind. Geopolitical risks (ME, Ukraine) provide haven demand. Strong central bank (45% plan to add) & physical demand offers structural support.",
+  "overnight": "Gold gained in Asia/Europe as the USD weakened and Treasury yields eased after US PCE inflation data largely met expectations, tempering immediate Fed hike concerns. However, a reported ship attack in the Strait of Hormuz reignited geopolitical risk, providing additional safe-haven support for gold. European equities rose, while Asian markets were mixed.",
+  "sectorDrivers": "Gold is currently driven by a weakening USD (DXY 101.06) and slightly easing real yields (10Y TIPS 2.17%) after in-line PCE data, which tempers aggressive Fed hike bets. Resurfacing geopolitical risks in the Strait of Hormuz are providing strong safe-haven support, while robust central bank demand remains a key structural driver.",
   "keyEvents": [
     {
-      "time": "08:30 ET",
-      "event": "International Trade in Goods (Advance)",
-      "impact": "Med",
-      "note": "Reflects US economic health, influencing dollar & Fed outlook."
-    },
-    {
       "time": "10:00 ET",
-      "event": "Consumer Sentiment (UoM Final)",
+      "event": "U. of Michigan Consumer Sentiment (Final)",
       "impact": "High",
-      "note": "Key for inflation expectations & consumer spending, impacting Fed path."
-    },
-    {
-      "time": "11:30 ET",
-      "event": "Neel Kashkari Speaks",
-      "impact": "Med",
-      "note": "Fed official comments can signal policy shifts and influence rate expectations."
+      "note": "Crucial for inflation expectations and consumer outlook, impacting Fed policy."
     }
   ],
   "headlines": [
     {
-      "headline": "PRECIOUS-Gold heads for fourth weekly drop as traders reassess Fed rate outlook",
-      "source": "Reuters",
-      "note": "Captures gold's struggle despite today's bounce, driven by persistent Fed hawkishness."
+      "headline": "Spot gold hits session high near $4080/oz after final Consumer Sentiment rises to 49.5, one-year and long-term inflation expectations ease - KITCO",
+      "source": "KITCO",
+      "note": "Easing inflation expectations and improved sentiment can reduce rate hike pressure, bullish for gold."
     },
     {
-      "headline": "Gold Rebounds Above $4060 as PCE Eases Rate-Hike Fears; Silver Advances 1.3%",
-      "source": "Daily Precious Metals Market Report",
-      "note": "Immediate positive reaction to softer inflation data, trimming Fed hike odds."
-    },
-    {
-      "headline": "Record 45% of central banks plan to increase gold holdings, WGC survey finds",
+      "headline": "Gold and Silver Rise as Dollar Softens, Traders Weigh Fed and Strait of Hormuz Risks",
       "source": "Kitco News",
-      "note": "Highlights strong structural demand, providing a floor despite short-term volatility."
+      "note": "Weaker USD and geopolitical risks are providing immediate support for precious metals."
+    },
+    {
+      "headline": "Record 45% of central banks plan to increase gold holdings, WGC survey finds | Kitco News",
+      "source": "Kitco News",
+      "note": "Highlights strong, structural long-term demand for gold from official institutions."
     }
   ]
 }
