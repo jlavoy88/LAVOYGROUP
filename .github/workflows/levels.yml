@@ -1,8 +1,12 @@
 name: ASSAY intraday gold levels
 
+# Computes COMEX gold (GC=F) day-trade levels + NY-session probability from a free
+# price feed every 15 min on weekdays and commits data/levels.json. All math, no API
+# key needed. The homepage Sessions & Levels panel reads that file.
+
 on:
   schedule:
-    - cron: "*/15 * * * 1-5"   # every 4 hours, on the hour (UTC). GitHub may delay under load.
+    - cron: "*/15 * * * 1-5"   # every 15 min, Mon–Fri (UTC). GitHub schedules are best-effort and often run late.
   workflow_dispatch: {}
 
 permissions:
@@ -24,13 +28,11 @@ jobs:
 
       - name: Compute levels
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-2.5-flash
           SYMBOL: "GC=F"
           OUTPUT_FILE: data/levels.json
           REFRESH_MIN: "15"
           BAR_MIN: "15"
-        run: node levels.mjs
+        run: node levels.mjs        # no dependencies, no API key
 
       - name: Commit levels
         run: |
