@@ -1,64 +1,69 @@
 {
   "symbol": "GC=F",
   "tz": "America/New_York",
-  "price": 4014,
-  "priorClose": 3990.3,
-  "changePts": 23.7,
-  "changePct": 0.6,
+  "price": 4062.2,
+  "priorClose": 4030.5,
+  "changePts": 31.7,
+  "changePct": 0.8,
   "today": {
     "open": 4029.9,
-    "high": 4044.8,
-    "low": 4007,
-    "usedPts": 37.8,
-    "rangeUsedPct": 42
+    "high": 4071.5,
+    "low": 3998.1,
+    "usedPts": 73.4,
+    "rangeUsedPct": 83
   },
-  "adr": 90.2,
+  "adr": 88.9,
   "adrProjection": {
-    "upFromLow": 4097.2,
-    "downFromHigh": 3954.6
+    "upFromLow": 4087,
+    "downFromHigh": 3982.6
   },
   "sessions": {
     "asia": {
-      "high": 4044.8,
-      "low": 4007,
+      "high": 4049,
+      "low": 3998.1,
       "open": 4029.9,
-      "close": 4014
+      "close": 4047.2
     },
-    "london": null
+    "london": {
+      "high": 4071.5,
+      "low": 4041.2,
+      "open": 4047.8,
+      "close": 4062.2
+    }
   },
   "priorDay": {
-    "high": 4104.7,
-    "low": 3963.3,
-    "close": 3990.3
+    "high": 4030.5,
+    "low": 3986.7,
+    "close": 4030.5
   },
   "pivots": {
-    "p": 4019.4,
-    "r1": 4075.6,
-    "s1": 3934.2,
-    "r2": 4160.8,
-    "s2": 3878,
-    "r3": 4217,
-    "s3": 3792.8
+    "p": 4015.9,
+    "r1": 4045.1,
+    "s1": 4001.3,
+    "r2": 4059.7,
+    "s2": 3972.1,
+    "r3": 4088.9,
+    "s3": 3957.5
   },
   "roundLevels": [
-    3950,
-    3975,
     4000,
     4025,
     4050,
-    4075
+    4075,
+    4100,
+    4125
   ],
   "read": {
-    "probabilityUp": 39,
-    "bias": "Short",
-    "confidence": "Medium",
-    "keyLevel": 4019.4,
-    "keyName": "pivot",
-    "scenarioUp": "Through 4019.4 opens 4025.0.",
-    "scenarioDown": "Through 4007.0 opens 4000.0.",
-    "note": "42% of ADR(90.2) used — room left to extend."
+    "probabilityUp": 72,
+    "bias": "Long",
+    "confidence": "High",
+    "keyLevel": 4030.5,
+    "keyName": "prior close",
+    "scenarioUp": "Through 4071.5 opens 4075.0.",
+    "scenarioDown": "Through 4059.7 opens 4050.0.",
+    "note": "83% of ADR(88.9) used — late in range; favor fades at extremes over fresh breakouts."
   },
   "dataLive": true,
-  "generatedAt": "2026-06-26T02:49:30.847Z",
-  "nextRunAt": "2026-06-26T03:04:30.847Z"
+  "generatedAt": "2026-06-26T11:57:29.026Z",
+  "nextRunAt": "2026-06-26T12:12:29.026Z"
 }
