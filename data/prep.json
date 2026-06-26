@@ -1,48 +1,48 @@
 {
-  "generatedAt": "2026-06-26T02:34:51.715Z",
+  "generatedAt": "2026-06-26T17:21:44.245Z",
   "asOf": "2026-06-26",
   "live": true,
   "riskTone": {
     "lean": "Mixed",
-    "note": "Geopolitical risk easing with US-Iran peace talks, but hawkish Fed signals keep overall sentiment cautious, limiting gold's upside."
+    "note": "Gold up on softer dollar & trimmed Fed hike bets post-PCE, but hawkish Fed & geopolitical risks (Strait of Hormuz) cap gains."
   },
-  "overnight": "Gold traded around $4,000, seeing a modest rebound after Thursday's US PCE inflation data eased some rate-hike concerns. The DXY remained firm, while Treasury yields dipped. Geopolitical headlines were mixed, with US-Iran peace talks progressing but a cargo ship incident reported near the Strait of Hormuz.",
-  "sectorDrivers": "Real (TIPS) yields remain elevated around 2.25% (10-yr), a headwind for gold. The US Dollar (DXY) is firm near 101.5, supported by the Fed's hawkish stance. Fed policy expectations lean towards rate hikes by year-end, pressuring non-yielding gold. Safe-haven demand is mixed; US-Iran peace efforts ease tensions, but a Strait of Hormuz incident adds minor risk. Central bank demand remains robust, wi",
+  "overnight": "Gold gained as recent US PCE inflation data weighed on the dollar, leading markets to slightly trim Fed rate-hike bets. Spot gold traded higher, though still on track for a fourth consecutive weekly decline. DXY dipped but held near recent highs. Crude prices fell as Strait of Hormuz supply concerns eased, but new attack reports add caution.",
+  "sectorDrivers": "Gold supported by slightly lower real yields (10Y TIPS eased to 2.17%) & a weaker dollar (DXY down 0.22%) post-PCE data. Hawkish Fed outlook (3 hikes expected, 61-63% Sep hike chance) remains a key headwind. Geopolitical risks (ME, Ukraine) provide haven demand. Strong central bank (45% plan to add) & physical demand offers structural support.",
   "keyEvents": [
     {
       "time": "08:30 ET",
-      "event": "Durable Goods Orders",
+      "event": "International Trade in Goods (Advance)",
       "impact": "Med",
-      "note": "Indicates manufacturing health, impacting growth outlook and Fed policy expectations."
+      "note": "Reflects US economic health, influencing dollar & Fed outlook."
     },
     {
-      "time": "08:30 ET",
-      "event": "GDP (Final)",
+      "time": "10:00 ET",
+      "event": "Consumer Sentiment (UoM Final)",
       "impact": "High",
-      "note": "Key growth indicator, influences Fed policy path and broader risk sentiment."
+      "note": "Key for inflation expectations & consumer spending, impacting Fed path."
     },
     {
-      "time": "08:30 ET",
-      "event": "Jobless Claims",
-      "impact": "High",
-      "note": "Crucial for assessing labor market health and its implications for Fed's rate path."
+      "time": "11:30 ET",
+      "event": "Neel Kashkari Speaks",
+      "impact": "Med",
+      "note": "Fed official comments can signal policy shifts and influence rate expectations."
     }
   ],
   "headlines": [
     {
-      "headline": "Central Bank Gold Purchases Hit 1,000t Average: WGC Survey",
-      "source": "Mexico Business News",
-      "note": "Signals strong structural demand, providing a significant long-term floor for gold."
+      "headline": "PRECIOUS-Gold heads for fourth weekly drop as traders reassess Fed rate outlook",
+      "source": "Reuters",
+      "note": "Captures gold's struggle despite today's bounce, driven by persistent Fed hawkishness."
     },
     {
-      "headline": "Gold steadies near US$4,000 as inflation data eases rate-hike bets",
-      "source": "The Business Times",
-      "note": "Reflects current price action and impact of recent US data on Fed rate expectations."
+      "headline": "Gold Rebounds Above $4060 as PCE Eases Rate-Hike Fears; Silver Advances 1.3%",
+      "source": "Daily Precious Metals Market Report",
+      "note": "Immediate positive reaction to softer inflation data, trimming Fed hike odds."
     },
     {
-      "headline": "Cargo ship struck by unknown projectile near Strait of Hormuz, UK Maritime Agency reports",
-      "source": "Mint",
-      "note": "Introduces renewed geopolitical uncertainty, potentially boosting safe-haven demand for gold."
+      "headline": "Record 45% of central banks plan to increase gold holdings, WGC survey finds",
+      "source": "Kitco News",
+      "note": "Highlights strong structural demand, providing a floor despite short-term volatility."
     }
   ]
 }
