@@ -28,7 +28,7 @@ jobs:
           GEMINI_MODEL: gemini-2.5-flash
           SYMBOL: "GC=F"
           OUTPUT_FILE: data/levels.json
-          REFRESH_MIN: "240"
+          REFRESH_MIN: "15"
           BAR_MIN: "15"
         run: node levels.mjs
 
