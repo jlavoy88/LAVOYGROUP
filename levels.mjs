@@ -1,16 +1,14 @@
 // ===========================================================================
 // ASSAY — intraday gold day-trade levels (free-feed edition, for GitHub Actions).
-// Pulls COMEX gold futures (GC=F) OHLC from Yahoo's public chart API, computes
-// day-trade reference levels with PLAIN MATH (no AI), then asks Gemini for a
-// short intraday read on top. Writes data/levels.json for the site to fetch.
+// Pulls COMEX gold futures (GC=F) OHLC from Yahoo's public chart API and computes
+// day-trade reference levels AND a NY-session probability with PLAIN MATH — no AI,
+// no API key. Writes data/levels.json for the site to fetch.
 //
-//   GEMINI_API_KEY=...  node levels.mjs        (key optional — without it you
-//                                               still get all the math levels)
-//   SYMBOL=GC=F (default)   OUTPUT_FILE=data/levels.json   INTERVAL_MIN=15
+//   node levels.mjs
+//   SYMBOL=GC=F (default)   OUTPUT_FILE=data/levels.json   BAR_MIN=15
 //
-// The numbers are computed deterministically from the feed — the model never
-// invents prices. Decision-support only, NOT trade signals. Data may be delayed
-// ~10–15 min on the free feed; never trade off it without confirming live price.
+// Everything is computed deterministically from the feed. Decision-support only,
+// NOT trade signals. Free feed may be delayed ~10–15 min; confirm live price.
 // ===========================================================================
 
 import { writeFile, mkdir } from "node:fs/promises";
@@ -20,8 +18,6 @@ const SYMBOL = process.env.SYMBOL || "GC=F";
 const OUTPUT_FILE = process.env.OUTPUT_FILE || "data/levels.json";
 const REFRESH_MIN = Number(process.env.REFRESH_MIN || 240); // run cadence (for "next update"); workflow runs every 4h
 const BAR_MIN = Number(process.env.BAR_MIN || 15);          // intraday bar size for session ranges
-const API_KEY = process.env.GEMINI_API_KEY;            // optional
-const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 
 // Session windows in UTC hours [start,end). Approximate (ignores DST by ~1h);
 // labelled transparently in the UI. Tweak here if you want tighter windows.
@@ -153,54 +149,74 @@ function computeLevels({ daily, intraday, now }) {
   };
 }
 
-// ---- AI read (optional, no web search → strict JSON, always parseable) ------
+// ---- deterministic NY-session read (no AI, no network) ---------------------
+// Builds a transparent probability that gold closes the NY session HIGHER than
+// the current price, from where price sits vs intraday/prior structure, then
+// dampens conviction when the day's range is already mostly used.
 
-async function geminiRead(L) {
-  if (!API_KEY) return null;
-  const prompt = `You are a gold (XAU) futures day-trader. Below are TODAY'S computed levels for COMEX gold (${L.symbol}). Do NOT invent numbers — only reference the ones given. Assess the upcoming/current NEW YORK session (COMEX, ~8:20am to 5:00pm ET) and write a concise game plan.
+function computeRead(L) {
+  const px = L.price;
+  if (px == null) return null;
+  const t = L.today || {}, pd = L.priorDay || {}, pv = L.pivots || {};
+  let dev = 0;                      // deviation from 50 (positive = bullish)
+  const bump = (cond, w) => { dev += cond ? w : -w; };
 
-DATA:
-price=${L.price} priorClose=${L.priorClose} change=${L.changePts} (${L.changePct}%)
-todayOpen=${L.today.open} todayHigh=${L.today.high} todayLow=${L.today.low} rangeUsed=${L.today.rangeUsedPct}% of ADR(${L.adr})
-Asia H/L=${L.sessions.asia?.high}/${L.sessions.asia?.low}  London H/L=${L.sessions.london?.high}/${L.sessions.london?.low}
-priorDay H/L/C=${L.priorDay.high}/${L.priorDay.low}/${L.priorDay.close}
-pivots P=${L.pivots.p} R1=${L.pivots.r1} R2=${L.pivots.r2} S1=${L.pivots.s1} S2=${L.pivots.s2}
-nearby round levels=${L.roundLevels.join(", ")}
-
-"probabilityUp" = your calibrated probability (integer 0-100) that gold closes the NY session HIGHER than the current price; 50 = a coin flip. Weigh session structure: where price sits vs the day's range, range already used vs ADR (a near-exhausted range lowers continuation odds), Asia/London highs/lows, prior-day levels, pivots, and momentum. Be honest — if it's balanced, stay near 50.
-
-Respond ONLY with minified JSON, no code fences, exactly:
-{"probabilityUp":<integer 0-100>,"bias":"Long|Short|Neutral","confidence":"Low|Medium|High","keyLevel":<number from the data that is the pivotal line in the sand>,"scenarioUp":"<=140 chars: if it holds/breaks above key level, where it goes>","scenarioDown":"<=140 chars: downside scenario>","note":"<=160 chars: range-used / session context caveat>"}`;
-  const body = {
-    contents: [{ role: "user", parts: [{ text: prompt }] }],
-    // thinkingBudget 0 → model answers directly (2.5-flash is a thinking model and will
-    // otherwise spend the token budget reasoning and return empty text).
-    generationConfig: { temperature: 0.3, maxOutputTokens: 2048, responseMimeType: "application/json", thinkingConfig: { thinkingBudget: 0 } },
-  };
-  const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
-  for (let attempt = 1; attempt <= 3; attempt++) {
-    const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": API_KEY }, body: JSON.stringify(body) });
-    const txt = await res.text();
-    if (res.ok) {
-      const data = JSON.parse(txt);
-      const t = (data?.candidates?.[0]?.content?.parts || []).filter((p) => typeof p.text === "string").map((p) => p.text).join("");
-      const s = t.indexOf("{"), e = t.lastIndexOf("}");
-      if (s === -1 || e <= s) {                 // empty / no JSON — retry, then give up
-        if (attempt < 3) { await new Promise((r) => setTimeout(r, attempt * 3000)); continue; }
-        const reason = data?.candidates?.[0]?.finishReason || "empty";
-        return { error: `read empty (${reason})` };
-      }
-      try { return JSON.parse(t.slice(s, e + 1)); }
-      catch (e2) { return { error: `read parse: ${e2.message}` }; }
-    }
-    if ([429, 500, 503].includes(res.status) && attempt < 3) { await new Promise((r) => setTimeout(r, attempt * 4000)); continue; }
-    return { error: `read HTTP ${res.status}` };
+  if (t.open != null) bump(px > t.open, 8);           // above/below today's open
+  if (L.priorClose != null) bump(px > L.priorClose, 7); // up/down on the day
+  if (pv.p != null) bump(px > pv.p, 7);               // above/below daily pivot
+  if (pd.high != null && px > pd.high) dev += 6;      // breakout over prior-day high
+  if (pd.low != null && px < pd.low) dev -= 6;        // breakdown under prior-day low
+  if (t.high != null && t.low != null && t.high > t.low) {
+    const pos = (px - t.low) / (t.high - t.low);      // 0..1 location in today's range
+    dev += (pos - 0.5) * 16;
   }
-  return { error: "read failed" };
+  if (L.changePct != null) dev += Math.max(-6, Math.min(6, L.changePct * 4)); // momentum
+
+  // Range-used dampening: little room left → pull conviction toward neutral.
+  const ru = t.rangeUsedPct;
+  if (ru != null) { if (ru >= 90) dev *= 0.4; else if (ru >= 80) dev *= 0.6; else if (ru >= 70) dev *= 0.8; }
+
+  const probabilityUp = Math.max(2, Math.min(98, Math.round(50 + dev)));
+  const bias = probabilityUp >= 55 ? "Long" : probabilityUp <= 45 ? "Short" : "Neutral";
+  const mag = Math.abs(probabilityUp - 50);
+  let confidence = mag >= 16 ? "High" : mag >= 8 ? "Medium" : "Low";
+  if (ru != null && ru >= 85) confidence = confidence === "High" ? "Medium" : "Low";
+
+  // Key level = the nearest of the structural pivots/anchors to current price.
+  const anchors = [["pivot", pv.p], ["prior close", L.priorClose], ["today open", t.open], ["PDH", pd.high], ["PDL", pd.low]]
+    .filter((a) => a[1] != null);
+  let keyLevel = null, keyName = "";
+  let best = Infinity;
+  for (const [name, v] of anchors) { const d = Math.abs(v - px); if (d < best) { best = d; keyLevel = v; keyName = name; } }
+
+  // Nearest resistance above / support below from all labelled levels.
+  const all = [];
+  const add = (v) => { if (v != null && !Number.isNaN(v)) all.push(+v); };
+  [pd.high, pd.low, pd.close, pv.p, pv.r1, pv.r2, pv.r3, pv.s1, pv.s2, pv.s3, t.open, t.high, t.low,
+   L.sessions?.asia?.high, L.sessions?.asia?.low, L.sessions?.london?.high, L.sessions?.london?.low]
+    .forEach(add);
+  (L.roundLevels || []).forEach(add);
+  const GAP = 1.5;   // ignore levels sitting essentially on top of price
+  const above = [...new Set(all.filter((v) => v > px + GAP))].sort((a, b) => a - b);
+  const below = [...new Set(all.filter((v) => v < px - GAP))].sort((a, b) => b - a);
+  const r1 = above[0], r2 = above[1], s1 = below[0], s2 = below[1];
+
+  const f = (n) => (n == null ? "—" : Number(n).toFixed(1));
+  const scenarioUp = r1 != null
+    ? `Through ${f(r1)} opens ${r2 != null ? f(r2) : "continuation"}.`
+    : `Clear upside above ${f(px)}.`;
+  const scenarioDown = s1 != null
+    ? `Through ${f(s1)} opens ${s2 != null ? f(s2) : "continuation"}.`
+    : `Clear downside below ${f(px)}.`;
+  const note = ru != null
+    ? `${ru}% of ADR(${f(L.adr)}) used — ${ru >= 80 ? "late in range; favor fades at extremes over fresh breakouts" : ru >= 50 ? "about half the day's range spent" : "room left to extend"}.`
+    : `ADR ${f(L.adr)} pts.`;
+
+  return { probabilityUp, bias, confidence, keyLevel, keyName, scenarioUp, scenarioDown, note };
 }
 
 // Exported for unit tests (pure math, no network).
-export { computeLevels, floorPivots, roundMagnets, sessionRange };
+export { computeLevels, computeRead, floorPivots, roundMagnets, sessionRange };
 
 // ---- main -----------------------------------------------------------------
 
@@ -216,7 +232,7 @@ if (isDirectRun) (async () => {
     ]);
     const L = computeLevels({ daily, intraday, now: startedAt });
     console.log(`[levels] price ${L.price}  ADR ${L.adr}  rangeUsed ${L.today.rangeUsedPct}%`);
-    const read = await geminiRead(L).catch((e) => ({ error: e.message }));
+    const read = computeRead(L);   // deterministic — no AI, no network
     out = {
       ...L,
       read,
