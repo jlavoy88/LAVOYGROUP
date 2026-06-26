@@ -1,188 +1,137 @@
 {
   "horizon": "1w",
-  "generatedAt": "2026-06-25T20:36:20.790Z",
-  "nextRunAt": "2026-06-26T00:36:20.790Z",
+  "generatedAt": "2026-06-26T01:01:12.928Z",
+  "nextRunAt": "2026-06-26T05:01:12.928Z",
   "scanning": false,
   "results": {
     "gold": {
       "commodity": "Gold",
-      "asOf": "2026-06-25",
-      "lean": "Bearish",
-      "probabilityUp": 35,
+      "asOf": "2026-06-26",
+      "lean": "Neutral",
+      "probabilityUp": 45,
       "confidence": "Medium",
       "drivers": [
         {
           "factor": "10-yr Real Yields",
           "signal": "bear",
-          "note": "10-year TIPS yield is elevated at 2.25%, increasing the opportunity cost of holding gold."
-        },
-        {
-          "factor": "US Dollar (DXY)",
-          "signal": "bear",
-          "note": "DXY is strong, near a 13-month high (101.41-101.42), making gold more expensive."
+          "note": "Elevated 10-year TIPS yields (2.15%) increase opportunity cost of non-yielding gold."
         },
         {
           "factor": "Fed Policy",
           "signal": "bear",
-          "note": "Hawkish Fed expectations for a September rate hike are weighing on gold."
+          "note": "June FOMC indicated no rate cuts in 2026, with potential for hikes, a hawkish shift."
         },
         {
-          "factor": "Central Bank Demand",
+          "factor": "US Dollar (DXY)",
+          "signal": "neutral",
+          "note": "DXY is strong over past month/year, but recently paused/retreated from 7-week high."
+        },
+        {
+          "factor": "CB/Physical Demand",
           "signal": "bull",
-          "note": "Central banks continue strong gold purchases, providing a long-term floor."
+          "note": "Strong central bank buying continues (244t in Q1 2026), with record future intent."
         }
       ],
-      "read": "Higher real yields, a strong dollar, and hawkish Fed expectations for a September rate hike are creating significant headwinds for gold, likely pushing prices lower over the next week despite persistent central bank demand.",
+      "read": "Gold faces pressure from a hawkish Fed stance and elevated real yields, despite strong underlying central bank and recovering physical demand. Short-term momentum is likely to remain constrained.",
       "live": true
     },
     "realyields": {
       "commodity": "Real Yields",
-      "asOf": "2026-06-25",
+      "asOf": "2024-05-15",
       "lean": "Bearish",
-      "probabilityUp": 25,
+      "probabilityUp": 45,
       "confidence": "Medium",
       "drivers": [
         {
-          "factor": "10-yr Real Yield Trend",
+          "factor": "10Y Nominal Yields",
           "signal": "bear",
-          "note": "10-year TIPS yields have risen over the past month and year, increasing gold's opportunity cost."
+          "note": "Potential for elevated nominal yields, increasing gold's opportunity cost."
         },
         {
-          "factor": "10-yr Real Yield Level",
-          "signal": "bear",
-          "note": "Current 10-year TIPS yield at 2.22% (June 25, 2026) is a high level, a headwind for gold."
+          "factor": "Inflation Breakevens",
+          "signal": "neutral",
+          "note": "Breakevens stable to slightly pressured, not significantly lowering real yields."
         },
         {
-          "factor": "10-yr Inflation Breakeven Trend",
+          "factor": "Fed Policy Outlook",
           "signal": "bear",
-          "note": "Longer-dated breakeven inflation rates have shown modest easing over the past week and month."
+          "note": "Market's 'higher for longer' view supports elevated real yields, a gold headwind."
+        },
+        {
+          "factor": "US Economic Data",
+          "signal": "bear",
+          "note": "Resilient growth could push nominal yields higher, increasing real yields."
         }
       ],
-      "read": "Rising 10-year US real yields, coupled with falling inflation breakevens, present a clear headwind for gold over the next week. The increased opportunity cost of holding non-yielding gold is likely to weigh on its price.",
-      "live": true
+      "read": "Real yields likely to remain elevated or face upward pressure over the next week, driven by firm nominal yields and stable inflation expectations. This scenario increases gold's opportunity cost, acting as a headwind for prices.",
+      "live": false
     },
     "usd": {
       "commodity": "US Dollar",
-      "asOf": "2026-06-25",
+      "asOf": "2026-06-26",
       "lean": "Bearish",
-      "probabilityUp": 35,
+      "probabilityUp": 30,
       "confidence": "Medium",
       "drivers": [
         {
-          "factor": "Hawkish Fed Outlook",
+          "factor": "DXY Trend",
           "signal": "bear",
-          "note": "Increased probability of Fed rate hikes makes USD more attractive, weighing on gold."
+          "note": "Strong DXY near 13-month highs acts as a headwind for gold."
         },
         {
-          "factor": "Widening Rate Differentials",
+          "factor": "Fed Policy Outlook",
           "signal": "bear",
-          "note": "Higher US yields relative to other major economies boost dollar, creating headwinds for gold."
+          "note": "Hawkish Fed expectations for rate hikes support USD, bearish for gold."
         },
         {
-          "factor": "Strong DXY Trend",
+          "factor": "Rate Differentials",
           "signal": "bear",
-          "note": "DXY near multi-year highs indicates sustained dollar strength, bearish for gold."
+          "note": "Widening US rate differentials attract capital, strengthening USD, bearish for gold."
         },
         {
-          "factor": "DXY Overbought Conditions",
+          "factor": "Momentum/Overbought",
           "signal": "neutral",
-          "note": "Technical indicators suggest DXY is overbought, potentially leading to a minor pullback, offering slight relief to gold."
+          "note": "Strong bullish momentum, but DXY is overbought, suggesting potential for temporary pause."
         }
       ],
-      "read": "The US dollar is expected to be a headwind for gold over the next week. A hawkish Federal Reserve outlook and widening interest rate differentials favor dollar strength. While the DXY is technically overbought, the overall trend remains robust.",
+      "read": "The US Dollar is a headwind for gold over the next week. The DXY is near 13-month highs with strong bullish momentum, driven by hawkish Fed expectations and widening rate differentials. While overbought conditions may lead to a temporary pause, the overall trend remains strong USD, weighing on gold prices.",
       "live": true
     },
     "fed": {
-      "commodity": "Fed & Rate Path",
-      "asOf": "2026-06-25",
-      "lean": "Bearish",
-      "probabilityUp": 25,
-      "confidence": "High",
-      "drivers": [
-        {
-          "factor": "June Dot Plot",
-          "signal": "bear",
-          "note": "Median 2026 rate projection implies a hike, a headwind for gold."
-        },
-        {
-          "factor": "Fed Chair Rhetoric",
-          "signal": "bear",
-          "note": "New Chair Warsh's strong hawkish stance on inflation is bearish for gold."
-        },
-        {
-          "factor": "Inflation Data",
-          "signal": "bear",
-          "note": "Elevated May PCE (4.1%) supports tighter policy, bearish for gold."
-        },
-        {
-          "factor": "Rate Hike Expectations",
-          "signal": "bear",
-          "note": "Futures price high probability of a hike by year-end, weighing on gold."
-        }
-      ],
-      "read": "The Federal Reserve's recent hawkish shift, underscored by the June dot plot projecting a 2026 rate hike and Chair Warsh's strong rhetoric prioritizing price stability amid elevated inflation (4.1% PCE), presents a clear headwind for gold over the next week.",
-      "live": true
+      "error": "live: HTTP 429 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 33.787338777s.  |  offline: HTTP 429 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 18.416181341s."
     },
     "haven": {
-      "commodity": "Safe Haven & Geopolitics",
-      "asOf": "2026-06-25",
-      "lean": "Bullish",
-      "probabilityUp": 60,
-      "confidence": "Medium",
-      "drivers": [
-        {
-          "factor": "Equity Volatility (VIX)",
-          "signal": "bear",
-          "note": "VIX is moderate (~19), not signaling high fear, a mild headwind for gold."
-        },
-        {
-          "factor": "Consumer Financial Stress",
-          "signal": "bull",
-          "note": "NFCC FSF indicates high, entrenched consumer financial strain, supporting gold."
-        },
-        {
-          "factor": "Geopolitical Conflicts",
-          "signal": "bull",
-          "note": "Active conflicts (Ukraine, Middle East) with recent escalations (Strait of Hormuz) drive safe-haven flows."
-        },
-        {
-          "factor": "Broader Financial Stress",
-          "signal": "bear",
-          "note": "OFR Financial Stress Index is below average, indicating overall market stability, a headwind for gold."
-        }
-      ],
-      "read": "Despite moderate equity volatility and below-average broader financial stress, entrenched consumer financial strain and active, escalating geopolitical conflicts, particularly in the Middle East and Ukraine, are likely to provide a net tailwind for gold's safe-haven demand over the next week.",
-      "live": true
+      "error": "live: HTTP 429 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 3.027038612s.  |  offline: HTTP 429 — You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 47.596416994s."
     },
     "cbdemand": {
       "commodity": "Central-Bank & Physical Demand",
       "asOf": "2024-05-15",
       "lean": "Neutral",
-      "probabilityUp": 55,
+      "probabilityUp": 53,
       "confidence": "Medium",
       "drivers": [
         {
           "factor": "Central Bank Buying",
           "signal": "bull",
-          "note": "Official sector continues as a structural buyer, providing a floor for gold."
+          "note": "Sustained official sector accumulation provides structural support."
+        },
+        {
+          "factor": "Gold ETF Holdings",
+          "signal": "bear",
+          "note": "Recent outflows suggest reduced investor interest, a near-term headwind."
         },
         {
           "factor": "China Physical Demand",
           "signal": "bull",
-          "note": "Robust demand from China persists, driven by safe-haven and wealth preservation."
-        },
-        {
-          "factor": "Gold ETF Holdings",
-          "signal": "neutral",
-          "note": "ETF flows remain mixed; no strong conviction from institutional investors yet."
+          "note": "Resilient consumer and investment demand continues to underpin prices."
         },
         {
           "factor": "India Physical Demand",
-          "signal": "bear",
-          "note": "High gold prices likely to temper Indian physical demand in the near term."
+          "signal": "neutral",
+          "note": "Price sensitivity may temper buying, but cultural demand persists."
         }
       ],
-      "read": "Structural support from central bank and Chinese physical demand remains robust, acting as a key floor for gold. However, mixed ETF flows and price-sensitive Indian demand could temper upside momentum over the next week, leading to a balanced outlook.",
+      "read": "Conflicting signals from strong central bank and Chinese physical demand versus persistent ETF outflows and price-sensitive Indian buying suggest a neutral near-term impact on gold, with a slight lean towards support.",
       "live": false
     }
   }
