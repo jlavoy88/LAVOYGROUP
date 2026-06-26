@@ -1,28 +1,28 @@
 {
   "symbol": "GC=F",
   "tz": "America/New_York",
-  "price": 4038.2,
+  "price": 4014,
   "priorClose": 3990.3,
-  "changePts": 47.9,
-  "changePct": 1.2,
+  "changePts": 23.7,
+  "changePct": 0.6,
   "today": {
     "open": 4029.9,
     "high": 4044.8,
-    "low": 4026.3,
-    "usedPts": 18.5,
-    "rangeUsedPct": 21
+    "low": 4007,
+    "usedPts": 37.8,
+    "rangeUsedPct": 42
   },
   "adr": 90.2,
   "adrProjection": {
-    "upFromLow": 4116.5,
+    "upFromLow": 4097.2,
     "downFromHigh": 3954.6
   },
   "sessions": {
     "asia": {
       "high": 4044.8,
-      "low": 4026.3,
+      "low": 4007,
       "open": 4029.9,
-      "close": 4038.2
+      "close": 4014
     },
     "london": null
   },
@@ -41,24 +41,24 @@
     "s3": 3792.8
   },
   "roundLevels": [
+    3950,
     3975,
     4000,
     4025,
     4050,
-    4075,
-    4100
+    4075
   ],
   "read": {
-    "probabilityUp": 79,
-    "bias": "Long",
-    "confidence": "High",
-    "keyLevel": 4029.9,
-    "keyName": "today open",
-    "scenarioUp": "Through 4044.8 opens 4050.0.",
-    "scenarioDown": "Through 4029.9 opens 4026.3.",
-    "note": "21% of ADR(90.2) used — room left to extend."
+    "probabilityUp": 39,
+    "bias": "Short",
+    "confidence": "Medium",
+    "keyLevel": 4019.4,
+    "keyName": "pivot",
+    "scenarioUp": "Through 4019.4 opens 4025.0.",
+    "scenarioDown": "Through 4007.0 opens 4000.0.",
+    "note": "42% of ADR(90.2) used — room left to extend."
   },
   "dataLive": true,
-  "generatedAt": "2026-06-26T01:53:22.978Z",
-  "nextRunAt": "2026-06-26T05:53:22.978Z"
+  "generatedAt": "2026-06-26T02:49:30.847Z",
+  "nextRunAt": "2026-06-26T03:04:30.847Z"
 }
