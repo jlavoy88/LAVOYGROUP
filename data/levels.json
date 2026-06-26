@@ -1,28 +1,28 @@
 {
   "symbol": "GC=F",
   "tz": "America/New_York",
-  "price": 4035.9,
+  "price": 4038.5,
   "priorClose": 3990.3,
-  "changePts": 45.6,
-  "changePct": 1.1,
+  "changePts": 48.2,
+  "changePct": 1.2,
   "today": {
     "open": 4029.9,
-    "high": 4035.9,
+    "high": 4038.5,
     "low": 4026.3,
-    "usedPts": 9.6,
-    "rangeUsedPct": 11
+    "usedPts": 12.2,
+    "rangeUsedPct": 14
   },
   "adr": 90.2,
   "adrProjection": {
     "upFromLow": 4116.5,
-    "downFromHigh": 3945.7
+    "downFromHigh": 3948.3
   },
   "sessions": {
     "asia": {
-      "high": 4035.9,
+      "high": 4038.5,
       "low": 4026.3,
       "open": 4029.9,
-      "close": 4035.9
+      "close": 4038.5
     },
     "london": null
   },
@@ -49,9 +49,15 @@
     4100
   ],
   "read": {
-    "error": "read parse: Unexpected end of JSON input"
+    "probabilityUp": 65,
+    "bias": "Long",
+    "confidence": "Medium",
+    "keyLevel": 4025,
+    "scenarioUp": "If 4025 holds, look for a push towards R1 (4075.6) and potentially 4100.",
+    "scenarioDown": "Break below 4025 could see a retest of P (4019.4) then S1 (3934.2).",
+    "note": "Price is currently at the day's high, with only 14% of ADR used, suggesting room for continuation. Above 4025 is bullish."
   },
   "dataLive": true,
-  "generatedAt": "2026-06-26T00:26:03.284Z",
-  "nextRunAt": "2026-06-26T00:41:03.284Z"
+  "generatedAt": "2026-06-26T00:56:44.582Z",
+  "nextRunAt": "2026-06-26T04:56:44.582Z"
 }
