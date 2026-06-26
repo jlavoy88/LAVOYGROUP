@@ -1,4 +1,48 @@
 {
-  "pending": true,
-  "generatedAt": null
+  "generatedAt": "2026-06-26T02:34:51.715Z",
+  "asOf": "2026-06-26",
+  "live": true,
+  "riskTone": {
+    "lean": "Mixed",
+    "note": "Geopolitical risk easing with US-Iran peace talks, but hawkish Fed signals keep overall sentiment cautious, limiting gold's upside."
+  },
+  "overnight": "Gold traded around $4,000, seeing a modest rebound after Thursday's US PCE inflation data eased some rate-hike concerns. The DXY remained firm, while Treasury yields dipped. Geopolitical headlines were mixed, with US-Iran peace talks progressing but a cargo ship incident reported near the Strait of Hormuz.",
+  "sectorDrivers": "Real (TIPS) yields remain elevated around 2.25% (10-yr), a headwind for gold. The US Dollar (DXY) is firm near 101.5, supported by the Fed's hawkish stance. Fed policy expectations lean towards rate hikes by year-end, pressuring non-yielding gold. Safe-haven demand is mixed; US-Iran peace efforts ease tensions, but a Strait of Hormuz incident adds minor risk. Central bank demand remains robust, wi",
+  "keyEvents": [
+    {
+      "time": "08:30 ET",
+      "event": "Durable Goods Orders",
+      "impact": "Med",
+      "note": "Indicates manufacturing health, impacting growth outlook and Fed policy expectations."
+    },
+    {
+      "time": "08:30 ET",
+      "event": "GDP (Final)",
+      "impact": "High",
+      "note": "Key growth indicator, influences Fed policy path and broader risk sentiment."
+    },
+    {
+      "time": "08:30 ET",
+      "event": "Jobless Claims",
+      "impact": "High",
+      "note": "Crucial for assessing labor market health and its implications for Fed's rate path."
+    }
+  ],
+  "headlines": [
+    {
+      "headline": "Central Bank Gold Purchases Hit 1,000t Average: WGC Survey",
+      "source": "Mexico Business News",
+      "note": "Signals strong structural demand, providing a significant long-term floor for gold."
+    },
+    {
+      "headline": "Gold steadies near US$4,000 as inflation data eases rate-hike bets",
+      "source": "The Business Times",
+      "note": "Reflects current price action and impact of recent US data on Fed rate expectations."
+    },
+    {
+      "headline": "Cargo ship struck by unknown projectile near Strait of Hormuz, UK Maritime Agency reports",
+      "source": "Mint",
+      "note": "Introduces renewed geopolitical uncertainty, potentially boosting safe-haven demand for gold."
+    }
+  ]
 }
