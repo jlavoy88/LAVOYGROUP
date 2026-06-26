@@ -8,10 +8,11 @@ name: Morning prep gold brief
 on:
   schedule:
     # Mornings (US/Eastern), Mon–Fri. Cron is UTC. Times below assume EDT (summer, UTC-4):
-    # 11:45 / 13:45 / 15:45 UTC = 7:45am / 9:45am / 11:45am ET. First run = 7:45am.
-    # NOTE: in winter (EST, UTC-5) these shift one hour earlier (6:45/8:45/10:45am ET).
-    # To keep 7:45am ET in winter, change "45 11,13,15" to "45 12,14,16".
-    - cron: "45 11,13,15 * * 1-5"
+    # 11:00 UTC = 7:00am ET; 11:45 / 13:45 / 15:45 UTC = 7:45 / 9:45 / 11:45am ET.
+    # NOTE: in winter (EST, UTC-5) these shift one hour earlier. To keep the same ET
+    # times in winter, add 1 hour to each UTC hour (12:00, and 12:45/14:45/16:45).
+    - cron: "0 11 * * 1-5"        # 7:00am ET
+    - cron: "45 11,13,15 * * 1-5" # 7:45 / 9:45 / 11:45am ET
   workflow_dispatch: {}
 
 permissions:
