@@ -114,6 +114,38 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 .fdisc{font-size:11.5px;color:#83837a;max-width:60em;margin-top:24px;line-height:1.6}
 .copy{font-size:12.5px;color:#9a9a90;margin-top:14px}
+
+/* Long headings stay on one line only on wider screens */
+.nowrap-lg{white-space:normal}
+@media(min-width:780px){.nowrap-lg{white-space:nowrap}}
+
+/* MOBILE */
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .hero{padding:124px 0 64px}
+  .hero .eyebrow{font-size:clamp(23px,7vw,32px);letter-spacing:.03em}
+  .hero p.lead{font-size:16px;margin:20px auto 28px}
+  .hero .cta{gap:10px}
+  .btn{padding:13px 22px}
+  .services,.process,.outcomes,.contact-sec,.clients{padding:64px 0}
+  .sec-head{margin-bottom:34px}
+  .sec-head h2,.clients h2,.contact-sec h2{font-size:clamp(24px,6.4vw,30px)}
+  .sec-head p,.clients p,.contact-sec p.intro{font-size:15.5px}
+  .card{padding:26px 22px}
+  .card h3{font-size:18px}
+  .step{padding:22px 20px}
+  .olist{gap:11px}
+  .oitem{font-size:15px}
+  .tags{gap:9px;margin-top:28px}
+  .tag{font-size:13px;padding:8px 15px}
+  .nav{height:62px}
+  .brand-name{font-size:14px;letter-spacing:.1em}
+  .brand-mark{height:26px}
+}
+@media(max-width:380px){
+  .nav a.contact{padding:8px 13px;font-size:12px}
+  .brand-name{font-size:12.5px}
+}
 </style>
 </head>
 <body>
@@ -148,7 +180,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">What we do</span>
-      <h2 style="white-space:nowrap">Three ways we help you work better</h2>
+      <h2 class="nowrap-lg">Three ways we help you work better</h2>
       <p>Automate the busywork, get a clear read on how your operations should run, and put a sharp online presence behind it all. Most clients start with one and grow into more.</p>
     </div>
     <div class="cards">
@@ -175,7 +207,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">How it works</span>
-      <h2 style="white-space:nowrap">From bottleneck to a better way of working</h2>
+      <h2 class="nowrap-lg">From bottleneck to a better way of working</h2>
       <p>A straightforward path from the first call to workflows that run themselves.</p>
     </div>
     <div class="steps">
@@ -191,7 +223,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Why companies work with us</span>
-      <h2 style="white-space:nowrap">Less busywork. Clearer operations.</h2>
+      <h2 class="nowrap-lg">Less busywork. Clearer operations.</h2>
     </div>
     <div class="olist">
       <div class="oitem"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>Free your team from repetitive, manual work</span></div>
