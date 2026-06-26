@@ -145,6 +145,9 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
 .lv-scn .up .lbl{color:#0a4a03}.lv-scn .dn .lbl{color:#8a2a22}
 .lv-note{font-size:12.5px;color:#3d3d38;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
 .lv-err{border:1px solid var(--line);border-radius:5px;padding:16px 18px;color:#b3261e;font-size:13px}
+.rf-btn{margin-top:9px;font:600 11px/1 'Inter',sans-serif;letter-spacing:.04em;color:var(--green);background:#fff;border:1px solid var(--line);border-radius:3px;padding:7px 13px;cursor:pointer;transition:.2s}
+.rf-btn:hover{border-color:var(--green);background:var(--paper2)}
+.rf-btn[disabled]{opacity:.55;cursor:default}
 /* NY session probability */
 .lv-prob{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
 .lv-prob-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
@@ -301,7 +304,7 @@ cform.addEventListener('submit',e=>{
 (function(){
   var ENDPOINT='data/levels.json', POLL=3*60*1000;
   var root=document.getElementById('lv-root'); if(!root) return;
-  var data=null, err=null;
+  var data=null, err=null, refreshing=false;
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function f1(n){return (n==null||isNaN(n))?'—':Number(n).toFixed(1);}
   function ago(iso){if(!iso)return '—';var s=Math.max(0,(Date.now()-new Date(iso).getTime())/1000);if(s<60)return 'just now';var m=Math.floor(s/60);if(m<60)return m+'m ago';var h=Math.floor(m/60);return h+'h '+(m%60)+'m ago';}
@@ -388,20 +391,21 @@ cform.addEventListener('submit',e=>{
 
     root.innerHTML=''
       +'<div class="lv-head"><div><div class="lv-ey">Gold Futures · Intraday ('+esc(d.symbol||'GC=F')+')</div><h2 class="lv-h2">Sessions &amp; Levels</h2></div>'
-      +'<div class="lv-price"><div class="px">'+f1(price)+'</div><div class="chg" style="color:'+chgCol+'">'+(up?'+':'')+f1(d.changePts)+' ('+(up?'+':'')+f1(d.changePct)+'%)</div><div class="upd">updated '+ago(d.generatedAt)+'</div></div></div>'
+      +'<div class="lv-price"><div class="px">'+f1(price)+'</div><div class="chg" style="color:'+chgCol+'">'+(up?'+':'')+f1(d.changePts)+' ('+(up?'+':'')+f1(d.changePct)+'%)</div><div class="upd">updated '+ago(d.generatedAt)+'</div><button class="rf-btn" data-rf'+(refreshing?' disabled':'')+'>'+(refreshing?'Refreshing…':'↻ Refresh')+'</button></div></div>'
       +'<div class="lv-grid"><div class="lv-card"><h3>Key levels near price</h3>'+ladder+'</div><div class="lv-card"><h3>Range &amp; sessions</h3>'+stats+'</div></div>'
       +readHtml;
   }
 
   function fetchLevels(){
-    fetch(ENDPOINT,{headers:{Accept:'application/json'}}).then(function(res){
+    fetch(ENDPOINT+'?_='+Date.now(),{headers:{Accept:'application/json'},cache:'no-store'}).then(function(res){
       return res.text().then(function(raw){
         var j; try{j=JSON.parse(raw);}catch(_){throw new Error('non-JSON from '+ENDPOINT);}
         if(!res.ok) throw new Error('HTTP '+res.status);
-        data=j; err=null; render();
+        data=j; err=null; refreshing=false; render();
       });
-    }).catch(function(e){ err=e.message||'failed to load'; render(); });
+    }).catch(function(e){ err=e.message||'failed to load'; refreshing=false; render(); });
   }
+  root.addEventListener('click',function(e){ if(e.target.closest('[data-rf]')){ refreshing=true; render(); fetchLevels(); }});
   fetchLevels();
   setInterval(fetchLevels,POLL);
   setInterval(function(){ if(data) render(); },30000);
@@ -412,7 +416,7 @@ cform.addEventListener('submit',e=>{
 (function(){
   var ENDPOINT='data/prep.json', POLL=10*60*1000;
   var root=document.getElementById('mp-root'); if(!root) return;
-  var data=null, err=null;
+  var data=null, err=null, refreshing=false;
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function ago(iso){if(!iso)return '—';var s=Math.max(0,(Date.now()-new Date(iso).getTime())/1000);if(s<60)return 'just now';var m=Math.floor(s/60);if(m<60)return m+'m ago';var h=Math.floor(m/60);if(h<24)return h+'h '+(m%60)+'m ago';return Math.floor(h/24)+'d ago';}
 
@@ -466,7 +470,8 @@ cform.addEventListener('submit',e=>{
     root.innerHTML=''
       +'<div class="mp-head"><div><div class="mp-ey">Pre-market · Gold</div><h2 class="mp-h2">Morning Prep</h2></div>'
       +'<div class="mp-meta"><span class="mp-tone" style="color:'+tcol+';background:'+tcol+'14;border:1px solid '+tcol+'55">'+esc((d.riskTone&&d.riskTone.lean)||'Mixed')+'</span>'
-      +'<div class="mp-upd">updated '+ago(d.generatedAt)+(d.live===false?' · cached':'')+'</div></div></div>'
+      +'<div class="mp-upd">updated '+ago(d.generatedAt)+(d.live===false?' · cached':'')+'</div>'
+      +'<button class="rf-btn" data-rf'+(refreshing?' disabled':'')+'>'+(refreshing?'Refreshing…':'↻ Refresh')+'</button></div></div>'
       +'<div class="mp-grid">'
       +'<div class="mp-card"><h3>Macro brief</h3>'+brief+'</div>'
       +'<div class="mp-card"><h3>Today’s key events</h3>'+events+'</div>'
@@ -476,14 +481,15 @@ cform.addEventListener('submit',e=>{
   }
 
   function fetchPrep(){
-    fetch(ENDPOINT,{headers:{Accept:'application/json'}}).then(function(res){
+    fetch(ENDPOINT+'?_='+Date.now(),{headers:{Accept:'application/json'},cache:'no-store'}).then(function(res){
       return res.text().then(function(raw){
         var j; try{j=JSON.parse(raw);}catch(_){throw new Error('non-JSON from '+ENDPOINT);}
         if(!res.ok) throw new Error('HTTP '+res.status);
-        data=j; err=null; render();
+        data=j; err=null; refreshing=false; render();
       });
-    }).catch(function(e){ err=e.message||'failed to load'; if(!data) root.innerHTML='<div class="mp-boot">Awaiting first morning brief…</div>'; });
+    }).catch(function(e){ err=e.message||'failed to load'; refreshing=false; if(!data) root.innerHTML='<div class="mp-boot">Awaiting first morning brief…</div>'; else render(); });
   }
+  root.addEventListener('click',function(e){ if(e.target.closest('[data-rf]')){ refreshing=true; render(); fetchPrep(); }});
   fetchPrep();
   setInterval(fetchPrep,POLL);
   setInterval(function(){ if(data) render(); },60000);
