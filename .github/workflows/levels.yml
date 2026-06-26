@@ -7,7 +7,7 @@ name: ASSAY intraday gold levels
 
 on:
   schedule:
-    - cron: "*/15 * * * 1-5"   # every 15 min, Mon–Fri (UTC). GitHub may delay/skip under load.
+    - cron: "0 */4 * * *"   # every 15 min, Mon–Fri (UTC). GitHub may delay/skip under load.
   workflow_dispatch: {}
 
 permissions:
