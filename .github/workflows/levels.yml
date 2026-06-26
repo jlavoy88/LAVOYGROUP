@@ -1,0 +1,49 @@
+name: ASSAY intraday gold levels
+
+# Computes COMEX gold (GC=F) day-trade levels from a free price feed every 15 min
+# on weekdays and commits data/levels.json. The homepage Sessions & Levels panel
+# reads that file. GEMINI_API_KEY is optional — without it you still get all the
+# math levels, just no AI read.
+
+on:
+  schedule:
+    - cron: "*/15 * * * 1-5"   # every 15 min, Mon–Fri (UTC). GitHub may delay/skip under load.
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: assay-levels
+  cancel-in-progress: true
+
+jobs:
+  levels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Compute levels
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash
+          SYMBOL: "GC=F"
+          OUTPUT_FILE: data/levels.json
+          REFRESH_MIN: "15"
+        run: node levels.mjs        # no dependencies
+
+      - name: Commit levels
+        run: |
+          git config user.name  "assay-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/levels.json
+          if git diff --staged --quiet; then
+            echo "no change"
+          else
+            git commit -m "chore: update intraday levels [skip ci]"
+            git push
+          fi
