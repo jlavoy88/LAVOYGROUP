@@ -18,7 +18,8 @@ import { dirname } from "node:path";
 
 const SYMBOL = process.env.SYMBOL || "GC=F";
 const OUTPUT_FILE = process.env.OUTPUT_FILE || "data/levels.json";
-const REFRESH_MIN = Number(process.env.REFRESH_MIN || 15);
+const REFRESH_MIN = Number(process.env.REFRESH_MIN || 240); // run cadence (for "next update"); workflow runs every 4h
+const BAR_MIN = Number(process.env.BAR_MIN || 15);          // intraday bar size for session ranges
 const API_KEY = process.env.GEMINI_API_KEY;            // optional
 const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 
@@ -204,7 +205,7 @@ if (isDirectRun) (async () => {
   let out;
   try {
     const [intraday, daily] = await Promise.all([
-      yahooChart(`${REFRESH_MIN}m`, "5d"),
+      yahooChart(`${BAR_MIN}m`, "5d"),
       yahooChart("1d", "2mo"),
     ]);
     const L = computeLevels({ daily, intraday, now: startedAt });
