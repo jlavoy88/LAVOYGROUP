@@ -186,8 +186,16 @@ footer{background:var(--ink);color:#cfcfc6;padding:46px 0 32px}
 .lv-scn .s .lbl{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:3px}
 .lv-scn .up .lbl{color:#0a4a03}.lv-scn .dn .lbl{color:#8a2a22}
 .lv-note{font-size:12.5px;color:#3d3d38;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
-.lv-foot{font-size:11px;line-height:1.6;color:var(--faint);margin-top:18px;max-width:760px}
 .lv-err{border:1px solid var(--line);border-radius:5px;padding:16px 18px;color:#b3261e;font-size:13px}
+/* NY session probability */
+.lv-prob{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.lv-prob-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.lv-prob-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lv-prob-val{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.lv-prob-val em{font-style:normal;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-left:6px}
+.lv-prob-track{position:relative;height:10px;border-radius:5px;background:linear-gradient(90deg,#b3261e 0%,#e4e1d8 50%,#0d5e04 100%)}
+.lv-prob-mark{position:absolute;top:-4px;width:4px;height:18px;border-radius:2px;background:var(--ink);transform:translateX(-2px);box-shadow:0 0 0 2px #fff}
+.lv-prob-scale{display:flex;justify-content:space-between;margin-top:6px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
 </style>
 </head>
 <body>
@@ -480,7 +488,18 @@ cform.addEventListener('submit',e=>{
     var r=d.read;
     if(r&&!r.error){
       var bcol=r.bias==='Long'?'#0d5e04':r.bias==='Short'?'#b3261e':'#6b6b63';
-      readHtml='<div class="lv-read">'
+      // NY session probability bar
+      var prob='';
+      if(r.probabilityUp!=null&&!isNaN(r.probabilityUp)){
+        var pu=Math.max(0,Math.min(100,Math.round(r.probabilityUp)));
+        var plean=pu>=55?'Bullish':pu<=45?'Bearish':'Neutral';
+        var pcol=pu>=55?'#0d5e04':pu<=45?'#b3261e':'#6b6b63';
+        prob='<div class="lv-prob"><div class="lv-prob-top"><span class="lv-prob-lbl">NY session bias · prob. higher by close</span>'
+          +'<span class="lv-prob-val" style="color:'+pcol+'">'+pu+'%<em>'+plean+'</em></span></div>'
+          +'<div class="lv-prob-track"><span class="lv-prob-mark" style="left:'+pu+'%"></span></div>'
+          +'<div class="lv-prob-scale"><span>Bearish</span><span>AI estimate</span><span>Bullish</span></div></div>';
+      }
+      readHtml='<div class="lv-read">'+prob
         +'<div class="bias"><span class="lv-biaschip" style="color:'+bcol+';background:'+bcol+'14;border:1px solid '+bcol+'55">'+esc(r.bias||'—')+'</span>'
         +'<span class="lv-key">conf. '+esc(String(r.confidence||'—').toLowerCase())+(r.keyLevel!=null?' · key level <b>'+f1(r.keyLevel)+'</b>':'')+'</span></div>'
         +'<div class="lv-scn"><div class="s up"><span class="lbl">If it holds / breaks up</span>'+esc(r.scenarioUp||'—')+'</div><div class="s dn"><span class="lbl">Downside</span>'+esc(r.scenarioDown||'—')+'</div></div>'
@@ -491,8 +510,7 @@ cform.addEventListener('submit',e=>{
       +'<div class="lv-head"><div><div class="lv-ey">Gold Futures · Intraday ('+esc(d.symbol||'GC=F')+')</div><h2 class="lv-h2">Sessions &amp; Levels</h2></div>'
       +'<div class="lv-price"><div class="px">'+f1(price)+'</div><div class="chg" style="color:'+chgCol+'">'+(up?'+':'')+f1(d.changePts)+' ('+(up?'+':'')+f1(d.changePct)+'%)</div><div class="upd">updated '+ago(d.generatedAt)+'</div></div></div>'
       +'<div class="lv-grid"><div class="lv-card"><h3>Key levels near price</h3>'+ladder+'</div><div class="lv-card"><h3>Range &amp; sessions</h3>'+stats+'</div></div>'
-      +readHtml
-      +'<div class="lv-foot">Levels are computed from COMEX gold futures (GC=F) price data; the AI read references only those numbers. Free feed may be delayed ~10–15 min — confirm against live price before acting. Sessions use approximate UTC windows. Decision-support only, not trade signals or financial advice.</div>';
+      +readHtml;
   }
 
   function fetchLevels(){

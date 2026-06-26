@@ -156,7 +156,7 @@ function computeLevels({ daily, intraday, now }) {
 
 async function geminiRead(L) {
   if (!API_KEY) return null;
-  const prompt = `You are a gold (XAU) futures day-trader. Below are TODAY'S computed levels for COMEX gold (${L.symbol}). Do NOT invent numbers — only reference the ones given. Write a concise intraday game plan.
+  const prompt = `You are a gold (XAU) futures day-trader. Below are TODAY'S computed levels for COMEX gold (${L.symbol}). Do NOT invent numbers — only reference the ones given. Assess the upcoming/current NEW YORK session (COMEX, ~8:20am to 5:00pm ET) and write a concise game plan.
 
 DATA:
 price=${L.price} priorClose=${L.priorClose} change=${L.changePts} (${L.changePct}%)
@@ -166,8 +166,10 @@ priorDay H/L/C=${L.priorDay.high}/${L.priorDay.low}/${L.priorDay.close}
 pivots P=${L.pivots.p} R1=${L.pivots.r1} R2=${L.pivots.r2} S1=${L.pivots.s1} S2=${L.pivots.s2}
 nearby round levels=${L.roundLevels.join(", ")}
 
+"probabilityUp" = your calibrated probability (integer 0-100) that gold closes the NY session HIGHER than the current price; 50 = a coin flip. Weigh session structure: where price sits vs the day's range, range already used vs ADR (a near-exhausted range lowers continuation odds), Asia/London highs/lows, prior-day levels, pivots, and momentum. Be honest — if it's balanced, stay near 50.
+
 Respond ONLY with minified JSON, no code fences, exactly:
-{"bias":"Long|Short|Neutral","confidence":"Low|Medium|High","keyLevel":<number from the data that is the pivotal line in the sand>,"scenarioUp":"<=140 chars: if it holds/breaks above key level, where it goes>","scenarioDown":"<=140 chars: downside scenario>","note":"<=160 chars: range-used / session context caveat>"}`;
+{"probabilityUp":<integer 0-100>,"bias":"Long|Short|Neutral","confidence":"Low|Medium|High","keyLevel":<number from the data that is the pivotal line in the sand>,"scenarioUp":"<=140 chars: if it holds/breaks above key level, where it goes>","scenarioDown":"<=140 chars: downside scenario>","note":"<=160 chars: range-used / session context caveat>"}`;
   const body = {
     contents: [{ role: "user", parts: [{ text: prompt }] }],
     generationConfig: { temperature: 0.3, maxOutputTokens: 1200, responseMimeType: "application/json" },
