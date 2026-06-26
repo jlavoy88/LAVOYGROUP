@@ -1,1 +1,57 @@
-{"pending":true} 
+{
+  "symbol": "GC=F",
+  "tz": "America/New_York",
+  "price": 4035.9,
+  "priorClose": 3990.3,
+  "changePts": 45.6,
+  "changePct": 1.1,
+  "today": {
+    "open": 4029.9,
+    "high": 4035.9,
+    "low": 4026.3,
+    "usedPts": 9.6,
+    "rangeUsedPct": 11
+  },
+  "adr": 90.2,
+  "adrProjection": {
+    "upFromLow": 4116.5,
+    "downFromHigh": 3945.7
+  },
+  "sessions": {
+    "asia": {
+      "high": 4035.9,
+      "low": 4026.3,
+      "open": 4029.9,
+      "close": 4035.9
+    },
+    "london": null
+  },
+  "priorDay": {
+    "high": 4104.7,
+    "low": 3963.3,
+    "close": 3990.3
+  },
+  "pivots": {
+    "p": 4019.4,
+    "r1": 4075.6,
+    "s1": 3934.2,
+    "r2": 4160.8,
+    "s2": 3878,
+    "r3": 4217,
+    "s3": 3792.8
+  },
+  "roundLevels": [
+    3975,
+    4000,
+    4025,
+    4050,
+    4075,
+    4100
+  ],
+  "read": {
+    "error": "read parse: Unexpected end of JSON input"
+  },
+  "dataLive": true,
+  "generatedAt": "2026-06-26T00:26:03.284Z",
+  "nextRunAt": "2026-06-26T00:41:03.284Z"
+}
