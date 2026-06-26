@@ -173,19 +173,25 @@ Respond ONLY with minified JSON, no code fences, exactly:
 {"probabilityUp":<integer 0-100>,"bias":"Long|Short|Neutral","confidence":"Low|Medium|High","keyLevel":<number from the data that is the pivotal line in the sand>,"scenarioUp":"<=140 chars: if it holds/breaks above key level, where it goes>","scenarioDown":"<=140 chars: downside scenario>","note":"<=160 chars: range-used / session context caveat>"}`;
   const body = {
     contents: [{ role: "user", parts: [{ text: prompt }] }],
-    generationConfig: { temperature: 0.3, maxOutputTokens: 1200, responseMimeType: "application/json" },
+    // thinkingBudget 0 → model answers directly (2.5-flash is a thinking model and will
+    // otherwise spend the token budget reasoning and return empty text).
+    generationConfig: { temperature: 0.3, maxOutputTokens: 2048, responseMimeType: "application/json", thinkingConfig: { thinkingBudget: 0 } },
   };
   const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
   for (let attempt = 1; attempt <= 3; attempt++) {
     const res = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": API_KEY }, body: JSON.stringify(body) });
     const txt = await res.text();
     if (res.ok) {
-      try {
-        const data = JSON.parse(txt);
-        const t = (data?.candidates?.[0]?.content?.parts || []).filter((p) => typeof p.text === "string").map((p) => p.text).join("");
-        const s = t.indexOf("{"), e = t.lastIndexOf("}");
-        return JSON.parse(t.slice(s, e + 1));
-      } catch (e) { return { error: `read parse: ${e.message}` }; }
+      const data = JSON.parse(txt);
+      const t = (data?.candidates?.[0]?.content?.parts || []).filter((p) => typeof p.text === "string").map((p) => p.text).join("");
+      const s = t.indexOf("{"), e = t.lastIndexOf("}");
+      if (s === -1 || e <= s) {                 // empty / no JSON — retry, then give up
+        if (attempt < 3) { await new Promise((r) => setTimeout(r, attempt * 3000)); continue; }
+        const reason = data?.candidates?.[0]?.finishReason || "empty";
+        return { error: `read empty (${reason})` };
+      }
+      try { return JSON.parse(t.slice(s, e + 1)); }
+      catch (e2) { return { error: `read parse: ${e2.message}` }; }
     }
     if ([429, 500, 503].includes(res.status) && attempt < 3) { await new Promise((r) => setTimeout(r, attempt * 4000)); continue; }
     return { error: `read HTTP ${res.status}` };
