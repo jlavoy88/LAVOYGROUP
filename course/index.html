@@ -100,6 +100,13 @@ section{padding:78px 0}
 .price-card .foot{padding:6px 32px 30px;text-align:center}
 .price-card .foot .btn{width:100%;text-align:center;padding:15px}
 .price-card .foot .g{font-size:12.5px;color:var(--muted);margin-top:12px}
+.wl-form{display:flex;flex-direction:column;gap:10px}
+.wl-form input{font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px 14px;transition:.2s;width:100%}
+.wl-form input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(13,94,4,.08)}
+.wl-form button{width:100%;cursor:pointer;margin-top:2px}
+.wl-note{font-size:13px;text-align:center;min-height:1em;margin-top:2px}
+.wl-note.ok{color:var(--green)}
+.wl-note.err{color:#b3261e}
 
 /* FAQ */
 .faq-list{max-width:800px;margin:0 auto}
@@ -154,7 +161,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
         <a class="navlink" href="../">Home</a>
         <a class="navlink" href="../education/">Free Course</a>
         <a class="navlink" href="#faq">FAQ</a>
-        <a class="enroll" href="#pricing">Enroll</a>
+        <a class="enroll" href="#pricing">Waiting list</a>
       </nav>
     </div>
   </div>
@@ -167,7 +174,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
     <p class="lead">Escape the retail slaughterhouse. A rigid, quantitative framework for trading Gold Futures the way institutional algorithms actually move it &mdash; not the way retail educators say it moves.</p>
     <div class="asset">Built exclusively for <b>Gold Futures · GC</b></div>
     <div class="cta">
-      <a class="btn btn-solid" href="#pricing" style="border-color:var(--gold);background:var(--gold)">Enroll now</a>
+      <a class="btn btn-solid" href="#pricing" style="border-color:var(--gold);background:var(--gold)">Join the waiting list</a>
       <a class="btn btn-ghost" href="#who" style="border-color:#4a4a44;color:#e8e8e0">Is it for you?</a>
       <span class="meta">7 modules · lifetime access</span>
     </div>
@@ -225,9 +232,9 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
 <section class="pricing" id="pricing">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="tag-num">02 · Enroll</span>
+      <span class="tag-num">02 · Waiting List</span>
       <h2>Get the complete framework</h2>
-      <p>One system, hardcoded for Gold. Lifetime access to every module, chart study, and execution checklist.</p>
+      <p>The course opens to a limited founding group. Join the waiting list to reserve your place and be first to know when doors open.</p>
     </div>
     <div class="price-card">
       <div class="top">
@@ -247,8 +254,13 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
         <li><span class="chk">&#10003;</span> Lifetime access &amp; future updates</li>
       </ul>
       <div class="foot">
-        <a class="btn btn-solid" href="#enroll-cta" style="background:var(--gold);border-color:var(--gold)">Enroll now</a>
-        <div class="g">Secure checkout · instant access</div>
+        <form class="wl-form" id="wlForm" novalidate>
+          <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
+          <input type="email" name="email" placeholder="Your email" autocomplete="email" required>
+          <button type="submit" class="btn btn-solid" style="background:var(--gold);border-color:var(--gold)">Join the waiting list</button>
+          <div class="wl-note" id="wlNote"></div>
+        </form>
+        <div class="g">No payment now · founding price locked in when doors open</div>
       </div>
     </div>
   </div>
@@ -276,7 +288,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
     <span class="eyebrow">Stop being the exit liquidity</span>
     <h2>Trade in the algorithm&rsquo;s wake &mdash; not under its wheels.</h2>
     <p>The Grid gives you the map. The Execution Models give you the trigger. The discipline, you bring yourself.</p>
-    <a class="btn btn-solid" href="#pricing" style="background:var(--gold);border-color:var(--gold);padding:15px 38px">Enroll in the Grid Matrix</a>
+    <a class="btn btn-solid" href="#pricing" style="background:var(--gold);border-color:var(--gold);padding:15px 38px">Join the waiting list</a>
     <p class="disc"><b>Risk disclaimer:</b> This course is for educational and informational purposes only and is not financial advice, a recommendation, or an offer or solicitation to buy or sell any security, future, or financial instrument. Trading futures carries a substantial risk of loss and is not suitable for every investor. Past performance and any figures shown are not indicative of future results. You are solely responsible for your own trading decisions.</p>
   </div>
 </section>
@@ -299,6 +311,16 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
 document.getElementById('yr').textContent=new Date().getFullYear();
 document.getElementById('menuBtn').onclick=()=>document.getElementById('navRight').classList.toggle('show');
 document.querySelectorAll('#navRight a').forEach(a=>a.onclick=()=>document.getElementById('navRight').classList.remove('show'));
+var wl=document.getElementById('wlForm');
+if(wl)wl.addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=wl.querySelector('[name=name]').value.trim(), em=wl.querySelector('[name=email]').value.trim(), note=document.getElementById('wlNote');
+  if(!n||!em){note.textContent='Please enter your name and email.';note.className='wl-note err';return;}
+  var subj=encodeURIComponent('The Institutional Grid Matrix — Waiting List');
+  var body=encodeURIComponent('Please add me to the waiting list for The Institutional Grid Matrix.\n\nName: '+n+'\nEmail: '+em);
+  window.location.href='mailto:info@lavoygroup.com?subject='+subj+'&body='+body;
+  note.textContent='Opening your email app to send your request…';note.className='wl-note ok';
+});
 </script>
 </body>
 </html>

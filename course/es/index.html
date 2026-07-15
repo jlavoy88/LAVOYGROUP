@@ -100,6 +100,13 @@ section{padding:78px 0}
 .price-card .foot{padding:6px 32px 30px;text-align:center}
 .price-card .foot .btn{width:100%;text-align:center;padding:15px}
 .price-card .foot .g{font-size:12.5px;color:var(--muted);margin-top:12px}
+.wl-form{display:flex;flex-direction:column;gap:10px}
+.wl-form input{font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:4px;padding:12px 14px;transition:.2s;width:100%}
+.wl-form input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(13,94,4,.08)}
+.wl-form button{width:100%;cursor:pointer;margin-top:2px}
+.wl-note{font-size:13px;text-align:center;min-height:1em;margin-top:2px}
+.wl-note.ok{color:var(--green)}
+.wl-note.err{color:#b3261e}
 
 /* FAQ */
 .faq-list{max-width:800px;margin:0 auto}
@@ -154,7 +161,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
         <a class="navlink" href="../../">Inicio</a>
         <a class="navlink" href="../../education/es/">Curso gratuito</a>
         <a class="navlink" href="#faq">Preguntas</a>
-        <a class="enroll" href="#pricing">Inscríbete</a>
+        <a class="enroll" href="#pricing">Lista de espera</a>
       </nav>
     </div>
   </div>
@@ -167,7 +174,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
     <p class="lead">Escapa del matadero minorista. Un marco rígido y cuantitativo para operar los Futuros de Oro tal como los mueven de verdad los algoritmos institucionales &mdash; y no como afirman los educadores minoristas.</p>
     <div class="asset">Diseñado exclusivamente para <b>Futuros de Oro · GC</b></div>
     <div class="cta">
-      <a class="btn btn-solid" href="#pricing" style="border-color:var(--gold);background:var(--gold)">Inscríbete ahora</a>
+      <a class="btn btn-solid" href="#pricing" style="border-color:var(--gold);background:var(--gold)">Únete a la lista de espera</a>
       <a class="btn btn-ghost" href="#who" style="border-color:#4a4a44;color:#e8e8e0">¿Es para ti?</a>
       <span class="meta">7 módulos · acceso de por vida</span>
     </div>
@@ -225,9 +232,9 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
 <section class="pricing" id="pricing">
   <div class="wrap">
     <div class="sec-head center">
-      <span class="tag-num">02 · Inscripción</span>
+      <span class="tag-num">02 · Lista de espera</span>
       <h2>Obtén el marco completo</h2>
-      <p>Un solo sistema, calibrado para el Oro. Acceso de por vida a cada módulo, estudio de gráficos y lista de verificación de ejecución.</p>
+      <p>El curso abrirá para un grupo fundador limitado. Únete a la lista de espera para reservar tu lugar y ser el primero en enterarte cuando abramos las puertas.</p>
     </div>
     <div class="price-card">
       <div class="top">
@@ -247,8 +254,13 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
         <li><span class="chk">&#10003;</span> Acceso de por vida y actualizaciones futuras</li>
       </ul>
       <div class="foot">
-        <a class="btn btn-solid" href="#enroll-cta" style="background:var(--gold);border-color:var(--gold)">Inscríbete ahora</a>
-        <div class="g">Pago seguro · acceso inmediato</div>
+        <form class="wl-form" id="wlForm" novalidate>
+          <input type="text" name="name" placeholder="Tu nombre" autocomplete="name" required>
+          <input type="email" name="email" placeholder="Tu correo" autocomplete="email" required>
+          <button type="submit" class="btn btn-solid" style="background:var(--gold);border-color:var(--gold)">Únete a la lista de espera</button>
+          <div class="wl-note" id="wlNote"></div>
+        </form>
+        <div class="g">Sin pago ahora · precio fundador asegurado al abrir las puertas</div>
       </div>
     </div>
   </div>
@@ -276,7 +288,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
     <span class="eyebrow">Deja de ser la liquidez de salida</span>
     <h2>Opera en la estela del algoritmo &mdash; no bajo sus ruedas.</h2>
     <p>La Cuadrícula te da el mapa. Los Modelos de Ejecución te dan el disparador. La disciplina la pones tú.</p>
-    <a class="btn btn-solid" href="#pricing" style="background:var(--gold);border-color:var(--gold);padding:15px 38px">Inscríbete en la Matriz</a>
+    <a class="btn btn-solid" href="#pricing" style="background:var(--gold);border-color:var(--gold);padding:15px 38px">Únete a la lista de espera</a>
     <p class="disc"><b>Aviso de riesgo:</b> Este curso tiene fines exclusivamente educativos e informativos y no constituye asesoramiento financiero, una recomendación, ni una oferta o solicitud de compra o venta de ningún valor, futuro o instrumento financiero. Operar futuros conlleva un riesgo sustancial de pérdida y no es adecuado para todos los inversores. El rendimiento pasado y cualquier cifra mostrada no son indicativos de resultados futuros. Eres el único responsable de tus decisiones de trading.</p>
   </div>
 </section>
@@ -299,6 +311,16 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #
 document.getElementById('yr').textContent=new Date().getFullYear();
 document.getElementById('menuBtn').onclick=()=>document.getElementById('navRight').classList.toggle('show');
 document.querySelectorAll('#navRight a').forEach(a=>a.onclick=()=>document.getElementById('navRight').classList.remove('show'));
+var wl=document.getElementById('wlForm');
+if(wl)wl.addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=wl.querySelector('[name=name]').value.trim(), em=wl.querySelector('[name=email]').value.trim(), note=document.getElementById('wlNote');
+  if(!n||!em){note.textContent='Escribe tu nombre y tu correo.';note.className='wl-note err';return;}
+  var subj=encodeURIComponent('La Matriz de Cuadrícula Institucional — Lista de espera');
+  var body=encodeURIComponent('Por favor, añádeme a la lista de espera de La Matriz de Cuadrícula Institucional.\n\nNombre: '+n+'\nCorreo: '+em);
+  window.location.href='mailto:info@lavoygroup.com?subject='+subj+'&body='+body;
+  note.textContent='Abriendo tu app de correo para enviar tu solicitud…';note.className='wl-note ok';
+});
 </script>
 </body>
 </html>
