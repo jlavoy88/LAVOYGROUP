@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Institutional Grid Matrix — Gold Futures Course · LAVOY GROUP</title>
+<meta name="description" content="The Institutional Grid Matrix: a rigid, quantitative framework for day-trading Gold Futures (GC). A structured 7-module course built by LAVOY GROUP on institutional liquidity, session exhaustion, and mechanical execution.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0d5e04;--green-deep:#0a4a03;--ink:#161616;--paper:#ffffff;--paper2:#f5f4ef;--line:#e4e1d8;--muted:#6b6b63;--gold:#b78a2e;--gold-soft:#c9a64b;--bull:#0d7a2e;--bear:#b23030}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+.wrap-narrow{max-width:820px;margin:0 auto;padding:0 28px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-weight:600}
+.btn{display:inline-block;padding:14px 28px;border-radius:2px;font-size:14px;font-weight:500;letter-spacing:.02em;border:1.5px solid var(--ink);transition:.25s;cursor:pointer}
+.btn-solid{background:var(--ink);color:#fff}
+.btn-solid:hover{background:var(--green);border-color:var(--green)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-mark{height:28px;width:auto;display:block}
+.brand-name{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#000}
+.nav-right{display:flex;align-items:center;gap:22px}
+.navlink{font-size:13.5px;font-weight:500;letter-spacing:.03em;color:var(--ink);transition:.2s}
+.navlink:hover{color:var(--green)}
+.nav a.enroll{font-size:13px;font-weight:500;letter-spacing:.04em;border:1.5px solid var(--ink);padding:9px 18px;border-radius:2px;transition:.25s}
+.nav a.enroll:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.nav-end{display:flex;align-items:center;gap:16px}
+.lang-toggle{display:inline-flex;border:1px solid var(--line);border-radius:30px;overflow:hidden;flex-shrink:0}
+.lang-toggle a{font-size:12px;font-weight:600;letter-spacing:.04em;padding:6px 12px;color:var(--muted);transition:.2s}
+.lang-toggle a.on{background:var(--green);color:#fff}
+.lang-toggle a:not(.on):hover{color:var(--ink)}
+.menu-btn{display:none;background:none;border:none;font-size:22px;cursor:pointer}
+
+/* HERO */
+.hero{padding:132px 0 66px;background:var(--ink);color:#f2f0ea;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  repeating-linear-gradient(to bottom,transparent 0,transparent 116px,rgba(201,166,75,.09) 116px,rgba(201,166,75,.09) 117px),
+  repeating-linear-gradient(to bottom,transparent 0,transparent 58px,rgba(201,166,75,.045) 58px,rgba(201,166,75,.045) 59px)}
+.hero .wrap{position:relative}
+.hero .eyebrow{color:var(--gold-soft)}
+.hero h1{font-size:clamp(32px,5.2vw,58px);font-weight:600;letter-spacing:-.015em;line-height:1.06;margin:14px 0 14px;max-width:15em}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+.hero p.lead{font-size:clamp(16px,2vw,19px);color:#c8c8bf;max-width:34em;margin-bottom:16px}
+.hero .asset{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9a9a90;border:1px solid #333;border-radius:40px;padding:7px 15px;margin-bottom:26px}
+.hero .asset b{color:var(--gold-soft);font-weight:600}
+.hero .cta{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
+.hero .cta .meta{font-size:13px;color:#9a9a90;letter-spacing:.03em}
+
+/* SECTION */
+section{padding:78px 0}
+.sec-head{max-width:680px;margin-bottom:40px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head h2{font-size:clamp(25px,3.4vw,37px);font-weight:600;margin:12px 0 14px;letter-spacing:.005em}
+.sec-head p{color:#3d3d38;font-size:16.5px}
+.tag-num{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:600}
+
+/* ORIGIN */
+.origin{background:var(--paper2)}
+.origin .lead{font-size:clamp(20px,2.7vw,29px);font-weight:500;line-height:1.34;max-width:20em;letter-spacing:-.005em}
+.origin .lead span{color:var(--gold);font-style:italic}
+.origin .body{max-width:40em;margin-top:22px}
+.origin .body p{font-size:16px;color:#33332e;margin-bottom:14px}
+.origin .metrics{display:flex;gap:40px;flex-wrap:wrap;margin-top:34px;border-top:1px solid var(--line);padding-top:28px}
+.origin .metrics .k{font-size:29px;font-weight:600;color:var(--green);letter-spacing:-.01em}
+.origin .metrics .l{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* WHO */
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.who h3{font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:6px;padding-bottom:11px;border-bottom:1px solid var(--line)}
+.who.no h3{color:var(--gold)}
+.who ul{list-style:none}
+.who li{padding:11px 0;border-bottom:1px solid var(--line);font-size:15px;color:#33332e;display:flex;gap:11px}
+.who li::before{content:"—";color:var(--green);font-weight:600}
+.who.no li::before{content:"—";color:var(--gold)}
+
+/* PRICING */
+.pricing{background:var(--paper2)}
+.price-card{max-width:540px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 40px 80px -54px rgba(0,0,0,.4)}
+.price-card .top{background:var(--ink);color:#f2f0ea;padding:32px 32px 28px;text-align:center;position:relative}
+.price-card .top .ribbon{position:absolute;top:16px;right:-34px;background:var(--gold);color:#fff;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;padding:6px 40px;transform:rotate(45deg)}
+.price-card .pname{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);font-weight:600}
+.price-card .pfull{font-size:15px;color:#8f8f86;text-decoration:line-through;margin-top:14px}
+.price-card .amt{font-size:52px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1;margin-top:3px}
+.price-card .amt sup{font-size:22px;font-weight:600;vertical-align:top;margin-right:1px}
+.price-card .pnote{font-size:12.5px;color:#b3b3aa;margin-top:9px}
+.price-card ul{list-style:none;padding:26px 32px 6px}
+.price-card ul li{padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px;display:flex;gap:11px;align-items:flex-start;color:#33332e}
+.price-card ul li:last-child{border-bottom:none}
+.price-card ul li .chk{color:var(--green);font-weight:700;flex:0 0 auto}
+.price-card .foot{padding:6px 32px 30px;text-align:center}
+.price-card .foot .btn{width:100%;text-align:center;padding:15px}
+.price-card .foot .g{font-size:12.5px;color:var(--muted);margin-top:12px}
+
+/* FAQ */
+.faq-list{max-width:800px;margin:0 auto}
+.faq{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 0;font-size:16.5px;font-weight:600;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .p{color:var(--green);font-size:21px;font-weight:400;transition:.25s;flex:0 0 auto}
+.faq[open] summary .p{transform:rotate(45deg)}
+.faq .ans{padding:0 0 20px;font-size:15px;color:#42423c;max-width:60em}
+
+/* CTA BAND */
+.band{background:var(--ink);color:#e9e8e1;text-align:center}
+.band .eyebrow{color:var(--gold-soft)}
+.band h2{font-size:clamp(25px,3.6vw,38px);color:#fff;margin:12px auto 12px;max-width:16em}
+.band p{font-size:16px;color:#bdbdb4;max-width:36em;margin:0 auto 24px}
+.band .disc{font-size:12px;color:#83837a;max-width:54em;margin:30px auto 0;line-height:1.6}
+
+/* FOOTER */
+footer{background:var(--ink);color:#cfcfc6;padding:40px 0;border-top:1px solid #2c2c2c}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.foot svg{height:26px}
+.foot .links{display:flex;gap:20px;font-size:13px}
+.foot .links a:hover{color:#fff}
+.copy{font-size:12px;color:#83837a;margin-top:14px}
+
+@media(max-width:820px){
+  .who-grid{grid-template-columns:1fr}
+  .nav-right{display:none}
+  .menu-btn{display:block}
+  .nav-right.show{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:#fff;padding:18px 28px;gap:16px;border-bottom:1px solid var(--line)}
+}
+@media(max-width:540px){
+  .origin .metrics{gap:24px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="../" aria-label="LAVOY GROUP home">
+      <svg class="brand-mark" viewBox="-60 -60 700 440" aria-hidden="true"><g fill="none" stroke="#0d5e04" stroke-width="120"><polyline points="60 0 60 260.11 420 260.11 420 80.11 240 80.11"/><polyline points="580 320.33 580 60.11 220 60.11 220 240.11 400 240.11"/></g></svg>
+      <span class="brand-name">LAVOY GROUP</span>
+    </a>
+    <div class="nav-end">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <a class="lt on" href="./" aria-current="page">EN</a>
+        <a class="lt" href="es/">ES</a>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+      <nav class="nav-right" id="navRight">
+        <a class="navlink" href="../">Home</a>
+        <a class="navlink" href="../education/">Free Course</a>
+        <a class="navlink" href="#faq">FAQ</a>
+        <a class="enroll" href="#pricing">Enroll</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Advanced Course · Gold Futures</span>
+    <h1>The Institutional <em>Grid Matrix</em></h1>
+    <p class="lead">Escape the retail slaughterhouse. A rigid, quantitative framework for trading Gold Futures the way institutional algorithms actually move it &mdash; not the way retail educators say it moves.</p>
+    <div class="asset">Built exclusively for <b>Gold Futures · GC</b></div>
+    <div class="cta">
+      <a class="btn btn-solid" href="#pricing" style="border-color:var(--gold);background:var(--gold)">Enroll now</a>
+      <a class="btn btn-ghost" href="#who" style="border-color:#4a4a44;color:#e8e8e0">Is it for you?</a>
+      <span class="meta">7 modules · lifetime access</span>
+    </div>
+  </div>
+</section>
+
+<section class="origin" id="origin">
+  <div class="wrap">
+    <span class="tag-num">The Origin</span>
+    <p class="lead" style="margin-top:12px">This framework was not built in a classroom. It was built in the ashes of a <span>$131,000 loss</span> &mdash; and reverse-engineered to eliminate the exact scenarios that caused it.</p>
+    <div class="body">
+      <p>For five years I did what every retail trader does &mdash; bought the courses, read the books, and plastered my screens with every lagging indicator on the market, searching for a holy grail that does not exist. Nothing worked. I lost over $131,000, including the savings of friends and family who trusted me.</p>
+      <p>The turning point was not a secret indicator. I stripped my charts bare, stopped reading retail theory, and started reading institutional order-book data and Federal Reserve microstructure reports. What I found is that the &ldquo;psychological levels&rdquo; retail educators talk about aren&rsquo;t psychological at all &mdash; they are structural coordinates where institutions execute.</p>
+      <p>The Institutional Grid Matrix is the complete map of those coordinates for Gold, plus the exact execution and risk rules I use to trade alongside the algorithms instead of becoming their exit liquidity. It is taught inside the course &mdash; module by module.</p>
+    </div>
+    <div class="metrics">
+      <div><div class="k">$131K</div><div class="l">The tuition the market charged</div></div>
+      <div><div class="k">7&nbsp;years</div><div class="l">From guesswork to a mechanical model</div></div>
+      <div><div class="k">GC&nbsp;only</div><div class="l">Hardcoded for Gold Futures</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag-num">01 · Fit</span>
+      <h2>Who this is &mdash; and isn&rsquo;t &mdash; for</h2>
+    </div>
+    <div class="who-grid">
+      <div class="who yes">
+        <h3>This is for you if</h3>
+        <ul>
+          <li>You trade or want to trade Gold Futures (GC) or XAU/USD specifically</li>
+          <li>You&rsquo;re tired of lagging indicators and subjective &ldquo;gut feel&rdquo; entries</li>
+          <li>You can accept mechanical rules and the discipline of doing nothing</li>
+          <li>You want to understand why price reverses, not just guess that it might</li>
+          <li>You treat capital preservation as the job, and profit as the byproduct</li>
+        </ul>
+      </div>
+      <div class="who no">
+        <h3>This is not for you if</h3>
+        <ul>
+          <li>You&rsquo;re looking for signals to copy without understanding them</li>
+          <li>You want a get-rich-quick system with no screen time or study</li>
+          <li>You can&rsquo;t resist buying green candles and chasing momentum</li>
+          <li>You trade dozens of instruments and won&rsquo;t focus on Gold</li>
+          <li>You expect guaranteed returns &mdash; no honest educator can offer that</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="tag-num">02 · Enroll</span>
+      <h2>Get the complete framework</h2>
+      <p>One system, hardcoded for Gold. Lifetime access to every module, chart study, and execution checklist.</p>
+    </div>
+    <div class="price-card">
+      <div class="top">
+        <span class="ribbon">Founding</span>
+        <div class="pname">The Institutional Grid Matrix</div>
+        <div class="pfull">$997</div>
+        <div class="amt"><sup>$</sup>497</div>
+        <div class="pnote">One-time payment · lifetime access</div>
+      </div>
+      <ul>
+        <li><span class="chk">&#10003;</span> All 7 modules &mdash; the complete Grid Matrix system</li>
+        <li><span class="chk">&#10003;</span> Annotated real-session chart studies</li>
+        <li><span class="chk">&#10003;</span> Model A &amp; Model B execution checklists</li>
+        <li><span class="chk">&#10003;</span> The Fractional Position Sizing Matrix</li>
+        <li><span class="chk">&#10003;</span> New York &amp; overnight session playbooks</li>
+        <li><span class="chk">&#10003;</span> The 15-Minute macro-event protocol</li>
+        <li><span class="chk">&#10003;</span> Lifetime access &amp; future updates</li>
+      </ul>
+      <div class="foot">
+        <a class="btn btn-solid" href="#enroll-cta" style="background:var(--gold);border-color:var(--gold)">Enroll now</a>
+        <div class="g">Secure checkout · instant access</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap-narrow">
+    <div class="sec-head center">
+      <span class="tag-num">03 · Questions</span>
+      <h2>Frequently asked</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq"><summary>Do I need prior trading experience?<span class="p">+</span></summary><div class="ans">Some familiarity with charts and order execution helps, but the framework is built from the ground up. If you&rsquo;re brand new, start with our <a href="../education/" style="color:var(--green);border-bottom:1px solid var(--green)">free 14-module course</a> first, then step up to the Grid Matrix.</div></details>
+      <details class="faq"><summary>Why is this only for Gold?<span class="p">+</span></summary><div class="ans">The Grid Matrix and its point-exhaustion rules are hardcoded for Gold Futures (GC). Gold is a heavily financialized macro asset with deep liquidity, commercial hedging, and concentrated options gamma &mdash; which is exactly why it respects the structural grid with algorithmic precision. The core liquidity concepts translate to other markets, but the specific metrics do not.</div></details>
+      <details class="faq"><summary>What&rsquo;s actually covered in the course?<span class="p">+</span></summary><div class="ans">Seven modules: the structural map of the Grid, session exhaustion mechanics, the execution blueprint, the overnight shift, macro-event protocols, micro-layer position sizing, and the institutional mindset. The full framework &mdash; the specific levels, rules, and triggers &mdash; is taught inside, after enrollment.</div></details>
+      <details class="faq"><summary>What platform or tools do I need?<span class="p">+</span></summary><div class="ans">Any charting platform that offers 1-Hour, 5-Minute, and 100-Tick views of Gold Futures. The model is platform-agnostic &mdash; it&rsquo;s about reading structure and order flow, not proprietary software.</div></details>
+      <details class="faq"><summary>Is this a signals or copy-trading service?<span class="p">+</span></summary><div class="ans">No. This is an educational framework that teaches you to read the market&rsquo;s structure yourself. There are no signals to blindly copy &mdash; the entire point is to make you independent of anyone else&rsquo;s calls.</div></details>
+      <details class="faq"><summary>Will this make me profitable?<span class="p">+</span></summary><div class="ans">No honest educator can promise that. Trading futures carries substantial risk of loss, and results depend on your own discipline and execution. This course hands you the exact mechanical blueprint one trader built to stop his own bleeding &mdash; what you do with it is up to you.</div></details>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="enroll-cta">
+  <div class="wrap">
+    <span class="eyebrow">Stop being the exit liquidity</span>
+    <h2>Trade in the algorithm&rsquo;s wake &mdash; not under its wheels.</h2>
+    <p>The Grid gives you the map. The Execution Models give you the trigger. The discipline, you bring yourself.</p>
+    <a class="btn btn-solid" href="#pricing" style="background:var(--gold);border-color:var(--gold);padding:15px 38px">Enroll in the Grid Matrix</a>
+    <p class="disc"><b>Risk disclaimer:</b> This course is for educational and informational purposes only and is not financial advice, a recommendation, or an offer or solicitation to buy or sell any security, future, or financial instrument. Trading futures carries a substantial risk of loss and is not suitable for every investor. Past performance and any figures shown are not indicative of future results. You are solely responsible for your own trading decisions.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="../" aria-label="LAVOY GROUP home">
+        <svg viewBox="-60 -60 700 440" aria-hidden="true"><g fill="none" stroke="#2f8a23" stroke-width="120"><polyline points="60 0 60 260.11 420 260.11 420 80.11 240 80.11"/><polyline points="580 320.33 580 60.11 220 60.11 220 240.11 400 240.11"/></g></svg>
+      </a>
+      <div class="links">
+        <a href="../">Home</a><a href="../education/">Free Course</a><a href="../#contact">Contact</a>
+      </div>
+    </div>
+    <p class="copy">&copy; <span id="yr"></span> LAVOY GROUP. Educational content &mdash; not financial advice.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.getElementById('menuBtn').onclick=()=>document.getElementById('navRight').classList.toggle('show');
+document.querySelectorAll('#navRight a').forEach(a=>a.onclick=()=>document.getElementById('navRight').classList.remove('show'));
+</script>
+</body>
+</html>
