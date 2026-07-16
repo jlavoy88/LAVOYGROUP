@@ -177,8 +177,12 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
       <h2>¿Qué es el trading?</h2>
       <p>Hacer trading es comprar y vender instrumentos financieros &mdash; divisas, materias primas, acciones, índices &mdash; para obtener una ganancia con los cambios de precio. En el fondo, cualquier mercado no es más que un punto de encuentro entre quienes compran y quienes venden, y el precio que ves en pantalla es, sencillamente, el nivel en el que ambas partes están dispuestas a operar en ese instante.</p>
       <p>Los precios suben y bajan por la <b>oferta y la demanda</b>. Si hay más interesados en comprar que en vender, el precio sube; si hay más interesados en vender que en comprar, baja. ¿Y qué mueve esas decisiones? Las noticias, los datos económicos, las tasas de interés, los resultados de las empresas, los acontecimientos globales y, sobre todo, la emoción humana: el miedo y la codicia.</p>
-      <div class="term"><div class="t">Trader vs. inversor</div><div class="d">El inversor suele comprar y mantener durante meses o años. El trader trabaja en plazos más cortos &mdash; minutos, horas o días &mdash; y busca aprovechar movimientos más pequeños y frecuentes.</div></div>
-      <p>Hay algo que distingue al trading de la simple inversión: puedes ganar tanto cuando el precio <b>sube</b> como cuando <b>baja</b>. En la próxima lección verás de qué manera.</p>
+      <h3>Trader vs. inversor</h3>
+      <ul>
+        <li><b>El inversor:</b> suele comprar y mantener durante meses o años.</li>
+        <li><b>El trader:</b> trabaja en plazos más cortos (minutos, horas o días) y busca aprovechar movimientos más pequeños y frecuentes.</li>
+      </ul>
+      <p>Hay algo que distingue al trading de la simple inversión: puedes ganar tanto cuando el precio <b>sube</b> como cuando <b>baja</b>.</p>
     </article>
 
     <article class="lesson" id="m2">
@@ -186,26 +190,29 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
       <h2>Cómo funciona una operación: largo, corto y el spread</h2>
       <p>Toda operación puede ir en una de dos direcciones:</p>
       <ul>
-        <li><b>Ponerte largo (comprar):</b> compras con la expectativa de que el precio suba, para luego vender más caro. Comprar barato y vender caro.</li>
-        <li><b>Ponerte corto (vender en corto):</b> vendes primero &mdash; el instrumento te lo presta tu bróker &mdash; con la expectativa de que el precio baje, para luego recomprarlo más barato. Vender caro y comprar barato.</li>
+        <li><b>Ponerte largo (comprar):</b> compras con la expectativa de que el precio suba, para luego vender más caro. Es comprar barato y vender caro.</li>
+        <li><b>Ponerte corto (vender en corto):</b> vendes primero &mdash; el instrumento te lo presta tu bróker &mdash; con la expectativa de que el precio baje, para luego recomprarlo más barato. Es vender caro y comprar barato.</li>
       </ul>
       <p>En cada momento el mercado muestra dos precios: el <b>bid</b>, que es lo máximo que los compradores están dispuestos a pagar, y el <b>ask</b> (u oferta), que es lo mínimo que los vendedores están dispuestos a aceptar. Tú compras al ask y vendes al bid.</p>
-      <div class="term"><div class="t">El spread</div><div class="d">Es la diferencia entre el bid y el ask, y constituye un costo real de operar: en el momento en que abres la posición ya partes con una ligera pérdida equivalente al spread, hasta que el precio se mueva a tu favor. En los mercados líquidos el spread es estrecho; en los poco líquidos, amplio.</div></div>
-      <p>El <b>slippage</b> (deslizamiento) es un concepto cercano: cuando el mercado se mueve muy rápido, tu orden puede ejecutarse a un precio algo distinto del que viste al pulsar. Por el spread y por el slippage, los precios a los que entras y sales importan, y mucho.</p>
+      <h3>El spread y el slippage</h3>
+      <p>El <b>spread</b> es la diferencia entre el bid y el ask, y constituye un costo real de operar: al abrir la posición ya partes con una ligera pérdida equivalente al spread, hasta que el precio se mueva a tu favor. En mercados líquidos es estrecho; en los poco líquidos, amplio.</p>
+      <p>El <b>slippage</b> (deslizamiento) ocurre cuando el mercado se mueve muy rápido y tu orden se ejecuta a un precio algo distinto del que viste al pulsar. Por ambos factores, los precios a los que entras y sales importan mucho.</p>
     </article>
 
     <article class="lesson" id="m3">
       <div class="num">Módulo 03</div>
       <h2>Puntos y ticks</h2>
-      <p>Para operar hace falta medir con precisión cuánto se mueve el precio. En los futuros hay dos palabras para ello &mdash; el punto y el tick &mdash;, y tenerlas claras es el cimiento del cálculo del tamaño de la posición.</p>
-      <h3>Punto y tick</h3>
-      <p>Un <b>punto</b> es un movimiento de una unidad entera en el precio del contrato. Un <b>tick</b> es la mínima variación que el precio puede tener: el incremento más pequeño posible que define el propio mercado (exchange). Cada tick tiene un valor fijo en dólares, así que cada movimiento se traduce directamente en dinero.</p>
+      <p>Para operar hace falta medir con precisión cuánto se mueve el precio. En los futuros hay dos palabras para ello (el punto y el tick), y tenerlas claras es el cimiento para calcular el tamaño de la posición.</p>
+      <ul>
+        <li><b>Punto:</b> es un movimiento de una unidad entera en el precio del contrato.</li>
+        <li><b>Tick:</b> es la mínima variación que el precio puede tener (el incremento más pequeño posible definido por el mercado). Cada tick tiene un valor fijo en dólares.</li>
+      </ul>
       <table>
         <tr><th>Término</th><th>Qué mide</th><th>Ejemplo en futuros de oro (GC)</th></tr>
-        <tr><td><b>Tick</b></td><td>La mínima variación permitida</td><td>0.10 por onza = <b>$10</b> por contrato</td></tr>
-        <tr><td><b>Punto</b></td><td>Un movimiento completo de 1.00</td><td>$1.00 por onza = <b>$100</b> por contrato</td></tr>
+        <tr><td><b>Tick</b></td><td>La mínima variación permitida</td><td>0.10 por onza = <b>10 USD</b> por contrato</td></tr>
+        <tr><td><b>Punto</b></td><td>Un movimiento completo de 1.00</td><td>1.00 por onza = <b>100 USD</b> por contrato</td></tr>
       </table>
-      <p>Por ejemplo, si un contrato de oro pasa de 2400.0 a 2401.0, se ha movido un punto, es decir, diez ticks, lo que equivale a $100 por contrato. Saber cuánto vale un tick te dice exactamente cuánto representa cada movimiento en dólares, y ese es el cimiento del cálculo del tamaño de la posición.</p>
+      <p>Por ejemplo, si un contrato de oro pasa de 2400.0 a 2401.0, se ha movido un punto (diez ticks), lo que equivale a 100 USD por contrato. Saber cuánto vale un tick te dice exactamente cuánto representa cada movimiento en dólares.</p>
     </article>
 
     <article class="lesson" id="m5">
@@ -214,79 +221,75 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
       <p>Un <b>contrato de futuros</b> es un acuerdo estandarizado para comprar o vender un activo determinado, en una cantidad determinada, a un precio pactado hoy y con entrega en una fecha futura. Se operan en mercados regulados, como el CME (Chicago Mercantile Exchange).</p>
       <p>Hay futuros sobre casi todo: oro, petróleo, gas natural, trigo, índices bursátiles (como el S&amp;P 500), bonos y divisas. Quienes los utilizan se dividen en dos grupos:</p>
       <ul>
-        <li><b>Coberturistas (hedgers):</b> productores y empresas que fijan hoy un precio futuro para protegerse del riesgo; por ejemplo, un agricultor que asegura el precio del trigo de la próxima cosecha.</li>
+        <li><b>Coberturistas (hedgers):</b> productores y empresas que fijan hoy un precio futuro para protegerse del riesgo (ej. un agricultor que asegura el precio de su próxima cosecha).</li>
         <li><b>Especuladores:</b> traders que buscan beneficiarse de los cambios de precio, sin intención de recibir la entrega del activo.</li>
       </ul>
-      <p>Como cada contrato está <b>estandarizado</b> por el mercado &mdash; mismo tamaño, mismo tick y las mismas reglas de vencimiento &mdash;, los futuros son profundos y líquidos. Cada contrato tiene una <b>fecha de vencimiento</b>; quien quiere seguir en el mercado después de esa fecha &ldquo;rola&rdquo; su posición al siguiente contrato. Además, los futuros operan con apalancamiento: controlas un contrato grande aportando solo un margen, algo que veremos en el Módulo 06.</p>
-      <div class="tip"><b>Ejemplo del oro:</b> el futuro estándar de oro (símbolo GC) equivale a 100 onzas troy. Si el oro cotiza a $2,400 la onza, un solo contrato controla $240,000 en oro; sin embargo, para operarlo basta con depositar unos pocos miles de dólares de margen.</div>
+      <p>Como cada contrato está <b>estandarizado</b> (mismo tamaño, tick y reglas de vencimiento), los futuros son profundos y líquidos. Tienen una <b>fecha de vencimiento</b>; quien quiere seguir operando después de esa fecha &ldquo;rola&rdquo; (transfiere) su posición al siguiente contrato. Además, operan con apalancamiento.</p>
+      <div class="tip"><b>Ejemplo:</b> el futuro estándar de oro (símbolo GC) equivale a 100 onzas troy. Si el oro cotiza a 2,400 USD la onza, un solo contrato controla 240,000 USD en oro; sin embargo, para operarlo basta con depositar unos pocos miles de dólares de margen.</div>
     </article>
 
     <article class="lesson" id="m6">
       <div class="num">Módulo 05</div>
       <h2>Contratos y tamaños de contrato</h2>
-      <p>¿Cuánto estás operando en realidad? En los futuros, la respuesta está en el tamaño del contrato: la cantidad fija del activo subyacente que controla un solo contrato.</p>
-      <h3>Tamaños de contrato en futuros</h3>
-      <p>Cada contrato de futuros cubre una cantidad fija que define el mercado; por ejemplo, 100 onzas de oro o 1,000 barriles de petróleo. Para hacerlos más accesibles, los mercados ofrecen también versiones reducidas:</p>
+      <p>En los futuros, la cantidad que operas se define por el tamaño del contrato: la cantidad fija del activo subyacente que controla un solo contrato.</p>
+      <p>Para hacerlos más accesibles, los mercados ofrecen distintas versiones:</p>
       <ul>
-        <li><b>Estándar:</b> por ejemplo, el oro GC equivale a 100 oz.</li>
-        <li><b>Micro o mini:</b> por ejemplo, el Micro Oro (MGC) equivale a 10 oz, la décima parte del tamaño y, por tanto, del riesgo.</li>
+        <li><b>Estándar:</b> por ejemplo, el oro (GC) equivale a 100 onzas.</li>
+        <li><b>Micro o mini:</b> por ejemplo, el Micro Oro (MGC) equivale a 10 onzas (la décima parte del tamaño y del riesgo).</li>
       </ul>
-      <div class="tip"><b>Por qué importa:</b> el tamaño del contrato y el valor del tick fijan juntos el valor en dólares de cada movimiento. Un punto del GC son $100; un punto del MGC son $10. Operar el micro mantiene el valor de cada movimiento &mdash; y de cada error &mdash; diez veces más pequeño.</div>
-      <p>Empezar por el contrato más pequeño te permite operar el mercado real manteniendo bajo el riesgo. Esa es, precisamente, la forma correcta de empezar.</p>
+      <div class="tip"><b>Por qué importa:</b> el tamaño del contrato y el valor del tick fijan juntos el valor en dólares de cada movimiento. Un punto del GC son 100 USD; un punto del MGC son 10 USD. Operar en micro mantiene el valor de cada movimiento (y de cada error) diez veces más pequeño, lo cual es la forma correcta de empezar.</div>
     </article>
 
     <article class="lesson" id="m7">
       <div class="num">Módulo 06</div>
       <h2>Margen y apalancamiento</h2>
-      <p>El apalancamiento te permite controlar una posición grande con relativamente poco dinero. El <b>margen</b> es justamente ese dinero: un depósito de garantía que tu bróker te exige para abrir y mantener la posición. No es una comisión, sino una garantía (un colateral).</p>
-      <div class="term"><div class="t">Apalancamiento</div><div class="d">Es la proporción entre el tamaño que controlas y el efectivo que aportas. Si depositas $1,000 para controlar $50,000, estás usando un apalancamiento de 50:1. Eso sí: el apalancamiento multiplica por igual las ganancias <i>y</i> las pérdidas.</div></div>
+      <p>El apalancamiento te permite controlar una posición grande con relativamente poco dinero. El <b>margen</b> es ese dinero: un depósito de garantía (colateral) que tu bróker te exige para abrir y mantener la posición. No es una comisión.</p>
+      <p>La proporción entre el tamaño que controlas y el efectivo que aportas define tu <b>apalancamiento</b> (ej. depositar 1,000 USD para controlar 50,000 USD es un apalancamiento de 50:1). El apalancamiento multiplica por igual las ganancias y las pérdidas.</p>
       <p>En futuros oirás hablar de dos tipos de margen:</p>
       <ul>
-        <li><b>Margen inicial:</b> el que necesitas para abrir la posición.</li>
+        <li><b>Margen inicial:</b> el capital que necesitas para abrir la posición.</li>
         <li><b>Margen de mantenimiento:</b> el capital mínimo que debes conservar mientras la posición sigue abierta. Si bajas de ese nivel, recibes una <b>llamada de margen</b> (margin call): o aportas más fondos, o la posición se cierra automáticamente (liquidación).</li>
       </ul>
-      <p>El apalancamiento es la causa principal de que muchos traders novatos terminen reventando su cuenta. Bien usado, es una herramienta poderosa; mal usado, convierte un pequeño movimiento en contra en una gran pérdida. Trátalo con respeto: en el Módulo 11 verás cómo.</p>
     </article>
 
     <article class="lesson" id="m8">
       <div class="num">Módulo 07</div>
       <h2>Tipos de órdenes</h2>
-      <p>Una orden es la instrucción que le das a tu bróker. Estas son las cuatro que tienes que conocer:</p>
+      <p>Una orden es la instrucción que le das a tu bróker. Estas son las cuatro principales:</p>
       <ul>
-        <li><b>Orden a mercado (market):</b> compra o vende de inmediato al mejor precio disponible. Es rápida, pero aceptas el precio que el mercado te ofrezca en ese momento (con su spread y su posible slippage).</li>
-        <li><b>Orden limitada (limit):</b> compra o vende únicamente a un precio determinado o mejor. Controlas el precio, pero corres el riesgo de que no se ejecute.</li>
-        <li><b>Orden stop (stop-loss):</b> se activa cuando el precio alcanza un nivel concreto y sirve para limitar una pérdida o proteger una ganancia. El stop de compra se coloca por encima del precio actual; el stop de venta &mdash; tu stop de protección en una posición larga &mdash; se coloca por debajo.</li>
-        <li><b>Stop-limit:</b> es un stop que, al activarse, se convierte en una orden limitada en lugar de una orden a mercado. Ganas control sobre el precio, pero puede quedarse sin ejecutar.</li>
+        <li><b>Orden a mercado (Market):</b> compra o vende de inmediato al mejor precio disponible. Es rápida, pero aceptas el precio que el mercado ofrezca (asumiendo el spread y un posible slippage).</li>
+        <li><b>Orden limitada (Limit):</b> compra o vende únicamente a un precio determinado o mejor. Controlas el precio, pero corres el riesgo de que no se ejecute si el mercado no llega a ese nivel.</li>
+        <li><b>Orden stop (Stop-loss):</b> se activa cuando el precio alcanza un nivel concreto. Sirve para limitar una pérdida o proteger una ganancia.</li>
+        <li><b>Stop-limit:</b> es un stop que, al activarse, se convierte en una orden limitada. Ganas control sobre el precio de salida, pero puede quedarse sin ejecutar en movimientos rápidos.</li>
       </ul>
-      <div class="tip"><b>El take-profit</b> (toma de ganancias) no es más que una orden limitada que dejas puesta de antemano en tu objetivo: cuando el precio llega, cierra la operación en ganancia de forma automática. Un stop-loss y un take-profit colocados juntos hacen que la operación se gestione sola.</div>
+      <div class="tip"><b>Nota:</b> el <b>take-profit</b> (toma de ganancias) es una orden limitada que dejas puesta de antemano en tu objetivo. Un stop-loss y un take-profit colocados juntos hacen que la operación se gestione sola.</div>
     </article>
 
     <article class="lesson" id="m9">
       <div class="num">Módulo 08</div>
       <h2>Análisis técnico</h2>
-      <p>El <b>análisis técnico</b> estudia el precio en sí mismo: se apoya en los gráficos del precio y el volumen pasados para anticipar hacia dónde podría ir el precio. Se diferencia del <b>análisis fundamental</b>, que en cambio estudia el valor de fondo del activo (datos económicos, resultados empresariales, oferta y demanda reales).</p>
-      <p>El análisis técnico parte de tres ideas clásicas:</p>
+      <p>El <b>análisis técnico</b> estudia el precio en sí mismo apoyándose en los gráficos históricos (precio y volumen) para anticipar direcciones futuras. Se diferencia del <b>análisis fundamental</b>, que estudia el valor de fondo del activo (datos económicos, resultados, etc.).</p>
+      <p>Parte de tres ideas clásicas:</p>
       <ul>
-        <li><b>El precio lo descuenta todo</b> &mdash; toda la información disponible ya está reflejada en el precio.</li>
-        <li><b>El precio se mueve en tendencias</b> &mdash; un movimiento en marcha tiende a continuar hasta que algo lo hace cambiar.</li>
-        <li><b>La historia tiende a repetirse</b> &mdash; como el comportamiento humano se repite, ciertos patrones reaparecen una y otra vez.</li>
+        <li><b>El precio lo descuenta todo:</b> toda la información disponible ya está reflejada en el precio.</li>
+        <li><b>El precio se mueve en tendencias:</b> un movimiento en marcha tiende a continuar hasta que algo lo hace cambiar.</li>
+        <li><b>La historia tiende a repetirse:</b> como el comportamiento humano se repite, ciertos patrones reaparecen.</li>
       </ul>
-      <p>Entre sus herramientas básicas están los <b>soportes y resistencias</b> (niveles donde aparecen compras o ventas de forma repetida), las <b>tendencias y sus líneas</b>, los <b>patrones de gráfico</b> y los <b>indicadores</b> como las medias móviles, el RSI o el MACD. Pero las más potentes para leer el precio en estado puro son las <b>velas japonesas</b>, protagonistas de las dos próximas lecciones.</p>
-      <div class="tip">El análisis técnico trabaja con <b>probabilidades, nunca con certezas</b>. Ningún patrón acierta siempre. Su verdadero valor está en poner las probabilidades de tu lado y en dejar claro en qué punto te has equivocado; y ahí, justamente, empieza la gestión del riesgo.</div>
+      <p>Sus herramientas básicas incluyen soportes y resistencias, líneas de tendencia, y patrones e indicadores (medias móviles, RSI, MACD). Las más potentes para leer el precio son las <b>velas japonesas</b>.</p>
+      <div class="tip">El análisis técnico trabaja con <b>probabilidades, no con certezas</b>. Su valor está en poner las probabilidades de tu lado y definir en qué punto te has equivocado para gestionar el riesgo.</div>
     </article>
 
     <article class="lesson" id="m10">
       <div class="num">Módulo 09</div>
       <h2>Breve historia de las velas japonesas</h2>
-      <p>Los gráficos de velas nacieron en Japón mucho antes de llegar a los mercados occidentales. En el siglo XVIII, los comerciantes de arroz japoneses necesitaban seguir el precio del arroz a medida que subía y bajaba a lo largo de la jornada, y desarrollaron un método visual que registraba no solo dónde cerraba el precio, sino también dónde abría y cuánto había oscilado en el camino.</p>
-      <p>La técnica suele atribuirse a un legendario comerciante de arroz, <b>Munehisa Homma</b>, que estudió cómo las emociones de compradores y vendedores empujaban los precios: una intuición muy temprana sobre la psicología del mercado que sigue siendo válida hoy.</p>
-      <p>Durante siglos, el método se mantuvo casi exclusivamente en Japón. Llegó al mundo occidental en 1991, de la mano del analista <b>Steve Nison</b>, cuyo trabajo dio a conocer el análisis con velas japonesas a un público global. Hoy las velas son el tipo de gráfico predeterminado para los traders de todo el mundo, en cualquier plataforma y en cualquier mercado.</p>
+      <p>Los gráficos de velas nacieron en Japón en el siglo XVIII. Los comerciantes de arroz, como el legendario <b>Munehisa Homma</b>, necesitaban seguir las oscilaciones del precio a lo largo de la jornada. Desarrollaron un método visual que registraba la apertura, el cierre y el recorrido completo, basándose en la psicología del mercado (emociones de compradores y vendedores).</p>
+      <p>Este método llegó a Occidente en 1991 gracias al analista <b>Steve Nison</b>. Hoy en día, las velas japonesas son el gráfico predeterminado para traders de todo el mundo.</p>
     </article>
 
     <article class="lesson" id="m11">
       <div class="num">Módulo 10</div>
       <h2>Anatomía de una vela</h2>
-      <p>Una sola vela resume un tramo de tiempo: un minuto, una hora, un día&hellip; el plazo que tú elijas. En ese tramo muestra cuatro precios: dónde <b>abrió</b>, el <b>máximo</b> y el <b>mínimo</b> que alcanzó, y dónde <b>cerró</b>.</p>
+      <p>Una vela resume un tramo de tiempo específico (un minuto, una hora, un día). En ese periodo, muestra cuatro puntos clave: <b>apertura</b>, <b>máximo</b>, <b>mínimo</b> y <b>cierre</b>.</p>
       <div class="fig">
         <svg viewBox="0 0 640 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de una vela alcista y una bajista con sus partes etiquetadas">
           <line x1="200" y1="40" x2="200" y2="90" stroke="#0d7a2e" stroke-width="2"/>
@@ -313,37 +316,35 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
         </svg>
         <figcaption>Una vela, cuatro precios: apertura, máximo, mínimo y cierre.</figcaption>
       </div>
+      <table>
+        <tr><th>Tipo de vela</th><th>Característica</th><th>Explicación</th></tr>
+        <tr><td><b>Alcista</b> (suele ser verde)</td><td>Cierre &gt; Apertura</td><td>El precio cerró por encima de su apertura.</td></tr>
+        <tr><td><b>Bajista</b> (suele ser roja)</td><td>Cierre &lt; Apertura</td><td>El precio cerró por debajo de su apertura.</td></tr>
+      </table>
+      <h3>Componentes visuales</h3>
       <ul>
-        <li><b>El cuerpo:</b> es el bloque grueso que va de la apertura al cierre. Un cuerpo grande indica que un lado ganó con claridad; uno pequeño, que compradores y vendedores quedaron prácticamente en tablas.</li>
-        <li><b>Las mechas (o sombras):</b> son las líneas finas por encima y por debajo del cuerpo, y marcan el precio máximo y mínimo que se tocó durante el periodo.</li>
-        <li><b>El color:</b> si el cierre queda por encima de la apertura, la vela es alcista (suele pintarse verde); si el cierre queda por debajo de la apertura, es bajista (suele pintarse roja).</li>
+        <li><b>El cuerpo:</b> es el bloque grueso que va de la apertura al cierre. Un cuerpo grande indica que un lado ganó con claridad; uno pequeño, un empate técnico entre compradores y vendedores.</li>
+        <li><b>Las mechas (o sombras):</b> son las líneas finas por encima y por debajo del cuerpo. Marcan el precio máximo (mecha superior) y el mínimo (mecha inferior) que se tocó durante el periodo.</li>
       </ul>
-      <p>Como cada vela registra la apertura y el cierre, no te cuenta solo el marcador final, sino toda la historia del pulso entre compradores y vendedores durante ese periodo. Aprender a leer secuencias de velas es una de las habilidades más útiles que puede desarrollar un trader.</p>
     </article>
 
     <article class="lesson" id="m12">
       <div class="num">Módulo 11</div>
       <h2>Gestión del riesgo &mdash; la lección más importante</h2>
-      <p>Si de todo el curso solo te quedas con un módulo, que sea este. Los traders profesionales no aciertan la mayoría de las veces; sobreviven y crecen porque <b>pierden poco y ganan más</b>. La gestión del riesgo es lo que lo hace posible.</p>
+      <p>Los traders profesionales sobreviven y crecen porque <b>pierden poco y ganan más</b>, no porque acierten siempre.</p>
       <ul>
-        <li><b>Arriesga un porcentaje pequeño y fijo en cada operación.</b> Una regla habitual es no poner en juego más del 1&ndash;2% de la cuenta en una sola operación. Así, ni siquiera una mala racha puede dejarte fuera.</li>
-        <li><b>Decide siempre tu salida antes de entrar.</b> Ten claro de antemano tu stop-loss (el punto en el que reconoces que te equivocaste) y tu objetivo (el punto en el que tomas ganancias).</li>
-        <li><b>Calcula el tamaño de la posición.</b> Hazlo al revés: a partir de la distancia de tu stop y del valor de tu tick, sabrás cuántos contratos mantienen tu pérdida dentro de ese 1&ndash;2%.</li>
-        <li><b>Vigila tu relación riesgo-beneficio.</b> Busca operaciones en las que la ganancia potencial sea mayor que el riesgo asumido; por ejemplo, arriesgar 1 para ganar 2. Con una buena relación, puedes fallar más veces de las que aciertas y aun así ser rentable.</li>
-        <li><b>Cuida tu mentalidad.</b> La disciplina puede más que la predicción. La mayoría de las cuentas no se arruinan por un mal análisis, sino por posiciones demasiado grandes, por operar por venganza y por abandonar el plan.</li>
+        <li><b>Arriesga un porcentaje pequeño:</b> no pongas en juego más del 1&ndash;2% de tu cuenta en una sola operación. Así, una mala racha no te dejará fuera.</li>
+        <li><b>Decide tu salida antes de entrar:</b> ten claro de antemano tu stop-loss (donde reconoces el error) y tu take-profit (donde tomas ganancias).</li>
+        <li><b>Calcula el tamaño de la posición:</b> a partir de la distancia de tu stop y del valor del tick, calcula cuántos contratos mantienen tu pérdida dentro de ese 1&ndash;2%.</li>
+        <li><b>Vigila tu relación riesgo-beneficio:</b> busca operaciones donde la ganancia potencial supere al riesgo (ej. arriesgar 1 para ganar 2).</li>
+        <li><b>Cuida tu mentalidad:</b> la disciplina supera a la predicción. La venganza, el exceso de apalancamiento y el abandono del plan arruinan más cuentas que los malos análisis.</li>
       </ul>
-      <div class="tip"><b>En pocas palabras:</b> una gran estrategia con mala gestión del riesgo termina fracasando; una estrategia normal con buena gestión del riesgo puede durar. Aprende primero a gestionar el riesgo y dale tiempo a todo lo demás para que funcione.</div>
     </article>
 
     <article class="lesson" id="m13">
       <div class="num">Módulo 12</div>
       <h2>Patrones de velas y reversiones</h2>
-      <p>Cuando ya sabes leer una vela suelta (Módulo 10), el siguiente paso es leer <b>combinaciones</b> de velas. Algunas formas se repiten tanto que los traders les pusieron nombre y las usan como pistas de lo que podrían hacer compradores y vendedores a continuación. Los patrones se agrupan en dos familias:</p>
-      <ul>
-        <li><b>Patrones de reversión:</b> avisan de que una tendencia se está quedando sin fuerza y podría darse la vuelta.</li>
-        <li><b>Patrones de continuación:</b> señalan una pausa antes de que la tendencia actual se reanude.</li>
-      </ul>
-      <p>Los patrones de reversión que vienen a continuación son los primeros que todo principiante debería aprender a reconocer.</p>
+      <p>Los patrones de velas son formaciones repetitivas que dan pistas sobre el futuro del precio. Se dividen en dos familias: de <b>reversión</b> (avisan que una tendencia pierde fuerza) y de <b>continuación</b> (señalan una pausa antes de reanudar).</p>
       <div class="pat-grid">
         <div class="pat">
           <svg viewBox="0 0 80 90"><line x1="40" y1="12" x2="40" y2="80" stroke="#6b6b63" stroke-width="2"/><rect x="26" y="44" width="28" height="4" fill="#6b6b63"/></svg>
@@ -370,37 +371,34 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
           <div class="pn">Estrella de la mañana</div><div class="pd">Suelo de tres velas: caída, pausa y subida fuerte.</div>
         </div>
       </div>
-      <h3>Reversiones de una sola vela</h3>
-      <p>El <b>doji</b> aparece cuando la apertura y el cierre casi coinciden: nadie se impuso, lo que refleja una indecisión que a veces precede a un giro. El <b>martillo</b> surge en el fondo de una tendencia bajista &mdash; un cuerpo pequeño con una mecha inferior larga &mdash; y muestra que los compradores le cerraron la puerta a los precios más bajos. Su gemelo, el <b>hombre colgado</b> (hanging man), tiene la misma forma pero aparece en la cima de una tendencia alcista y advierte de un posible techo. La <b>estrella fugaz</b> es la imagen invertida &mdash; una mecha superior larga en un techo &mdash;, mientras que el <b>martillo invertido</b> es su versión esperanzadora en un suelo.</p>
-      <h3>Reversiones de dos y tres velas</h3>
-      <p>Los patrones <b>envolventes</b> (engulfing) están entre los más fiables: una vela cuyo cuerpo cubre por completo el de la anterior, lo que indica que el control acaba de cambiar de manos. Las <b>pinzas</b> (tweezers), superiores o inferiores, se forman cuando dos velas comparten casi el mismo máximo (un techo) o el mismo mínimo (un suelo), señalando un muro que el precio no logró atravesar. La <b>estrella de la mañana</b> (en suelos) y la <b>estrella de la tarde</b> (en techos), ambas de tres velas, muestran un movimiento fuerte, una pequeña vela de duda y después un movimiento fuerte en sentido contrario: un relevo claro entre compradores y vendedores.</p>
-      <div class="term"><div class="t">La ubicación lo es todo</div><div class="d">Una misma forma apenas significa nada en medio de la nada. El martillo cobra valor en un soporte tras una caída; la estrella fugaz, en una resistencia tras una subida. Interpreta siempre un patrón según la tendencia y los niveles clave que lo rodean.</div></div>
-      <div class="tip"><b>Espera la confirmación.</b> Un patrón es una pista, no una orden. Muchos traders esperan a que la vela siguiente confirme el giro antes de actuar, y siempre acompañan la señal con un stop-loss por si la cosa falla.</div>
+      <h3>Patrones de reversión clásicos</h3>
+      <ul>
+        <li><b>Doji:</b> apertura y cierre casi iguales. Refleja indecisión y puede anticipar un giro.</li>
+        <li><b>Martillo / Hombre Colgado:</b> cuerpo pequeño con mecha inferior larga. En un suelo (martillo) indica rechazo a precios bajos; en un techo (hombre colgado) advierte un posible fin de subida.</li>
+        <li><b>Estrella fugaz / Martillo invertido:</b> mecha superior larga. En un techo (estrella fugaz) indica rechazo a precios altos.</li>
+        <li><b>Envolvente (Engulfing):</b> una gran vela (alcista o bajista) cuyo cuerpo se &ldquo;traga&rdquo; por completo al cuerpo de la vela anterior. Indica un cambio de control claro.</li>
+        <li><b>Pinzas (Tweezers):</b> dos velas que comparten el mismo máximo (techo) o mínimo (suelo), formando un muro.</li>
+        <li><b>Estrellas (Mañana/Tarde):</b> patrones de tres velas. Muestran un movimiento fuerte, una vela pequeña de duda, y una reversión fuerte en sentido contrario.</li>
+      </ul>
+      <div class="tip"><b>Importante:</b> la ubicación lo es todo. Un martillo solo tiene valor en un soporte tras una caída. Espera siempre la confirmación del patrón con la vela siguiente y acompáñalo de un stop-loss.</div>
     </article>
 
     <article class="lesson" id="m14">
       <div class="num">Módulo 13</div>
       <h2>Gráficos de ticks</h2>
-      <p>La mayoría empieza con gráficos <b>basados en el tiempo</b>, en los que se forma una vela nueva cada cierto periodo fijo &mdash; un minuto, una hora, un día &mdash;, haya habido una operación o diez mil. El <b>gráfico de ticks</b> funciona distinto: forma una vela nueva cada cierto número fijo de transacciones, tarde lo que tarde.</p>
-      <div class="term"><div class="t">Ojo: dos significados de &ldquo;tick&rdquo;</div><div class="d">En el Módulo 03, un &ldquo;tick&rdquo; era el incremento mínimo de precio. Aquí, en cambio, un &ldquo;tick&rdquo; es una operación ejecutada. Un &ldquo;gráfico de 500 ticks&rdquo; dibuja una vela nueva cada 500 operaciones.</div></div>
-      <p>Como las velas dependen de la actividad y no del reloj, el gráfico de ticks se acelera y se frena solo:</p>
+      <p>A diferencia de los gráficos de tiempo (donde se forma una vela cada minuto u hora), el <b>gráfico de ticks</b> forma una nueva vela cada vez que se completa un número fijo de transacciones, sin importar cuánto tiempo tarde.</p>
+      <div class="term"><div class="t">Aclaración sobre el término &ldquo;tick&rdquo;</div><div class="d">En el Módulo 03, un &ldquo;tick&rdquo; era el incremento mínimo de precio. En los gráficos, un &ldquo;tick&rdquo; es una operación ejecutada. Un gráfico de &ldquo;500 ticks&rdquo; dibuja una vela nueva cada 500 transacciones.</div></div>
+      <h3>Dinámica del gráfico</h3>
       <ul>
-        <li>En los momentos de mucha actividad &mdash; la apertura, la salida de una noticia &mdash;, se ejecutan muchas operaciones, así que las velas se suceden rápido y ves mucho detalle.</li>
-        <li>En los momentos tranquilos &mdash; un mediodía flojo o la madrugada &mdash;, se ejecutan pocas operaciones, así que una sola vela puede tardar bastante en cerrarse y los tiempos muertos quedan filtrados.</li>
+        <li><b>Alta actividad:</b> las velas se forman muy rápido, mostrando mucho detalle (ej. apertura del mercado).</li>
+        <li><b>Baja actividad:</b> las velas tardan en cerrarse, filtrando los tiempos muertos y el ruido del mercado.</li>
       </ul>
-      <h3>Por qué algunos traders los prefieren</h3>
+      <h3>Ventajas vs. desventajas</h3>
       <ul>
-        <li><b>Actividad en lugar de tiempo:</b> cada vela representa la misma cantidad de operativa, lo que puede hacer que el impulso (momentum) y la acción del precio se lean con más claridad.</li>
-        <li><b>Menos ruido:</b> los periodos tranquilos no llenan el gráfico de velas vacías de información.</li>
-        <li><b>Son populares entre los scalpers de futuros,</b> que necesitan una lectura rápida y basada en la actividad de mercados como el E-mini del S&amp;P 500.</li>
+        <li><b>A favor:</b> miden la actividad real y el momentum. Limpian el gráfico de &ldquo;velas vacías&rdquo; durante periodos muertos. Son muy populares entre los scalpers de futuros (ej. S&amp;P 500).</li>
+        <li><b>En contra:</b> no están estandarizados (varían según el bróker o proveedor de datos), pueden resultar ruidosos visualmente para un principiante, y dificultan la comparación temporal pura entre sesiones.</li>
       </ul>
-      <h3>Las desventajas</h3>
-      <ul>
-        <li>El número de velas no está estandarizado: cada bróker o proveedor de datos puede generar velas de ticks ligeramente distintas.</li>
-        <li>Pueden resultar ruidosos y poco intuitivos cuando recién empiezas.</li>
-        <li>Cuesta comparar sesiones entre sí, porque un &ldquo;día&rdquo; ya no equivale a un número fijo de velas.</li>
-      </ul>
-      <div class="tip"><b>En resumen:</b> los gráficos de ticks son una herramienta avanzada; conviene explorarlos cuando los gráficos por tiempo ya te resulten naturales. Empieza por los gráficos de tiempo, aprende a leer el precio y déjate los ticks para más adelante, cuando tengas claro qué estás buscando.</div>
+      <div class="tip"><b>Recomendación:</b> son una herramienta avanzada. Domina primero los gráficos de tiempo y la acción del precio antes de dar el salto a los gráficos de ticks.</div>
     </article>
 
     <div class="disclaimer">
