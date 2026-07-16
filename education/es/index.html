@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LAVOY GROUP — Educación</title>
-<meta name="description" content="Educación LAVOY GROUP: lecciones de trading gratuitas y en lenguaje claro para principiantes — qué es el trading, pips y puntos, los mercados de forex y futuros, margen, contratos, análisis técnico y velas japonesas.">
+<meta name="description" content="Educación LAVOY GROUP: lecciones gratuitas de trading de futuros en lenguaje claro para principiantes — qué es el trading, puntos y ticks, el mercado de futuros, margen, contratos, análisis técnico y velas japonesas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -135,15 +135,15 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     <h1>El trading desde cero</h1>
     <p>Un curso gratuito y en lenguaje claro para quienes empiezan. Aquí no queda jerga sin explicar: comienza por la primera lección y avanza en orden, o salta directo al tema que te interese. Creado por LAVOY GROUP.</p>
     <div class="meta">
-      <span class="chip">14 lecciones</span>
+      <span class="chip">13 lecciones</span>
       <span class="chip">Para principiantes</span>
-      <span class="chip">Sin conocimientos previos</span>
+      <span class="chip">Enfocado en futuros</span>
     </div>
     <a href="../../course/es/" class="course-promo">
       <div class="cp-txt">
         <span class="cp-ey">Curso Avanzado · De pago</span>
-        <span class="cp-t">La Matriz de Cuadrícula Institucional</span>
-        <span class="cp-d">¿Ya dominas lo básico? Da el salto al marco cuantitativo de futuros de oro &mdash; la Cuadrícula, el agotamiento de sesión y la ejecución mecánica.</span>
+        <span class="cp-t">La Matriz del Grid Institucional</span>
+        <span class="cp-d">¿Ya dominas lo básico? Da el salto al sistema cuantitativo de futuros del oro &mdash; el Grid, el agotamiento de sesión y la ejecución mecánica.</span>
       </div>
       <span class="cp-go">Explora el curso &rarr;</span>
     </a>
@@ -156,10 +156,9 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     <ol>
       <li><a href="#m1" class="active">¿Qué es el trading?</a></li>
       <li><a href="#m2">Cómo funciona una operación</a></li>
-      <li><a href="#m3">Pips, puntos y ticks</a></li>
-      <li><a href="#m4">El mercado Forex</a></li>
+      <li><a href="#m3">Puntos y ticks</a></li>
       <li><a href="#m5">El mercado de futuros</a></li>
-      <li><a href="#m6">Contratos y lotes</a></li>
+      <li><a href="#m6">Contratos y tamaños</a></li>
       <li><a href="#m7">Margen y apalancamiento</a></li>
       <li><a href="#m8">Tipos de órdenes</a></li>
       <li><a href="#m9">Análisis técnico</a></li>
@@ -197,37 +196,20 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
 
     <article class="lesson" id="m3">
       <div class="num">Módulo 03</div>
-      <h2>Pips, puntos y ticks</h2>
-      <p>Para operar hace falta medir con precisión cuánto se mueve el precio. El problema es que las palabras cambian según el mercado, y eso confunde a casi todos al principio. Veámoslo con claridad.</p>
-      <h3>Pip (forex)</h3>
-      <p>El <b>pip</b> es el movimiento estándar más pequeño en un par de divisas. En la mayoría de los pares corresponde al <b>cuarto decimal</b> (0.0001): si el EUR/USD pasa de 1.1050 a 1.1051, se ha movido un pip. En los pares que incluyen el yen japonés, el pip es el <b>segundo decimal</b> (0.01), porque el yen se cotiza de otra forma.</p>
-      <div class="term"><div class="t">Pipette</div><div class="d">Muchos brókers añaden un decimal más para ganar precisión: el quinto (o el tercero en los pares de yen). Ese pip fraccionario se llama pipette y equivale a la décima parte de un pip. Cuidado: algunas plataformas llaman &ldquo;puntos&rdquo; a los pipettes, lo que se presta a confusión.</div></div>
-      <h3>Punto y tick (futuros)</h3>
-      <p>En los futuros, un <b>punto</b> es un movimiento de una unidad entera en el precio del contrato, y un <b>tick</b> es la mínima variación que el precio puede tener: el incremento más pequeño posible. Cada tick tiene un valor fijo en dólares que define el propio mercado (exchange).</p>
+      <h2>Puntos y ticks</h2>
+      <p>Para operar hace falta medir con precisión cuánto se mueve el precio. En los futuros hay dos palabras para ello &mdash; el punto y el tick &mdash;, y tenerlas claras es el cimiento del cálculo del tamaño de la posición.</p>
+      <h3>Punto y tick</h3>
+      <p>Un <b>punto</b> es un movimiento de una unidad entera en el precio del contrato. Un <b>tick</b> es la mínima variación que el precio puede tener: el incremento más pequeño posible que define el propio mercado (exchange). Cada tick tiene un valor fijo en dólares, así que cada movimiento se traduce directamente en dinero.</p>
       <table>
         <tr><th>Término</th><th>Qué mide</th><th>Ejemplo en futuros de oro (GC)</th></tr>
         <tr><td><b>Tick</b></td><td>La mínima variación permitida</td><td>0.10 por onza = <b>$10</b> por contrato</td></tr>
         <tr><td><b>Punto</b></td><td>Un movimiento completo de 1.00</td><td>$1.00 por onza = <b>$100</b> por contrato</td></tr>
-        <tr><td><b>Pip</b></td><td>El movimiento estándar en forex</td><td>No aplica &mdash; el pip es propio del forex</td></tr>
       </table>
       <p>Por ejemplo, si un contrato de oro pasa de 2400.0 a 2401.0, se ha movido un punto, es decir, diez ticks, lo que equivale a $100 por contrato. Saber cuánto vale un tick te dice exactamente cuánto representa cada movimiento en dólares, y ese es el cimiento del cálculo del tamaño de la posición.</p>
     </article>
 
-    <article class="lesson" id="m4">
-      <div class="num">Módulo 04</div>
-      <h2>El mercado Forex</h2>
-      <p>El Forex (de <i>foreign exchange</i>, también FX) es el mercado global donde se operan las divisas. Es el más grande y líquido del mundo: cada día se mueven en él más de <b>7 billones de dólares</b>, mucho más que todas las bolsas de valores del planeta juntas.</p>
-      <p>Las divisas siempre se operan por <b>pares</b>, porque para comprar una necesariamente tienes que vender otra. En un par como el EUR/USD:</p>
-      <ul>
-        <li>La primera divisa (EUR) es la <b>base</b>: la que compras o vendes.</li>
-        <li>La segunda (USD) es la <b>divisa de cotización</b>: aquella en la que se expresa el valor de la base.</li>
-        <li>Un precio de 1.1050 significa que un euro cuesta 1.1050 dólares.</li>
-      </ul>
-      <p>Los pares más operados &mdash; los llamados <b>majors</b> o principales &mdash; siempre incluyen al dólar estadounidense: EUR/USD, USD/JPY, GBP/USD, USD/CHF, entre otros. El Forex abre <b>24 horas al día, cinco días a la semana</b>, y va siguiendo al sol a través de cuatro grandes sesiones: Sídney, Tokio, Londres y Nueva York. El solapamiento entre Londres y Nueva York es la franja de mayor actividad y liquidez.</p>
-    </article>
-
     <article class="lesson" id="m5">
-      <div class="num">Módulo 05</div>
+      <div class="num">Módulo 04</div>
       <h2>El mercado de futuros</h2>
       <p>Un <b>contrato de futuros</b> es un acuerdo estandarizado para comprar o vender un activo determinado, en una cantidad determinada, a un precio pactado hoy y con entrega en una fecha futura. Se operan en mercados regulados, como el CME (Chicago Mercantile Exchange).</p>
       <p>Hay futuros sobre casi todo: oro, petróleo, gas natural, trigo, índices bursátiles (como el S&amp;P 500), bonos y divisas. Quienes los utilizan se dividen en dos grupos:</p>
@@ -235,34 +217,26 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
         <li><b>Coberturistas (hedgers):</b> productores y empresas que fijan hoy un precio futuro para protegerse del riesgo; por ejemplo, un agricultor que asegura el precio del trigo de la próxima cosecha.</li>
         <li><b>Especuladores:</b> traders que buscan beneficiarse de los cambios de precio, sin intención de recibir la entrega del activo.</li>
       </ul>
-      <p>Como cada contrato está <b>estandarizado</b> por el mercado &mdash; mismo tamaño, mismo tick y las mismas reglas de vencimiento &mdash;, los futuros son profundos y líquidos. Cada contrato tiene una <b>fecha de vencimiento</b>; quien quiere seguir en el mercado después de esa fecha &ldquo;rola&rdquo; su posición al siguiente contrato. Además, los futuros operan con apalancamiento: controlas un contrato grande aportando solo un margen, algo que veremos en el Módulo 07.</p>
+      <p>Como cada contrato está <b>estandarizado</b> por el mercado &mdash; mismo tamaño, mismo tick y las mismas reglas de vencimiento &mdash;, los futuros son profundos y líquidos. Cada contrato tiene una <b>fecha de vencimiento</b>; quien quiere seguir en el mercado después de esa fecha &ldquo;rola&rdquo; su posición al siguiente contrato. Además, los futuros operan con apalancamiento: controlas un contrato grande aportando solo un margen, algo que veremos en el Módulo 06.</p>
       <div class="tip"><b>Ejemplo del oro:</b> el futuro estándar de oro (símbolo GC) equivale a 100 onzas troy. Si el oro cotiza a $2,400 la onza, un solo contrato controla $240,000 en oro; sin embargo, para operarlo basta con depositar unos pocos miles de dólares de margen.</div>
     </article>
 
     <article class="lesson" id="m6">
-      <div class="num">Módulo 06</div>
-      <h2>Contratos y tamaños de lote</h2>
-      <p>¿Cuánto estás operando en realidad? La respuesta está en el tamaño del contrato (en futuros) o en el tamaño del lote (en forex).</p>
+      <div class="num">Módulo 05</div>
+      <h2>Contratos y tamaños de contrato</h2>
+      <p>¿Cuánto estás operando en realidad? En los futuros, la respuesta está en el tamaño del contrato: la cantidad fija del activo subyacente que controla un solo contrato.</p>
       <h3>Tamaños de contrato en futuros</h3>
       <p>Cada contrato de futuros cubre una cantidad fija que define el mercado; por ejemplo, 100 onzas de oro o 1,000 barriles de petróleo. Para hacerlos más accesibles, los mercados ofrecen también versiones reducidas:</p>
       <ul>
         <li><b>Estándar:</b> por ejemplo, el oro GC equivale a 100 oz.</li>
         <li><b>Micro o mini:</b> por ejemplo, el Micro Oro (MGC) equivale a 10 oz, la décima parte del tamaño y, por tanto, del riesgo.</li>
       </ul>
-      <h3>Tamaños de lote en forex</h3>
-      <p>En el forex, el tamaño de la posición se mide en <b>lotes</b>:</p>
-      <table>
-        <tr><th>Lote</th><th>Unidades de la divisa base</th><th>Valor aprox. de 1 pip*</th></tr>
-        <tr><td><b>Estándar</b></td><td>100,000</td><td>$10</td></tr>
-        <tr><td><b>Mini</b></td><td>10,000</td><td>$1</td></tr>
-        <tr><td><b>Micro</b></td><td>1,000</td><td>$0.10</td></tr>
-      </table>
-      <p style="font-size:13px;color:var(--muted)">*En pares cotizados en dólares; el valor del pip varía según el par.</p>
-      <p>Los contratos y lotes pequeños te permiten operar mercados reales manteniendo bajo el valor en dólares de cada movimiento; y también el de cada error. Esa es, precisamente, la forma correcta de empezar.</p>
+      <div class="tip"><b>Por qué importa:</b> el tamaño del contrato y el valor del tick fijan juntos el valor en dólares de cada movimiento. Un punto del GC son $100; un punto del MGC son $10. Operar el micro mantiene el valor de cada movimiento &mdash; y de cada error &mdash; diez veces más pequeño.</div>
+      <p>Empezar por el contrato más pequeño te permite operar el mercado real manteniendo bajo el riesgo. Esa es, precisamente, la forma correcta de empezar.</p>
     </article>
 
     <article class="lesson" id="m7">
-      <div class="num">Módulo 07</div>
+      <div class="num">Módulo 06</div>
       <h2>Margen y apalancamiento</h2>
       <p>El apalancamiento te permite controlar una posición grande con relativamente poco dinero. El <b>margen</b> es justamente ese dinero: un depósito de garantía que tu bróker te exige para abrir y mantener la posición. No es una comisión, sino una garantía (un colateral).</p>
       <div class="term"><div class="t">Apalancamiento</div><div class="d">Es la proporción entre el tamaño que controlas y el efectivo que aportas. Si depositas $1,000 para controlar $50,000, estás usando un apalancamiento de 50:1. Eso sí: el apalancamiento multiplica por igual las ganancias <i>y</i> las pérdidas.</div></div>
@@ -271,11 +245,11 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
         <li><b>Margen inicial:</b> el que necesitas para abrir la posición.</li>
         <li><b>Margen de mantenimiento:</b> el capital mínimo que debes conservar mientras la posición sigue abierta. Si bajas de ese nivel, recibes una <b>llamada de margen</b> (margin call): o aportas más fondos, o la posición se cierra automáticamente (liquidación).</li>
       </ul>
-      <p>El apalancamiento es la causa principal de que muchos traders novatos terminen reventando su cuenta. Bien usado, es una herramienta poderosa; mal usado, convierte un pequeño movimiento en contra en una gran pérdida. Trátalo con respeto: en el Módulo 12 verás cómo.</p>
+      <p>El apalancamiento es la causa principal de que muchos traders novatos terminen reventando su cuenta. Bien usado, es una herramienta poderosa; mal usado, convierte un pequeño movimiento en contra en una gran pérdida. Trátalo con respeto: en el Módulo 11 verás cómo.</p>
     </article>
 
     <article class="lesson" id="m8">
-      <div class="num">Módulo 08</div>
+      <div class="num">Módulo 07</div>
       <h2>Tipos de órdenes</h2>
       <p>Una orden es la instrucción que le das a tu bróker. Estas son las cuatro que tienes que conocer:</p>
       <ul>
@@ -288,7 +262,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m9">
-      <div class="num">Módulo 09</div>
+      <div class="num">Módulo 08</div>
       <h2>Análisis técnico</h2>
       <p>El <b>análisis técnico</b> estudia el precio en sí mismo: se apoya en los gráficos del precio y el volumen pasados para anticipar hacia dónde podría ir el precio. Se diferencia del <b>análisis fundamental</b>, que en cambio estudia el valor de fondo del activo (datos económicos, resultados empresariales, oferta y demanda reales).</p>
       <p>El análisis técnico parte de tres ideas clásicas:</p>
@@ -302,7 +276,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m10">
-      <div class="num">Módulo 10</div>
+      <div class="num">Módulo 09</div>
       <h2>Breve historia de las velas japonesas</h2>
       <p>Los gráficos de velas nacieron en Japón mucho antes de llegar a los mercados occidentales. En el siglo XVIII, los comerciantes de arroz japoneses necesitaban seguir el precio del arroz a medida que subía y bajaba a lo largo de la jornada, y desarrollaron un método visual que registraba no solo dónde cerraba el precio, sino también dónde abría y cuánto había oscilado en el camino.</p>
       <p>La técnica suele atribuirse a un legendario comerciante de arroz, <b>Munehisa Homma</b>, que estudió cómo las emociones de compradores y vendedores empujaban los precios: una intuición muy temprana sobre la psicología del mercado que sigue siendo válida hoy.</p>
@@ -310,7 +284,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m11">
-      <div class="num">Módulo 11</div>
+      <div class="num">Módulo 10</div>
       <h2>Anatomía de una vela</h2>
       <p>Una sola vela resume un tramo de tiempo: un minuto, una hora, un día&hellip; el plazo que tú elijas. En ese tramo muestra cuatro precios: dónde <b>abrió</b>, el <b>máximo</b> y el <b>mínimo</b> que alcanzó, y dónde <b>cerró</b>.</p>
       <div class="fig">
@@ -348,13 +322,13 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m12">
-      <div class="num">Módulo 12</div>
+      <div class="num">Módulo 11</div>
       <h2>Gestión del riesgo &mdash; la lección más importante</h2>
       <p>Si de todo el curso solo te quedas con un módulo, que sea este. Los traders profesionales no aciertan la mayoría de las veces; sobreviven y crecen porque <b>pierden poco y ganan más</b>. La gestión del riesgo es lo que lo hace posible.</p>
       <ul>
         <li><b>Arriesga un porcentaje pequeño y fijo en cada operación.</b> Una regla habitual es no poner en juego más del 1&ndash;2% de la cuenta en una sola operación. Así, ni siquiera una mala racha puede dejarte fuera.</li>
         <li><b>Decide siempre tu salida antes de entrar.</b> Ten claro de antemano tu stop-loss (el punto en el que reconoces que te equivocaste) y tu objetivo (el punto en el que tomas ganancias).</li>
-        <li><b>Calcula el tamaño de la posición.</b> Hazlo al revés: a partir de la distancia de tu stop y del valor de tu tick o pip, sabrás cuántos contratos o lotes mantienen tu pérdida dentro de ese 1&ndash;2%.</li>
+        <li><b>Calcula el tamaño de la posición.</b> Hazlo al revés: a partir de la distancia de tu stop y del valor de tu tick, sabrás cuántos contratos mantienen tu pérdida dentro de ese 1&ndash;2%.</li>
         <li><b>Vigila tu relación riesgo-beneficio.</b> Busca operaciones en las que la ganancia potencial sea mayor que el riesgo asumido; por ejemplo, arriesgar 1 para ganar 2. Con una buena relación, puedes fallar más veces de las que aciertas y aun así ser rentable.</li>
         <li><b>Cuida tu mentalidad.</b> La disciplina puede más que la predicción. La mayoría de las cuentas no se arruinan por un mal análisis, sino por posiciones demasiado grandes, por operar por venganza y por abandonar el plan.</li>
       </ul>
@@ -362,9 +336,9 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m13">
-      <div class="num">Módulo 13</div>
+      <div class="num">Módulo 12</div>
       <h2>Patrones de velas y reversiones</h2>
-      <p>Cuando ya sabes leer una vela suelta (Módulo 11), el siguiente paso es leer <b>combinaciones</b> de velas. Algunas formas se repiten tanto que los traders les pusieron nombre y las usan como pistas de lo que podrían hacer compradores y vendedores a continuación. Los patrones se agrupan en dos familias:</p>
+      <p>Cuando ya sabes leer una vela suelta (Módulo 10), el siguiente paso es leer <b>combinaciones</b> de velas. Algunas formas se repiten tanto que los traders les pusieron nombre y las usan como pistas de lo que podrían hacer compradores y vendedores a continuación. Los patrones se agrupan en dos familias:</p>
       <ul>
         <li><b>Patrones de reversión:</b> avisan de que una tendencia se está quedando sin fuerza y podría darse la vuelta.</li>
         <li><b>Patrones de continuación:</b> señalan una pausa antes de que la tendencia actual se reanude.</li>
@@ -405,7 +379,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m14">
-      <div class="num">Módulo 14</div>
+      <div class="num">Módulo 13</div>
       <h2>Gráficos de ticks</h2>
       <p>La mayoría empieza con gráficos <b>basados en el tiempo</b>, en los que se forma una vela nueva cada cierto periodo fijo &mdash; un minuto, una hora, un día &mdash;, haya habido una operación o diez mil. El <b>gráfico de ticks</b> funciona distinto: forma una vela nueva cada cierto número fijo de transacciones, tarde lo que tarde.</p>
       <div class="term"><div class="t">Ojo: dos significados de &ldquo;tick&rdquo;</div><div class="d">En el Módulo 03, un &ldquo;tick&rdquo; era el incremento mínimo de precio. Aquí, en cambio, un &ldquo;tick&rdquo; es una operación ejecutada. Un &ldquo;gráfico de 500 ticks&rdquo; dibuja una vela nueva cada 500 operaciones.</div></div>
@@ -430,7 +404,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <div class="disclaimer">
-      <p><b>Solo con fines educativos.</b> LAVOY GROUP ofrece este material con fines puramente educativos. No constituye asesoramiento financiero, de inversión ni de trading, ni una recomendación o invitación a comprar o vender ningún instrumento. Operar futuros, forex y otros productos apalancados implica un riesgo elevado de pérdida y no es apto para todo el mundo. Nunca operes con dinero que no puedas permitirte perder y, si lo necesitas, busca el consejo de un profesional autorizado.</p>
+      <p><b>Solo con fines educativos.</b> LAVOY GROUP ofrece este material con fines puramente educativos. No constituye asesoramiento financiero, de inversión ni de trading, ni una recomendación o invitación a comprar o vender ningún instrumento. Operar futuros y otros productos apalancados implica un riesgo elevado de pérdida y no es apto para todo el mundo. Nunca operes con dinero que no puedas permitirte perder y, si lo necesitas, busca el consejo de un profesional autorizado.</p>
     </div>
 
   </main>

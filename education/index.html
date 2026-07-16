@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LAVOY GROUP — Education</title>
-<meta name="description" content="LAVOY GROUP Education: free, plain-language trading lessons for beginners — what trading is, pips and points, the forex and futures markets, margin, contracts, technical analysis, and candlesticks.">
+<meta name="description" content="LAVOY GROUP Education: free, plain-language futures trading lessons for beginners — what trading is, points and ticks, the futures market, margin, contracts, technical analysis, and candlesticks.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -144,9 +144,9 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     <h1>Trading, from the ground up</h1>
     <p>A free, plain-language course for brand-new traders. No jargon left unexplained — start at lesson one and work down, or jump to any topic. Built by LAVOY GROUP.</p>
     <div class="meta">
-      <span class="chip">14 lessons</span>
+      <span class="chip">13 lessons</span>
       <span class="chip">Beginner friendly</span>
-      <span class="chip">No prior knowledge needed</span>
+      <span class="chip">Futures focused</span>
     </div>
     <a href="../course/" class="course-promo">
       <div class="cp-txt">
@@ -165,10 +165,9 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     <ol>
       <li><a href="#m1" class="active">What is trading?</a></li>
       <li><a href="#m2">How a trade works</a></li>
-      <li><a href="#m3">Pips, points &amp; ticks</a></li>
-      <li><a href="#m4">The forex market</a></li>
+      <li><a href="#m3">Points &amp; ticks</a></li>
       <li><a href="#m5">The futures market</a></li>
-      <li><a href="#m6">Contracts &amp; lot sizes</a></li>
+      <li><a href="#m6">Contracts &amp; sizes</a></li>
       <li><a href="#m7">Margin &amp; leverage</a></li>
       <li><a href="#m8">Order types</a></li>
       <li><a href="#m9">Technical analysis</a></li>
@@ -206,37 +205,20 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
 
     <article class="lesson" id="m3">
       <div class="num">Module 03</div>
-      <h2>Pips, points, and ticks</h2>
-      <p>Traders need a precise way to measure how far price moves. The words change depending on the market, which confuses almost every beginner. Here is the clean version.</p>
-      <h3>Pip (forex)</h3>
-      <p>A <b>pip</b> is the standard smallest move in a currency pair. For most pairs it is the <b>fourth decimal place</b> &mdash; 0.0001. If EUR/USD moves from 1.1050 to 1.1051, that is one pip. For pairs that include the Japanese yen, a pip is the <b>second decimal</b> (0.01), because yen prices are quoted differently.</p>
-      <div class="term"><div class="t">Pipette</div><div class="d">Many brokers quote one extra decimal for precision &mdash; the fifth decimal (or third on yen pairs). That fractional pip is a &ldquo;pipette,&rdquo; or one-tenth of a pip. Some platforms confusingly call pipettes &ldquo;points.&rdquo;</div></div>
-      <h3>Point and tick (futures)</h3>
-      <p>In futures, a <b>point</b> is a one-whole-unit move in the contract&rsquo;s price, and a <b>tick</b> is the smallest amount the price is allowed to move &mdash; the minimum increment. Each tick has a fixed dollar value, set by the exchange.</p>
+      <h2>Points and ticks</h2>
+      <p>Traders need a precise way to measure how far price moves. In futures there are two words for it &mdash; the point and the tick &mdash; and getting them straight is the foundation of position sizing.</p>
+      <h3>Point and tick</h3>
+      <p>A <b>point</b> is a one-whole-unit move in the contract&rsquo;s price. A <b>tick</b> is the smallest amount the price is allowed to move &mdash; the minimum increment set by the exchange. Each tick has a fixed dollar value, so every move translates directly into money.</p>
       <table>
         <tr><th>Term</th><th>What it measures</th><th>Gold futures (GC) example</th></tr>
         <tr><td><b>Tick</b></td><td>Smallest allowed move</td><td>0.10 per ounce = <b>$10</b> per contract</td></tr>
         <tr><td><b>Point</b></td><td>A full 1.00 move</td><td>$1.00 per ounce = <b>$100</b> per contract</td></tr>
-        <tr><td><b>Pip</b></td><td>Standard forex move</td><td>Not used &mdash; pips are a forex term</td></tr>
       </table>
       <p>So a gold contract that moves from 2400.0 to 2401.0 has moved one point, or ten ticks, worth $100 per contract. Knowing your tick value tells you exactly what each move is worth in dollars &mdash; the foundation of position sizing.</p>
     </article>
 
-    <article class="lesson" id="m4">
-      <div class="num">Module 04</div>
-      <h2>The forex market</h2>
-      <p>Forex (short for &ldquo;foreign exchange,&rdquo; also FX) is the global marketplace for trading currencies. It is the largest and most liquid market in the world, with more than <b>$7 trillion</b> changing hands every day &mdash; far larger than all the world&rsquo;s stock markets combined.</p>
-      <p>Currencies are always traded in <b>pairs</b>, because to buy one you must sell another. In a pair like EUR/USD:</p>
-      <ul>
-        <li>The first currency (EUR) is the <b>base</b> &mdash; the one you are buying or selling.</li>
-        <li>The second (USD) is the <b>quote</b> &mdash; what the base is priced in.</li>
-        <li>A price of 1.1050 means one euro costs 1.1050 US dollars.</li>
-      </ul>
-      <p>The most heavily traded pairs &mdash; the &ldquo;majors&rdquo; &mdash; all involve the US dollar: EUR/USD, USD/JPY, GBP/USD, USD/CHF, and a few others. Forex runs <b>24 hours a day, five days a week</b>, following the sun through four main sessions: Sydney, Tokyo, London, and New York. London and New York overlapping is the busiest, most liquid window.</p>
-    </article>
-
     <article class="lesson" id="m5">
-      <div class="num">Module 05</div>
+      <div class="num">Module 04</div>
       <h2>The futures market</h2>
       <p>A <b>futures contract</b> is a standardized agreement to buy or sell a specific asset, in a specific quantity, at a price agreed today, for delivery on a set date in the future. They trade on regulated exchanges such as the CME (Chicago Mercantile Exchange).</p>
       <p>Futures exist on almost everything: gold, oil, natural gas, wheat, stock indexes (like the S&amp;P 500), bonds, and currencies. Two groups use them:</p>
@@ -244,34 +226,26 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
         <li><b>Hedgers</b> &mdash; producers and businesses locking in a future price to protect against risk (a farmer fixing the price of next season&rsquo;s wheat).</li>
         <li><b>Speculators</b> &mdash; traders aiming to profit from price changes, with no intention of taking delivery.</li>
       </ul>
-      <p>Because every contract is <b>standardized</b> by the exchange (same size, same tick, same expiration rules), futures are deep and liquid. Each contract has an <b>expiration date</b>; traders who want to stay in the market past expiration &ldquo;roll&rdquo; into the next contract. Futures are leveraged &mdash; you control a large contract by posting a margin deposit, which we cover in Module 07.</p>
+      <p>Because every contract is <b>standardized</b> by the exchange (same size, same tick, same expiration rules), futures are deep and liquid. Each contract has an <b>expiration date</b>; traders who want to stay in the market past expiration &ldquo;roll&rdquo; into the next contract. Futures are leveraged &mdash; you control a large contract by posting a margin deposit, which we cover in Module 06.</p>
       <div class="tip"><b>Gold example:</b> the standard gold future (ticker GC) represents 100 troy ounces of gold. If gold is $2,400/oz, one contract controls $240,000 of gold &mdash; but you only post a few thousand dollars in margin to trade it.</div>
     </article>
 
     <article class="lesson" id="m6">
-      <div class="num">Module 06</div>
-      <h2>Contracts and lot sizes</h2>
-      <p>&ldquo;How much am I actually trading?&rdquo; The answer is contract size (futures) or lot size (forex).</p>
+      <div class="num">Module 05</div>
+      <h2>Contracts and contract sizes</h2>
+      <p>&ldquo;How much am I actually trading?&rdquo; In futures, the answer is the contract size &mdash; the fixed quantity of the underlying that a single contract controls.</p>
       <h3>Futures contract sizes</h3>
       <p>Each futures contract covers a fixed quantity set by the exchange &mdash; for example, 100 ounces of gold, or 1,000 barrels of crude oil. To make markets accessible, exchanges also offer smaller versions:</p>
       <ul>
         <li><b>Standard</b> &mdash; e.g. GC gold = 100 oz.</li>
         <li><b>Micro / mini</b> &mdash; e.g. Micro Gold (MGC) = 10 oz, one-tenth the size and risk.</li>
       </ul>
-      <h3>Forex lot sizes</h3>
-      <p>In forex, position size is measured in <b>lots</b>:</p>
-      <table>
-        <tr><th>Lot</th><th>Units of base currency</th><th>Approx. value of 1 pip*</th></tr>
-        <tr><td><b>Standard</b></td><td>100,000</td><td>$10</td></tr>
-        <tr><td><b>Mini</b></td><td>10,000</td><td>$1</td></tr>
-        <tr><td><b>Micro</b></td><td>1,000</td><td>$0.10</td></tr>
-      </table>
-      <p style="font-size:13px;color:var(--muted)">*For pairs quoted in US dollars. Pip value varies by pair.</p>
-      <p>Smaller contracts and lots let a beginner trade real markets while keeping the dollar value of each move &mdash; and each mistake &mdash; small. That is exactly how you should start.</p>
+      <div class="tip"><b>Why it matters:</b> your contract size and tick value together set the dollar value of every move. One GC point is $100; one MGC point is $10. Trading the micro keeps the dollar value of each move &mdash; and each mistake &mdash; ten times smaller.</div>
+      <p>Starting on the smallest contract lets a beginner trade the real market while keeping risk small. That is exactly how you should start.</p>
     </article>
 
     <article class="lesson" id="m7">
-      <div class="num">Module 07</div>
+      <div class="num">Module 06</div>
       <h2>Margin and leverage</h2>
       <p>Leverage lets you control a large position with a relatively small amount of money. <b>Margin</b> is that small amount &mdash; a good-faith deposit your broker requires to open and hold the position. It is not a fee; it is collateral.</p>
       <div class="term"><div class="t">Leverage</div><div class="d">The ratio between the size you control and the cash you put up. Post $1,000 to control $50,000 and you are using 50:1 leverage. Leverage multiplies both profits <i>and</i> losses by the same amount.</div></div>
@@ -280,11 +254,11 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
         <li><b>Initial margin</b> &mdash; what you need to open the position.</li>
         <li><b>Maintenance margin</b> &mdash; the minimum equity you must keep while it is open. Drop below it and you get a <b>margin call</b> &mdash; add funds or the position is closed (liquidated).</li>
       </ul>
-      <p>Leverage is the single biggest reason new traders blow up their accounts. Used carefully it is a tool; used carelessly it turns a small wrong move into a large loss. Treat it with respect &mdash; Module 12 shows how.</p>
+      <p>Leverage is the single biggest reason new traders blow up their accounts. Used carefully it is a tool; used carelessly it turns a small wrong move into a large loss. Treat it with respect &mdash; Module 11 shows how.</p>
     </article>
 
     <article class="lesson" id="m8">
-      <div class="num">Module 08</div>
+      <div class="num">Module 07</div>
       <h2>Order types</h2>
       <p>An order is an instruction to your broker. The four you must know:</p>
       <ul>
@@ -297,7 +271,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m9">
-      <div class="num">Module 09</div>
+      <div class="num">Module 08</div>
       <h2>Technical analysis</h2>
       <p><b>Technical analysis</b> is the study of price itself &mdash; using charts of past price and volume to judge where price may go next. It contrasts with <b>fundamental analysis</b>, which studies the underlying value (economic data, earnings, supply and demand of the real asset).</p>
       <p>Technical analysis rests on three classic assumptions:</p>
@@ -311,7 +285,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m10">
-      <div class="num">Module 10</div>
+      <div class="num">Module 09</div>
       <h2>A short history of candlesticks</h2>
       <p>Candlestick charts were born in Japan, centuries before they reached Western markets. In the 1700s, Japanese rice merchants needed a way to track the price of rice as it rose and fell through each trading day. They developed a visual method that recorded not just where price closed, but where it opened and how far it swung in between.</p>
       <p>The technique is often credited to a legendary rice trader named <b>Munehisa Homma</b>, who studied how the emotions of buyers and sellers drove prices &mdash; an early insight into market psychology that still holds today.</p>
@@ -319,7 +293,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m11">
-      <div class="num">Module 11</div>
+      <div class="num">Module 10</div>
       <h2>Anatomy of a candlestick</h2>
       <p>A single candlestick summarizes one slice of time &mdash; a minute, an hour, a day, whatever timeframe you choose. It shows four prices: where that period <b>opened</b>, the <b>high</b> and <b>low</b> it reached, and where it <b>closed</b>.</p>
       <div class="fig">
@@ -363,13 +337,13 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m12">
-      <div class="num">Module 12</div>
+      <div class="num">Module 11</div>
       <h2>Risk management &mdash; the most important lesson</h2>
       <p>If you remember only one module, make it this one. Professional traders are not right most of the time; they survive and grow because they <b>lose small and win bigger</b>. Risk management is how.</p>
       <ul>
         <li><b>Risk a small, fixed percentage per trade.</b> A common rule is no more than 1&ndash;2% of your account on any single trade. That way a string of losses can never wipe you out.</li>
         <li><b>Always define your exit before you enter.</b> Know your stop-loss (where you are wrong) and your target (where you take profit) in advance.</li>
-        <li><b>Use position sizing.</b> Work backward: your stop distance and your tick or pip value tell you exactly how many contracts or lots keep your loss within that 1&ndash;2%.</li>
+        <li><b>Use position sizing.</b> Work backward: your stop distance and your tick value tell you exactly how many contracts keep your loss within that 1&ndash;2%.</li>
         <li><b>Mind your risk-to-reward.</b> Aim for trades where the potential reward is larger than the risk &mdash; for example, risking 1 to make 2. With a good ratio you can be wrong more often than right and still profit.</li>
         <li><b>Protect your mindset.</b> Discipline beats prediction. Most blow-ups come from oversized positions, revenge trading, and abandoning the plan &mdash; not from bad analysis.</li>
       </ul>
@@ -377,9 +351,9 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m13">
-      <div class="num">Module 13</div>
+      <div class="num">Module 12</div>
       <h2>Candlestick patterns &amp; reversals</h2>
-      <p>Once you can read a single candle (Module 11), the next step is reading <b>combinations</b> of candles. Certain shapes recur so often that traders gave them names and treat them as clues about what buyers and sellers may do next. Patterns fall into two families:</p>
+      <p>Once you can read a single candle (Module 10), the next step is reading <b>combinations</b> of candles. Certain shapes recur so often that traders gave them names and treat them as clues about what buyers and sellers may do next. Patterns fall into two families:</p>
       <ul>
         <li><b>Reversal patterns</b> &mdash; hint that an existing trend is running out of steam and may turn.</li>
         <li><b>Continuation patterns</b> &mdash; suggest a brief pause before the current trend resumes.</li>
@@ -420,7 +394,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <article class="lesson" id="m14">
-      <div class="num">Module 14</div>
+      <div class="num">Module 13</div>
       <h2>Tick charts</h2>
       <p>Most beginners start on <b>time-based</b> charts, where a new candle forms every fixed period &mdash; one minute, one hour, one day &mdash; whether one trade happened or ten thousand. A <b>tick chart</b> works differently: it forms a new candle after a fixed number of <b>transactions</b>, no matter how long that takes.</p>
       <div class="term"><div class="t">Careful: two meanings of &ldquo;tick&rdquo;</div><div class="d">In Module 03 a &ldquo;tick&rdquo; meant the smallest price increment. Here a &ldquo;tick&rdquo; means one executed trade. A &ldquo;500-tick chart&rdquo; prints a new candle every 500 trades.</div></div>
@@ -445,7 +419,7 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
     </article>
 
     <div class="disclaimer">
-      <p><b>Educational use only.</b> This material is provided by LAVOY GROUP for general educational purposes and does not constitute financial, investment, or trading advice, nor a recommendation or solicitation to buy or sell any instrument. Trading futures, forex, and other leveraged products carries a substantial risk of loss and is not suitable for everyone. Never trade with money you cannot afford to lose, and consider seeking advice from a licensed professional.</p>
+      <p><b>Educational use only.</b> This material is provided by LAVOY GROUP for general educational purposes and does not constitute financial, investment, or trading advice, nor a recommendation or solicitation to buy or sell any instrument. Trading futures and other leveraged products carries a substantial risk of loss and is not suitable for everyone. Never trade with money you cannot afford to lose, and consider seeking advice from a licensed professional.</p>
     </div>
 
   </main>
