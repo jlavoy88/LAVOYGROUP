@@ -26,10 +26,6 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,25
 .navlink{font-size:13.5px;font-weight:500;letter-spacing:.03em;color:var(--ink);transition:.2s}
 .navlink:hover{color:var(--green)}
 .nav-end{display:flex;align-items:center;gap:16px}
-.lang-toggle{display:inline-flex;border:1px solid var(--line);border-radius:30px;overflow:hidden;flex-shrink:0}
-.lang-toggle a{font-size:12px;font-weight:600;letter-spacing:.04em;padding:6px 12px;color:var(--muted);transition:.2s}
-.lang-toggle a.on{background:var(--green);color:#fff}
-.lang-toggle a:not(.on):hover{color:var(--ink)}
 .menu-btn{display:none;background:none;border:none;font-size:22px;cursor:pointer}
 
 /* HERO */
@@ -39,15 +35,6 @@ header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,25
 .hero p{font-size:18px;color:#39392f;max-width:42em}
 .hero .meta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
 .chip{font-size:12.5px;letter-spacing:.04em;color:var(--muted);border:1px solid var(--line);padding:6px 13px;border-radius:40px;background:#fff}
-.course-promo{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:26px;background:var(--ink);color:#f2f0ea;border-radius:12px;padding:22px 26px;transition:.25s;flex-wrap:wrap;position:relative;overflow:hidden}
-.course-promo::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0,transparent 40px,rgba(201,166,75,.08) 40px,rgba(201,166,75,.08) 41px)}
-.course-promo:hover{transform:translateY(-2px)}
-.course-promo .cp-txt{position:relative;display:flex;flex-direction:column;gap:3px;max-width:46em}
-.cp-ey{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.cp-t{font-size:19px;font-weight:600;color:#fff;letter-spacing:-.01em}
-.cp-d{font-size:14px;color:#c8c8bf;line-height:1.5}
-.course-promo .cp-go{position:relative;flex:0 0 auto;font-size:14px;font-weight:600;color:#fff;border:1.5px solid var(--gold);border-radius:3px;padding:11px 20px;transition:.2s}
-.course-promo:hover .cp-go{background:var(--gold);border-color:var(--gold)}
 
 /* LAYOUT */
 .layout{display:grid;grid-template-columns:248px 1fr;gap:50px;padding:30px 0 80px;align-items:start}
@@ -124,14 +111,9 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
       <span class="brand-name">LAVOY GROUP</span>
     </a>
     <div class="nav-end">
-      <div class="lang-toggle" role="group" aria-label="Language">
-        <a class="lt on" href="./" aria-current="page">EN</a>
-        <a class="lt" href="es/">ES</a>
-      </div>
       <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
       <nav class="nav-right" id="navRight">
         <a class="navlink" href="../">Home</a>
-        <a class="navlink" href="../course/">Course</a>
         <a class="navlink" href="../#contact">Contact</a>
       </nav>
     </div>
@@ -148,14 +130,6 @@ footer{background:var(--ink);color:#cfcfc6;padding:40px 0;margin-top:60px}
       <span class="chip">Beginner friendly</span>
       <span class="chip">Futures focused</span>
     </div>
-    <a href="../course/" class="course-promo">
-      <div class="cp-txt">
-        <span class="cp-ey">Advanced Course · Paid</span>
-        <span class="cp-t">The Institutional Grid Matrix</span>
-        <span class="cp-d">Finished the basics? Step into the quantitative gold-futures framework &mdash; the Grid, session exhaustion, and mechanical execution.</span>
-      </div>
-      <span class="cp-go">Explore the course &rarr;</span>
-    </a>
   </div>
 </section>
 
